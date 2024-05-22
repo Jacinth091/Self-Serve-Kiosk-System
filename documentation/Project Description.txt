@@ -1,0 +1,39 @@
+Project Description
+
+This project involves creating a simple self-service food ordering system for fast food restaurants like Jollibee and McDonald's using JAVA. The system will allow users to view a menu, select items for purchase, and view their order summary. The project will involve creating a class to represent the ordering system and using three (3) arrays: one to hold the main menu, a second array to hold all the food items, and a third to hold the items selected by the customer.
+
+Objectives
+
+To understand and implement basic object-oriented programming concepts in Java.
+To learn how to use arrays to store and manage data.
+To practice writing methods for interacting with arrays and user input.
+To create a simple console-based or a simple GUI as user interface.
+Components of the Project
+
+Main Menu Array: This array will hold the food groups.
+Sub Menu Array: This array will hold the food items and their prices.
+Order Array: This array will hold the items that the customer selects.
+You may add more arrays according to your needs.
+Class Design
+
+Create a class named FoodOrderingSystem (or any name that you like for the class name) with the following attributes and methods:
+
+Attributes
+
+String name: to hold the name of the food items.
+float/double price: to hold the price corresponding to the food items in the menu.
+String description: to hold all food/beverages included in a combo meal. (optional)
+boolean available: indicates if a food item is available or not.
+int orderCount: A counter to keep track of the number of items in the order.
+Methods
+
+Constructor: Initialize the arrays with some sample data. Initialize the order array with a fixed size (e.g., 10) and set the order count to 0.
+displayMenu(): Display the items in the main menu. Have options for the user/customer to view the foods/beverages prices.
+addToOrder(): Add the selected item to the order array and update the order count.
+displayOrder(): Display the items in the current order along with the total price.
+main(): The main method to interact with the user and demonstrate the system.
+Note:
+      You may use/add your own methods according to your needs.
+       These instructions are ment to be your guide in designing your project.
+       If you have a better design for the project in mind then you are free to implement them. 
+       Remember to use JAVA for this project.
