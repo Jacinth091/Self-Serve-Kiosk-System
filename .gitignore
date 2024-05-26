@@ -20,5 +20,5 @@
 *.suo
 *.json
 *.user
-.idea
+/idea
 .gitignore
