@@ -4,9 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="Test Commit Jacinth Branch">
+    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="Java FX test branch">
+      <change afterPath="$PROJECT_DIR$/src/menu.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Finals.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Finals.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Fonts/jellee/Jellee-Roman.otf" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Fonts/jellee/Jellee-Roman.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Fonts/jellee/Jellee-Roman.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Fonts/jellee/Jellee-Roman.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Fonts/jellee/OFL-FAQ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Fonts/jellee/OFL-FAQ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Icons/Cart-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Icons/Cart-Icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Icons/Edit-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Icons/Edit-Icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Icons/Instruc-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Icons/Instruc-Icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Icons/bin-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Icons/bin-Icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/Icons/check-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Icons/check-Icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/item_pictures/BS-item-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/item_pictures/BS-item-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/logo/Beverages-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/logo/Beverages-Icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/logo/ChJoy-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/logo/ChJoy-Icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/logo/Desserts-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/logo/Desserts-Icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/logo/Fam-Meal-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/logo/Fam-Meal-Icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/logo/Joli-Logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/logo/Joli-Logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/logo/Sides-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/logo/Sides-Icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/logo/Spag-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/logo/Spag-Icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/logo/best-sellers-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/logo/best-sellers-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pictures/Joli-Banner-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/pictures/Joli-Banner-1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pictures/Joli-Color-Palette.jfif" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/pictures/Joli-Color-Palette.jfif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/WindowApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WindowApp.java" afterDir="false" />
     </list>
@@ -56,27 +77,38 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "Application.MainApp.executor": "Run",
+    "Application.menu.executor": "Run",
+    "Application.test.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ToolWindowGitLive.ShowToolbar": "false",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "false",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE": "right",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE": "left",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "389",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE": "left",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE": "right",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "405",
     "app.teamhub.selectedTeam": "github.com/Jacinth091/Self-Serve-Kiosk-System",
     "app.teamhub.trackedBranches": "-19lmspi/master,-19lmspi/Jacinth-Branch",
     "git-widget-placeholder": "Jacinth-Branch",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/PCC/Desktop/SDK's/javafx-sdk-21.0.3/lib/javafx.web.jar",
+    "last_opened_file_path": "C:/Users/PCC/Desktop/CODING FILES/ProgLang - Hello World/Java/NetBeans GUI",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2214429",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\PCC\Desktop\Finals\src\Assets" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="MainApp" />
@@ -111,11 +143,20 @@
       <option name="project" value="LOCAL" />
       <updated>1716802738038</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Java FX test branch">
+      <option name="closed" value="true" />
+      <created>1716872326239</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716872326239</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test Commit Jacinth Branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test Commit Jacinth Branch" />
+    <MESSAGE value="Java FX test branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Java FX test branch" />
   </component>
 </project>
