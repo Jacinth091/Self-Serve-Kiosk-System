@@ -4,30 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="Java FX test branch">
-      <change afterPath="$PROJECT_DIR$/src/menu.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="testGui in java swing branch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/Fonts/jellee/Jellee-Roman.otf" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Fonts/jellee/Jellee-Roman.otf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/Fonts/jellee/Jellee-Roman.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Fonts/jellee/Jellee-Roman.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/Fonts/jellee/OFL-FAQ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Fonts/jellee/OFL-FAQ.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/Icons/Cart-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Icons/Cart-Icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/Icons/Edit-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Icons/Edit-Icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/Icons/Instruc-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Icons/Instruc-Icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/Icons/bin-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Icons/bin-Icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/Icons/check-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Icons/check-Icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/item_pictures/BS-item-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/item_pictures/BS-item-1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/logo/Beverages-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/logo/Beverages-Icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/logo/ChJoy-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/logo/ChJoy-Icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/logo/Desserts-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/logo/Desserts-Icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/logo/Fam-Meal-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/logo/Fam-Meal-Icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/logo/Joli-Logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/logo/Joli-Logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/logo/Sides-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/logo/Sides-Icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/logo/Spag-Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/logo/Spag-Icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/logo/best-sellers-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/logo/best-sellers-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/pictures/Joli-Banner-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/pictures/Joli-Banner-1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/pictures/Joli-Color-Palette.jfif" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/pictures/Joli-Color-Palette.jfif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/WindowApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WindowApp.java" afterDir="false" />
     </list>
@@ -151,12 +129,29 @@
       <option name="project" value="LOCAL" />
       <updated>1716872326239</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="testGui in java swing branch">
+      <option name="closed" value="true" />
+      <created>1716905824852</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716905824852</updated>
+    </task>
+    <task id="LOCAL-00004" summary="testGui in java swing branch">
+      <option name="closed" value="true" />
+      <created>1716905834005</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1716905834005</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test Commit Jacinth Branch" />
     <MESSAGE value="Java FX test branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Java FX test branch" />
+    <MESSAGE value="testGui in java swing branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="testGui in java swing branch" />
   </component>
 </project>
