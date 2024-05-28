@@ -1,0 +1,86 @@
+Index: src/WindowApp.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import javax.swing.JFrame;\r\n\r\npublic class WindowApp extends JFrame {\r\n\r\n\r\n\r\n}\r\n
+===================================================================
+diff --git a/src/WindowApp.java b/src/WindowApp.java
+--- a/src/WindowApp.java	
++++ b/src/WindowApp.java	
+@@ -1,7 +1,53 @@
+ import javax.swing.JFrame;
++import javax.swing.JPanel;
++import javax.swing.JLabel;
++import java.awt.*;
+ 
+ public class WindowApp extends JFrame {
+ 
++    JPanel panel;
++
++    WindowApp(){
++
++    }
++
++    WindowApp(int width, int height, String title,
++        boolean isVisible, boolean isResizable, LayoutManager layout, int defCloseOper)
++    {
++        createWindow(width, height, title, isVisible, isResizable, layout, defCloseOper);
++        panel = new JPanel();
++
++        panel.setBackground(Color.red);
++        panel.setVisible(true);
++        panel.setSize(500,500);
++
++
++//        this.setBackground(Color.CYAN);
++
++        addItemsToWindow(panel);
+ 
++    }
++
++
++
++
++
++    public void createWindow(int width, int height, String title,
++     boolean isVisible, boolean isResizable, LayoutManager layout, int defCloseOper) {
++        this.setSize(width, height);
++        this.setTitle(title);
++        this.setDefaultCloseOperation(defCloseOper);
++        this.setLayout(layout);
++        this.setVisible(isVisible);
++        this.setResizable(isResizable);
++    }
++
++    public void addItemsToWindow(Component component){
++        this.add(component);
++    }
++
++    public void createLabel(){
++
++    }
+ 
+ }
+Index: src/MainApp.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\n\r\npublic class MainApp {\r\n\r\n    public static void main(String[] args){\r\n        \r\n    }\r\n}   \r\n
+===================================================================
+diff --git a/src/MainApp.java b/src/MainApp.java
+--- a/src/MainApp.java	
++++ b/src/MainApp.java	
+@@ -1,8 +1,11 @@
+-
++import javax.swing.JFrame;
+ 
+ public class MainApp {
+ 
+-    public static void main(String[] args){
+-        
++    public static void main(String[] args) {
++
++        WindowApp startMenu = new WindowApp(1100, 750, "Jabili", true, false,null, JFrame.EXIT_ON_CLOSE);
++
++
+     }
+-}   
++}
