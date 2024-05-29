@@ -11,21 +11,23 @@ public class WindowApp1 extends JFrame implements ActionListener{
 
     // main panel container
     private JPanel panelMain;
-    private BorderLayout border;
-
     // Wrapper for the top, center, bottom panels
     private JPanel[] childPanelCont;
 
     // childPanelCont[0] Header - Top PART
     private JLabel[] headLabels; // Array of labels used in the header section
-    private JLabel hLabelTitle; // Label representing the title in the header
-    private JButton[] hLabelMenu; // Array of buttons used as menu items in the header
+    private JPanel[] h_MenuContParent;
+    private JPanel[] h_MenuButtCont;
+    private JLabel h_MenuLabel; // Label representing the title in the header
+    private JButton[] h_MenuButt; // Array of buttons used as menu items in the header
+    private JLabel[] h_MButtLabel;
+    private ImageIcon[] h_MButtImg;
     private ImageIcon jolibeeIcon; // Icon representing the Jollibee logo
 
 
     // childPanelCont[1] BODY - CENTER PART
     private JPanel[] itemCardContParent; // Array of parent panels for items in the center part of the interface
-    private JLayeredPane[] itemCardContainer; // Array of layered panes containing item cards
+    private JPanel[] itemCardContainer; // Array of layered panes containing item cards
     private JLabel[] itemCardLabel; // Array of labels for displaying item images
     private JButton[] itemCardButt; // Array of buttons associated with item cards
     private ImageIcon[] itemCardImage; // Array of image icons representing item images
@@ -40,7 +42,7 @@ public class WindowApp1 extends JFrame implements ActionListener{
     private JLabel[] f_CenterLabel; // Array of labels for displaying information in the footer body
     private JButton[] f_CenterButt; // Array of buttons for actions related to the footer body
     private JButton[] f_SouthButt; // Array of buttons for actions related to the footer checkout section
-    private RoundedCorners f_SouthLabel; // Label for displaying total order price in the footer
+    private JLabel f_SouthLabel; // Label for displaying total order price in the footer
     float totalCompPrice = 0.00f; // Total order pri
 
     //override
@@ -53,7 +55,6 @@ public class WindowApp1 extends JFrame implements ActionListener{
     double[] prices = {100.00, 200.00, 300.00, 400.00, 500.00, 600.00};
     Border defaultBorder;
     private String totalCartPrice;
-    private String text;
 
 
 
@@ -81,7 +82,7 @@ public class WindowApp1 extends JFrame implements ActionListener{
             childPanelCont[i] = new JPanel();
             childPanelCont[i].setOpaque(true);
             childPanelCont[i].setVisible(true);
-            childPanelCont[i].setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+//            childPanelCont[i].setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         }
 
         // Header panel layouts and sizes
@@ -104,38 +105,93 @@ public class WindowApp1 extends JFrame implements ActionListener{
             headLabels[i] = new JLabel();
             headLabels[i].setOpaque(true);
             headLabels[i].setVisible(true);
-            headLabels[i].setBackground(new Color(255, 24, 12));
-            headLabels[i].setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         }
 
         // Specific head label configurations
         headLabels[0].setBackground(new Color(112, 47, 43));
         headLabels[0].setLayout(new BorderLayout());
+
         headLabels[1].setBackground(new Color(112, 47, 43));
-        headLabels[1].setLayout(new GridLayout(1, 4));
+        headLabels[1].setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+        headLabels[1].setLayout(new GridLayout(1, 4, 5,5));
 
         // Title label configuration
-        hLabelTitle = new JLabel();
-        hLabelTitle.setText("<html><p style='color: White; font-weight: bold; " +
+        h_MenuLabel = new JLabel();
+        h_MenuLabel.setText("<html><p style='color: White; font-weight: bold; " +
                 "text-align: center;" + "font-size: 30;" +
                 "'>Jolibee Menu" +
                 "</p></html>");;
-        hLabelTitle.setHorizontalAlignment(JLabel.CENTER);
+        h_MenuLabel.setHorizontalAlignment(JLabel.CENTER);
 
         // Load and resize icon for the title label
         jolibeeIcon = new ImageIcon(getClass().getResource("Assets/logo/Joli-Logo.png"));
         jolibeeIcon = resizeImageIcon(jolibeeIcon, 120, 90);
-        hLabelTitle.setIcon(jolibeeIcon);
+        h_MenuLabel.setIcon(jolibeeIcon);
 
-        // Initialize menu buttons
-        hLabelMenu = new JButton[4];
-        for (int i = 0; i < hLabelMenu.length; i++) {
-            hLabelMenu[i] = new JButton();
-            hLabelMenu[i].setText("Hello");
-            hLabelMenu[i].setVisible(true);
-            hLabelMenu[i].setOpaque(true);
+        h_MenuContParent = new JPanel[4];
+        for(byte i =0; i< h_MenuContParent.length; i++){
+            h_MenuContParent[i] = new JPanel();
+            h_MenuContParent[i].setOpaque(true);
+            h_MenuContParent[i].setVisible(true);
+            h_MenuContParent[i].setPreferredSize(new Dimension(300,200));
+            h_MenuContParent[i].setLayout(new OverlayLayout(h_MenuContParent[i]));
+//            h_MenuContParent[i].setBorder(BorderFactory.createLineBorder(Color.red,2));
+            
         }
 
+        h_MenuButtCont= new JPanel[4];
+        for(byte i =0; i< h_MenuButtCont.length; i++){
+            h_MenuButtCont[i] = new JPanel();
+//            h_MenuButtCont[i].setOpaque(true);
+            h_MenuButtCont[i].setVisible(true);
+            h_MenuButtCont[i].setPreferredSize(new Dimension(300,200));
+            h_MenuButtCont[i].setLayout(new BorderLayout());
+//            h_MenuButtCont[i].setBorder(BorderFactory.createLineBorder(Color.red,2));
+
+        }
+
+        // Initialize menu buttons
+        h_MenuButt = new JButton[4];
+        for (int i = 0; i < h_MenuButt.length; i++) {
+            h_MenuButt[i] = new JButton();
+            h_MenuButt[i].setBorder(null);
+            h_MenuButt[i].setOpaque(true);
+            h_MenuButt[i].setVisible(true);
+            h_MenuButt[i].setName("Card " + (i+1));
+            h_MenuButt[i].setLayout(new BorderLayout());
+        }
+
+        h_MButtLabel = new JLabel[4];
+        for(byte i =0; i< h_MButtLabel.length; i++){
+            h_MButtLabel[i] = new JLabel();
+            h_MButtLabel[i].setBorder(null);
+            h_MButtLabel[i].setOpaque(true);
+            h_MButtLabel[i].setVisible(true);
+            h_MButtLabel[i].setBackground(Color.WHITE);
+            h_MButtLabel[i].setText("<html><p style='text-align:center; font-weight: bold; " +
+                    "font-size:10px;" + "color: black;" +
+                    "'>Product Category</p></html>");
+            h_MButtLabel[i].setHorizontalTextPosition(JLabel.CENTER);
+            h_MButtLabel[i].setVerticalTextPosition(JLabel.BOTTOM);
+            h_MButtLabel[i].setHorizontalAlignment(JLabel.CENTER);
+            h_MButtLabel[i].setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
+
+
+
+
+        }
+        h_MButtImg = new ImageIcon[4];
+        for(byte i =0; i< h_MButtImg.length; i++) {
+            h_MButtImg[i] = new ImageIcon(getClass().getResource("Assets/logo/ChJoy-Icon.png"));
+            h_MButtImg[i] = resizeImageIcon(h_MButtImg[i], (300/4), (210/4));
+
+        }
+        
+        
+        
+        
+
+        /*---------------------------- Body PArt ( center) ----------------------------*/
 
         // Initialize itemCardContParent
         itemCardContParent = new JPanel[6];
@@ -152,9 +208,9 @@ public class WindowApp1 extends JFrame implements ActionListener{
         }
 
         // Initialize itemCardContainer
-        itemCardContainer = new JLayeredPane[6];
+        itemCardContainer = new JPanel[6];
         for(byte i =0; i< itemCardContainer.length; i++){
-            itemCardContainer[i] = new JLayeredPane();
+            itemCardContainer[i] = new JPanel();
             itemCardContainer[i].setOpaque(true);
             itemCardContainer[i].setVisible(true);
             itemCardContainer[i].setPreferredSize(new Dimension(300,200));
@@ -175,17 +231,16 @@ public class WindowApp1 extends JFrame implements ActionListener{
             itemCardButt[i].setLayout(new BorderLayout());
             itemCardButt[i].addActionListener(this);
             itemCardButt[i].setActionCommand("item" + i);
-  
 
-            itemCardButt[i].addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    // Action to perform when the button is clicked
-                    JButton source = (JButton)e.getSource();
-                    System.out.print("Button clicked!\n");
-                    System.out.println(source.getName());
-                }
-            });
+//            itemCardButt[i].addActionListener(new ActionListener() {
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+//                    // Action to perform when the button is clicked
+//                    JButton source = (JButton)e.getSource();
+//                    System.out.print("Button clicked!\n");
+//                    System.out.println(source.getName());
+//                }
+//            });
 
 
         }
@@ -340,20 +395,20 @@ public class WindowApp1 extends JFrame implements ActionListener{
 
 // Initialize and Configure CheckOut Label
         totalCartPrice = "P " + totalPrice;
-        text = "<html><div style='text-align: center;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 15px;'>Order Total: <span style='color: Black; font-weight: bold; font-size: 20;'>" + totalCartPrice +" </span> </p></div></html>";
-        f_SouthLabel = new RoundedCorners(text, 15);
-//        f_SouthLabel.setBorder(null);
-//        f_SouthLabel.setOpaque(true);
-//        f_SouthLabel.setVisible(true);
+        f_SouthLabel = new JLabel();
+        f_SouthLabel.setBorder(null);
+        f_SouthLabel.setOpaque(true);
+        f_SouthLabel.setVisible(true);
         f_SouthLabel.setBackground(Color.white);
 //        f_SouthLabel.setBorder(BorderFactory.createLineBorder(Color.white, 5, true));
-//        f_SouthLabel.setText("<html><div style='text-align: center;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 15px;'>Order Total: <span style='color: Black; font-weight: bold; font-size: 20;'>" + totalCartPrice +" </span> </p></div></html>");
+        f_SouthLabel.setText("<html><div style='text-align: center;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 15px;'>Order Total: <span style='color: Black; font-weight: bold; font-size: 20;'>" + totalCartPrice +" </span> </p></div></html>");
         f_SouthLabel.setHorizontalTextPosition(JLabel.CENTER);
         f_SouthLabel.setVerticalTextPosition(JLabel.TOP);
         f_SouthLabel.setHorizontalAlignment(JLabel.CENTER);
         f_SouthLabel.setPreferredSize(new Dimension(200, 30));
-        f_SouthLabel.revalidate();
-        f_SouthLabel.repaint();
+
+
+
 
         /*----------------------- Add Components to Panels -----------------------*/
 
@@ -387,15 +442,15 @@ public class WindowApp1 extends JFrame implements ActionListener{
 
 // Add itemCardLabel to itemCardButt
         for (byte i = 0; i < itemCardLabel.length; i++) {
+//            itemCardButt[i].add(itemCardLabel[i], BorderLayout.CENTER);
             itemCardButt[i].add(itemCardLabel[i], BorderLayout.CENTER);
-        //     itemCardButt[i].addActionListener(this);
-        //     itemCardButt[i].setActionCommand("item" + i);
         }
 
 // Add itemCardButt to itemCardContainer
         for (byte i = 0; i < itemCardButt.length; i++) {
             itemCardContainer[i].add(itemCardButt[i], BorderLayout.CENTER);
         }
+
 
 // Add itemCardContainer to itemCardContParent
         for (byte i = 0; i < itemCardContainer.length; i++) {
@@ -406,14 +461,35 @@ public class WindowApp1 extends JFrame implements ActionListener{
         for (JPanel parentContainer : itemCardContParent) {
             childPanelCont[1].add(parentContainer);
         }
+        for (byte i = 0; i < h_MButtImg.length; i++) {
+            h_MButtLabel[i].setIcon(h_MButtImg[i]);
+        }
 
-// Add title label to the first head label
-        headLabels[0].add(hLabelTitle, BorderLayout.CENTER);
+    for(byte i =0; i < h_MButtLabel.length; i++){
+            h_MenuButt[i].add(h_MButtLabel[i], BorderLayout.CENTER);
+
+
+//        h_MenuButt[i].add(h_MButtLabel[i]);
+    }
+
+
+    for(byte i = 0; i < h_MenuButt.length; i++){
+        h_MenuButtCont[i].add(h_MenuButt[i], BorderLayout.CENTER);
+    }
+
+    for(byte i = 0; i < h_MenuButtCont.length; i++){
+        h_MenuContParent[i].add(h_MenuButtCont[i]);
+    }
+
 
 // Add menu buttons to the second head label
-        for (JButton labelMenu : hLabelMenu) {
-            headLabels[1].add(labelMenu);
+        for (JPanel MenuLabelParent: h_MenuContParent) {
+            headLabels[1].add(MenuLabelParent);
         }
+
+
+// Add title label to the first head label
+        headLabels[0].add(h_MenuLabel, BorderLayout.CENTER);
 
 // Add head labels to the first header panel
         for (JLabel headLabel : headLabels) {
@@ -507,12 +583,8 @@ public class WindowApp1 extends JFrame implements ActionListener{
     private void updateCartDisplay() {
 //        f_SouthLabel.setText("Total Price: $\n" + totalPrice );
         totalCartPrice = "P " + totalPrice;
-        text = "<html><div style='text-align: center;'><p style='color: White; font-weight: bold; text-align: center; font-size: 15px;" +
-                "'>Order Total: " +
-                "<span style='color: White; font-weight: bold; font-size: 20;'>" + totalCartPrice +" </span> </p></div></html>";
-        f_SouthLabel.setText(text);
-        f_SouthLabel.revalidate(); // Ensures the layout is updated
-        f_SouthLabel.repaint();
+        f_SouthLabel.setText("<html><div style='text-align: center;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 15px;'>Order Total: <span style='color: Black; font-weight: bold; font-size: 20;'>" + totalCartPrice +" </span> </p></div></html>");
+
     }
     
 }

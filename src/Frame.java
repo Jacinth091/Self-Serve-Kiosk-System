@@ -54,7 +54,7 @@ public class Frame extends JFrame implements ActionListener {
         labelEDIT.setFont(new Font("ARIAL", Font.BOLD, 30));
 
         LabelPRICE = new JLabel(); // PRICE OF ITEM
-        LabelPRICE.setText( menuApp.updateCartDisplay());
+//        LabelPRICE.setText( menuApp.updateCartDisplay());
 
         
         LabelPRICE.setBounds(12,2,200,50);
