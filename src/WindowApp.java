@@ -23,7 +23,7 @@ public class WindowApp extends JFrame {
     private JLabel[] itemCardLabel;
     private JButton[] itemCardButt;
 
-    private ImageIcon[] itemCardImages;
+    private ImageIcon[] itemCardImage;
 
 //    private List<> componentList;
 
@@ -114,7 +114,7 @@ public class WindowApp extends JFrame {
             itemCardContParent[i].setVisible(true);
             itemCardContParent[i].setToolTipText("Parent Cont");
             itemCardContParent[i].setPreferredSize(new Dimension(300, 200));
-            itemCardContParent[i].setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
+//            itemCardContParent[i].setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
             itemCardContParent[i].setLayout(new OverlayLayout(itemCardContParent[i]));
 
         }
@@ -125,10 +125,10 @@ public class WindowApp extends JFrame {
             itemCardContainer[i] = new JLayeredPane();
             itemCardContainer[i].setOpaque(true);
             itemCardContainer[i].setVisible(true);
-            itemCardContainer[i].setBackground(Color.BLUE);
+//            itemCardContainer[i].setBackground(Color.BLUE);
             itemCardContainer[i].setPreferredSize(new Dimension(300,200));
             itemCardContainer[i].setLayout(new BorderLayout());
-//            itemCardContainer[i].setBorder(BorderFactory.createLineBorder(Color.WHITE,2));
+            itemCardContainer[i].setBorder(BorderFactory.createLineBorder(Color.red,2));
 
 
         }
@@ -140,9 +140,8 @@ public class WindowApp extends JFrame {
             itemCardButt[i].setBorder(null);
             itemCardButt[i].setOpaque(true);
             itemCardButt[i].setVisible(true);
-            itemCardButt[i].setBounds(itemCardContParent[i].getX(),itemCardContParent[i].getY(),itemCardContParent[i].getWidth(), itemCardContParent[i].getHeight());
-            itemCardButt[i].setBounds(50,50,100,100);
-            itemCardButt[i].setText("Button " + (i + 1));
+//            itemCardButt[i].setText("Button " + (i + 1));
+            itemCardButt[i].setName("Card " + (i+1));
             itemCardButt[i].setLayout(new BorderLayout());
 
             itemCardButt[i].addActionListener(new ActionListener() {
@@ -151,7 +150,7 @@ public class WindowApp extends JFrame {
                     // Action to perform when the button is clicked
                     JButton source = (JButton)e.getSource();
                     System.out.print("Button clicked!\n");
-                    System.out.println(source);
+                    System.out.println(source.getName());
                 }
             });
 
@@ -167,10 +166,29 @@ public class WindowApp extends JFrame {
             itemCardLabel[i].setBorder(null);
             itemCardLabel[i].setOpaque(true);
             itemCardLabel[i].setVisible(true);
-            itemCardLabel[i].setBackground(Color.RED);
+//            itemCardLabel[i].setBackground(Color.RED);
 //            itemCardLabel[i].setBounds(itemCardContParent[i].getX(),itemCardContParent[i].getY(),itemCardContParent[i].getWidth(), itemCardContParent[i].getHeight());
 //            itemCardLabel[i].setBounds(50,50,100,100);
 //            itemCardLabel[i].setText("Button " + (i + 1));
+            itemCardLabel[i].setBorder(BorderFactory.createLineBorder(Color.black, 1));
+            itemCardLabel[i].setText("Helloooo");
+
+        }
+        // Initialize ImageIcon[]
+
+        itemCardImage = new ImageIcon[6];
+        for(byte i =0; i< itemCardImage.length; i++){
+            itemCardImage[i] = new ImageIcon(getClass().getResource("Assets/item_pictures/BS-item-1.png"));
+            itemCardImage[i] = resizeImageIcon(itemCardImage[i], 150, 105);
+
+        }
+
+
+
+
+        // add ImageIcon array in Jlabel
+        for(byte i =0; i < itemCardImage.length; i++){
+            itemCardLabel[i].setIcon(itemCardImage[i]);
 
         }
 
