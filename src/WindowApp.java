@@ -16,7 +16,7 @@ public class WindowApp extends JFrame {
     private ImageIcon jolibeeIcon;
 
 
-    // Body Part
+    // childPanelCont[1] BODY - CENTER PART
     private JPanel[] itemCardContParent;
     
     private JLayeredPane[] itemCardContainer;
@@ -25,7 +25,17 @@ public class WindowApp extends JFrame {
 
     private ImageIcon[] itemCardImage;
 
-//    private List<> componentList;
+
+
+    // childPanelCont[2] Footer - BOTTOM PART
+
+    private JPanel cartPanelCont;
+    private JLabel cartLabelTitle;
+    private JButton[] cartButton;
+
+    private JPanel checkOutPanelCont;
+    private JButton[] checkOutButton;
+    private JLabel checkOutLabelTitle;
 
     WindowApp(){
 
@@ -64,10 +74,9 @@ public class WindowApp extends JFrame {
 //        childPanelCont[1].setLayout(new FlowLayout());
         childPanelCont[1].setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
-
-
         // Footer - Bottom
         childPanelCont[2].setPreferredSize(new Dimension(100, 200));
+        childPanelCont[2].setLayout(new BorderLayout());
 
         // Initialize head labels
         headLabels = new JLabel[2];
@@ -114,7 +123,7 @@ public class WindowApp extends JFrame {
             itemCardContParent[i].setVisible(true);
             itemCardContParent[i].setToolTipText("Parent Cont");
             itemCardContParent[i].setPreferredSize(new Dimension(300, 200));
-//            itemCardContParent[i].setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
+//            itemCardContParent[i].setBackground(Color.WHITE);
             itemCardContParent[i].setLayout(new OverlayLayout(itemCardContParent[i]));
 
         }
@@ -125,10 +134,9 @@ public class WindowApp extends JFrame {
             itemCardContainer[i] = new JLayeredPane();
             itemCardContainer[i].setOpaque(true);
             itemCardContainer[i].setVisible(true);
-//            itemCardContainer[i].setBackground(Color.BLUE);
             itemCardContainer[i].setPreferredSize(new Dimension(300,200));
             itemCardContainer[i].setLayout(new BorderLayout());
-            itemCardContainer[i].setBorder(BorderFactory.createLineBorder(Color.red,2));
+//            itemCardContainer[i].setBorder(BorderFactory.createLineBorder(Color.red,2));
 
 
         }
@@ -166,12 +174,12 @@ public class WindowApp extends JFrame {
             itemCardLabel[i].setBorder(null);
             itemCardLabel[i].setOpaque(true);
             itemCardLabel[i].setVisible(true);
-//            itemCardLabel[i].setBackground(Color.RED);
-//            itemCardLabel[i].setBounds(itemCardContParent[i].getX(),itemCardContParent[i].getY(),itemCardContParent[i].getWidth(), itemCardContParent[i].getHeight());
-//            itemCardLabel[i].setBounds(50,50,100,100);
-//            itemCardLabel[i].setText("Button " + (i + 1));
-            itemCardLabel[i].setBorder(BorderFactory.createLineBorder(Color.black, 1));
-            itemCardLabel[i].setText("Helloooo");
+            itemCardLabel[i].setBackground(Color.WHITE);
+            itemCardLabel[i].setText("<html><p style='color: red; font-weight: bold; " +
+                    "text-align: center;'>P 212.00</p><br><p>Product Description</p></html>");
+            itemCardLabel[i].setHorizontalTextPosition(JLabel.CENTER);
+            itemCardLabel[i].setVerticalTextPosition(JLabel.BOTTOM);
+            itemCardLabel[i].setHorizontalAlignment(JLabel.CENTER);
 
         }
         // Initialize ImageIcon[]
@@ -179,9 +187,19 @@ public class WindowApp extends JFrame {
         itemCardImage = new ImageIcon[6];
         for(byte i =0; i< itemCardImage.length; i++){
             itemCardImage[i] = new ImageIcon(getClass().getResource("Assets/item_pictures/BS-item-1.png"));
-            itemCardImage[i] = resizeImageIcon(itemCardImage[i], 150, 105);
+            itemCardImage[i] = resizeImageIcon(itemCardImage[i], 100, 70);
 
         }
+
+
+
+        /*----------------------- childPanelCont[2] FOOTER - BOTTOM PART -----------------------*/
+
+        // Initialize
+
+
+
+
 
 
 
