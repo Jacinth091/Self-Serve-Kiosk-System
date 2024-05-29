@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<fx:root fx:id="FRAME" prefHeight="780.0" prefWidth="619.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="Chickennuggets" fitHeight="204.0" fitWidth="625.0" layoutX="-6.0" layoutY="-19.0" pickOnBounds="true">
+         <image>
+            <Image url="@img_2.png" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+      <ImageView fitHeight="66.0" fitWidth="619.0" layoutY="140.0" pickOnBounds="true">
+         <image>
+            <Image url="@img_1.png" />
+         </image></ImageView>
+      <Pane layoutY="203.0" prefHeight="112.0" prefWidth="619.0" style="-fx-background-color: orange;">
+         <children>
+            <Pane layoutX="28.0" layoutY="5.0" prefHeight="81.0" prefWidth="105.0" scaleShape="false" style="-fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="81.0" fitWidth="112.0" layoutX="-6.0" layoutY="2.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@img_3.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Pane>
+            <Button fx:id="buttonBestSeller" graphicTextGap="5.0" layoutX="16.0" layoutY="81.0" mnemonicParsing="false" onAction="#displayImage" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: red;" text="BEST SELLER" textAlignment="CENTER" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="Arial Narrow Bold" size="15.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="81.0" fitWidth="105.0" layoutX="176.0" layoutY="5.0" pickOnBounds="true">
+               <image>
+                  <Image url="@img_4.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="buttonChickenjoy" graphicTextGap="5.0" layoutX="164.0" layoutY="81.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: red;" text="CHICKEN JOY" textAlignment="CENTER" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="Arial Narrow Bold" size="15.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="81.0" fitWidth="105.0" layoutX="334.0" layoutY="5.0" pickOnBounds="true">
+               <image>
+                  <Image url="@img_5.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="buttonSpaghetti" graphicTextGap="5.0" layoutX="322.0" layoutY="82.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: red;" text="JOLLY SPAGHETTI" textAlignment="CENTER" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="Arial Narrow Bold" size="14.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="81.0" fitWidth="105.0" layoutX="480.0" layoutY="5.0" pickOnBounds="true">
+               <image>
+                  <Image url="@img_6.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="buttonBeverages" graphicTextGap="5.0" layoutX="468.0" layoutY="82.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: red;" text="BEVERAGES" textAlignment="CENTER" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="Arial Narrow Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <ImageView fx:id="TRY" fitHeight="277.0" fitWidth="299.0" layoutX="138.0" layoutY="382.0" pickOnBounds="true">
+         <image>
+            <Image url="@img_6.png" />
+         </image>
+      </ImageView>
+   </children>
+</fx:root>
