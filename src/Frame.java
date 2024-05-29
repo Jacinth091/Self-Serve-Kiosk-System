@@ -19,17 +19,17 @@ public class Frame extends JFrame implements ActionListener {
         borderForEdit = BorderFactory.createLineBorder(Color.black,3);
 
         // ICON OR IMAGE ==============================================================================
-        originalIcon = new ImageIcon("C:\\Users\\Admin\\IdeaProjects\\tEST\\src\\jollibee.png"); // jollibee picture
-        ImageIcon scaledIcon = new ImageIcon(originalIcon.getImage().getScaledInstance(170, 70, Image.SCALE_SMOOTH));
+        originalIcon = new ImageIcon(getClass().getResource("Assets/logo/Joli-Logo.png")); // jollibee picture
+        ImageIcon scaledIcon = new ImageIcon(originalIcon.getImage().getScaledInstance(120, 90, Image.SCALE_SMOOTH));
 
-        originalCheck = new ImageIcon("C:\\Users\\Admin\\IdeaProjects\\tEST\\src\\remove.png"); // CHECK LOGO sa PROCEED PAYMENT
-        ImageIcon scaledCheck= new ImageIcon(originalCheck.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
+        originalCheck = new ImageIcon(getClass().getResource("Assets/Icons/check-Icon.png")); // CHECK LOGO sa PROCEED PAYMENT
+        ImageIcon scaledCheck= new ImageIcon(originalCheck.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
 
-        originalTrash= new ImageIcon("C:\\Users\\Admin\\IdeaProjects\\tEST\\src\\trashcan.png"); // TRASHCAN LOGO sa TRASH ITEM BUTTON
-        ImageIcon scaledTrash= new ImageIcon(originalTrash.getImage().getScaledInstance(20, 16, Image.SCALE_SMOOTH));
+        originalTrash= new ImageIcon(getClass().getResource("Assets/Icons/bin-Icon.png")); // TRASHCAN LOGO sa TRASH ITEM BUTTON
+        ImageIcon scaledTrash= new ImageIcon(originalTrash.getImage().getScaledInstance(13, 13, Image.SCALE_SMOOTH));
 
-        originalORDER= new ImageIcon("C:\\Users\\Admin\\IdeaProjects\\tEST\\src\\img.png"); // PICTURE OF THE ITEM
-        ImageIcon scaledORDER= new ImageIcon(originalORDER.getImage().getScaledInstance(150, 70, Image.SCALE_SMOOTH));
+        originalORDER= new ImageIcon(getClass().getResource("Assets/item_pictures/BS-item-1.png")); // PICTURE OF THE ITEM
+        ImageIcon scaledORDER= new ImageIcon(originalORDER.getImage().getScaledInstance(100, 70, Image.SCALE_SMOOTH));
 
 
         // LABEL ======================================================================================
@@ -57,7 +57,7 @@ public class Frame extends JFrame implements ActionListener {
 
         LabelORDER = new JLabel(); // PICTURE SA ITEM
         LabelORDER.setIcon(scaledORDER);
-        LabelORDER.setBounds(5,10,500,70);
+        LabelORDER.setBounds(30,7,500,70);
 
         LabelORDERText = new JLabel(); // NAME OF THE ITEM
         LabelORDERText.setText("<html>1 - pc. Chickenjoy w/ <br>Burger Steak & Half Jolly <br> Spaghetti Super Meal</html>");
@@ -71,7 +71,7 @@ public class Frame extends JFrame implements ActionListener {
 
         // BUTTON ====================================================================================
         buttonProceed = new JButton("PROCEED TO PAYMENT"); // PROCEED BUTTON
-        buttonProceed.setForeground(Color.BLACK);
+        buttonProceed.setForeground(Color.WHITE);
         buttonProceed.setFont(new Font("Arial",Font.BOLD,16));
         buttonProceed.setBackground(new Color(4, 136, 43));
         buttonProceed.setBounds(330, 10, 270,50);
