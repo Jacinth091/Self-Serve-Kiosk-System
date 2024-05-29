@@ -4,32 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="TODO:// Footer Part">
-      <change afterPath="$PROJECT_DIR$/src/testing.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/testing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="Merged with windowApp for the view Cart button&#10;TODO// Function between the buttons and the events&#10;Also Add a database like class to store all of our files and texts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Calculators.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Project.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WindowApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WindowApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bantay.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hello.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img_10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img_11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img_4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img_5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img_6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img_7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img_8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img_9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jollibee.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/suwayan.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,18 +28,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "history": [
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
     {
-      "state": "OPEN",
-      "author": "Jacinth091"
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;author&quot;: &quot;Jacinth091&quot;
     }
   ],
-  "lastFilter": {
-    "state": "OPEN",
-    "author": "Jacinth091"
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;author&quot;: &quot;Jacinth091&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubProjectSettings">
     <option name="branchProtectionPatterns">
       <list>
@@ -96,7 +72,10 @@
     "Application.Frame.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.MainApp.executor": "Run",
+    "Application.RoundedLabel.executor": "Run",
     "Application.Test2.executor": "Run",
+    "Application.WindowApp.executor": "Run",
+    "Application.WindowApp1.executor": "Run",
     "Application.arrayIMPLEMENT.executor": "Run",
     "Application.menu.executor": "Run",
     "Application.suwayan.executor": "Run",
@@ -214,7 +193,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716959133633</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Done for the Layouting of the Menu&#10;TODO// Add Functions to the buttons and Layout the Menu for the tabs">
+      <option name="closed" value="true" />
+      <created>1716974496514</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1716974496514</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Merged with windowApp for the view Cart button&#10;TODO// Function between the buttons and the events&#10;Also Add a database like class to store all of our files and texts">
+      <option name="closed" value="true" />
+      <created>1716978255797</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1716978255797</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -223,6 +218,8 @@
     <MESSAGE value="testGui in java swing branch" />
     <MESSAGE value="Added Buttons in the Body Part of the Menu&#10;Added the function to getSource" />
     <MESSAGE value="TODO:// Footer Part" />
-    <option name="LAST_COMMIT_MESSAGE" value="TODO:// Footer Part" />
+    <MESSAGE value="Done for the Layouting of the Menu&#10;TODO// Add Functions to the buttons and Layout the Menu for the tabs" />
+    <MESSAGE value="Merged with windowApp for the view Cart button&#10;TODO// Function between the buttons and the events&#10;Also Add a database like class to store all of our files and texts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merged with windowApp for the view Cart button&#10;TODO// Function between the buttons and the events&#10;Also Add a database like class to store all of our files and texts" />
   </component>
 </project>

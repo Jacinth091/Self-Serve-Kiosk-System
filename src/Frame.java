@@ -10,7 +10,9 @@ public class Frame extends JFrame implements ActionListener {
     JButton buttonProceed,  buttonBack, buttonEDIT, buttonTRASH;
     ImageIcon originalIcon, originalCheck, originalTrash, originalORDER;
     Border border, border1, border2,border3,borderForEdit;
+
     WindowApp menuApp = new WindowApp();
+
     Frame() {
         // BORDER =====================================================================================
         border = BorderFactory.createLineBorder(Color.white,2);
@@ -53,6 +55,8 @@ public class Frame extends JFrame implements ActionListener {
 
         LabelPRICE = new JLabel(); // PRICE OF ITEM
         LabelPRICE.setText( menuApp.updateCartDisplay());
+
+        
         LabelPRICE.setBounds(12,2,200,50);
         LabelPRICE.setFont(new Font("ARIAL", Font.BOLD, 20));
 
