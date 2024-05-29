@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="Done for the Layouting of the Menu&#10;TODO// Add Functions to the buttons and Layout the Menu for the tabs">
+    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="Merged with windowApp for the view Cart button&#10;TODO// Function between the buttons and the events&#10;Also Add a database like class to store all of our files and texts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jollibee.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/remove.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trahs.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trashcan.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,41 +66,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Calculators.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Frame.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Test2.executor&quot;: &quot;Run&quot;,
-    &quot;Application.WindowApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.arrayIMPLEMENT.executor&quot;: &quot;Run&quot;,
-    &quot;Application.menu.executor&quot;: &quot;Run&quot;,
-    &quot;Application.suwayan.executor&quot;: &quot;Run&quot;,
-    &quot;Application.test.executor&quot;: &quot;Run&quot;,
-    &quot;Application.test2.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ToolWindowGitLive.ShowToolbar&quot;: &quot;false&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE&quot;: &quot;left&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;389&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE&quot;: &quot;right&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;405&quot;,
-    &quot;app.teamhub.selectedTeam&quot;: &quot;github.com/Jacinth091/Self-Serve-Kiosk-System&quot;,
-    &quot;app.teamhub.trackedBranches&quot;: &quot;-19lmspi/master,-19lmspi/Jacinth-Branch&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/PCC/Desktop/CODING FILES/ProgLang - Hello World/Java/Projects/ComProg_Project_Calculator&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2214429&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Calculators.executor": "Run",
+    "Application.Frame.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.MainApp.executor": "Run",
+    "Application.RoundedLabel.executor": "Run",
+    "Application.Test2.executor": "Run",
+    "Application.WindowApp.executor": "Run",
+    "Application.WindowApp1.executor": "Run",
+    "Application.arrayIMPLEMENT.executor": "Run",
+    "Application.menu.executor": "Run",
+    "Application.suwayan.executor": "Run",
+    "Application.test.executor": "Run",
+    "Application.test2.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ToolWindowGitLive.ShowToolbar": "false",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE": "left",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "389",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE": "right",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "405",
+    "app.teamhub.selectedTeam": "github.com/Jacinth091/Self-Serve-Kiosk-System",
+    "app.teamhub.trackedBranches": "-19lmspi/master,-19lmspi/Jacinth-Branch",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/PCC/Desktop/CODING FILES/ProgLang - Hello World/Java/Projects/ComProg_Project_Calculator",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2214429",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\PCC\Desktop\Finals\src\Assets" />
@@ -205,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716974496514</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Merged with windowApp for the view Cart button&#10;TODO// Function between the buttons and the events&#10;Also Add a database like class to store all of our files and texts">
+      <option name="closed" value="true" />
+      <created>1716978255797</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1716978255797</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -215,6 +219,7 @@
     <MESSAGE value="Added Buttons in the Body Part of the Menu&#10;Added the function to getSource" />
     <MESSAGE value="TODO:// Footer Part" />
     <MESSAGE value="Done for the Layouting of the Menu&#10;TODO// Add Functions to the buttons and Layout the Menu for the tabs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Done for the Layouting of the Menu&#10;TODO// Add Functions to the buttons and Layout the Menu for the tabs" />
+    <MESSAGE value="Merged with windowApp for the view Cart button&#10;TODO// Function between the buttons and the events&#10;Also Add a database like class to store all of our files and texts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merged with windowApp for the view Cart button&#10;TODO// Function between the buttons and the events&#10;Also Add a database like class to store all of our files and texts" />
   </component>
 </project>
