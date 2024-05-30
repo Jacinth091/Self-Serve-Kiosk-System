@@ -19,6 +19,8 @@ class MenuApp extends JFrame implements ActionListener{
     private int localNoOfItems = foodData.getNoOfItems();
 
 
+
+
     // main panel container
     private JPanel panelMain;
     // Wrapper for the top, center, bottom panels
@@ -46,14 +48,6 @@ class MenuApp extends JFrame implements ActionListener{
     private JPanel[][] itemCardCont;
     private ItemCard[][] itemCard;
     private String[] imgPaths;
-/*//    private ArrayList<ItemCard[]> itemCardList;
-//    private JPanel[] itemCardContParent; // Array of parent panels for items in the center part of the interface
-//    private JPanel[] itemCardContainer; // Array of layered panes containing item cards
-//    private JLabel[] itemCardLabel; // Array of labels for displaying item images
-//    private JButton[] itemCardButt; // Array of buttons associated with item cards
-//    private ImageIcon[] itemCardImage; // Array of image icons representing item images*/
-
-
 
     // childPanelCont[2] Footer - BOTTOM PART
 
@@ -207,7 +201,13 @@ class MenuApp extends JFrame implements ActionListener{
             h_MButtLabel[i].setHorizontalAlignment(JLabel.CENTER);
 
             // Configure h_MButtImg
-            h_MButtImg[i] = localFoodCateImg[i];
+            if(localFoodCateImg[i] != null){
+                h_MButtImg[i] = localFoodCateImg[i];
+
+            }
+            else{
+                System.out.printf("Image File at index %d, can't be found!\n", (i+1) );
+            }
 //            h_MButtImg[i] = resizeImageIcon(h_MButtImg[i], (300 / 4), (210 / 4));
         }
 

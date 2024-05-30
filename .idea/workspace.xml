@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="Added the food data picture,price,and description to the item cards and tab buttons&#10;&#10;TODO// must create a function to get the price of selected value on item card">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FoodData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FoodData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ItemCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ItemCard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MenuApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test2.java" afterDir="false" />
     </list>
@@ -118,7 +120,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.MenuApp">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="MainApp" />
       <module name="Finals" />
@@ -283,5 +285,17 @@
     <MESSAGE value="TODO// Create a function for the changing panel page and with its corresponding button" />
     <MESSAGE value="Added the food data picture,price,and description to the item cards and tab buttons&#10;&#10;TODO// must create a function to get the price of selected value on item card" />
     <option name="LAST_COMMIT_MESSAGE" value="Added the food data picture,price,and description to the item cards and tab buttons&#10;&#10;TODO// must create a function to get the price of selected value on item card" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/test2.java</url>
+          <line>16</line>
+          <properties field="fc_PathFile" class="test2" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
