@@ -93,6 +93,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.BorderButtonDemo.executor": "Run",
     "Application.Calculators.executor": "Run",
     "Application.FoodData.executor": "Run",
     "Application.Frame.executor": "Run",
