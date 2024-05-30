@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="TODO// Create a function for the changing panel page and with its corresponding button">
+    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="Added the food data picture,price,and description to the item cards and tab buttons&#10;&#10;TODO// must create a function to get the price of selected value on item card">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MenuApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test2.java" afterDir="false" />
@@ -67,49 +67,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.BorderButtonDemo.executor": "Run",
-    "Application.Calculators.executor": "Run",
-    "Application.Frame.executor": "Run",
-    "Application.Front.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.MainApp.executor": "Run",
-    "Application.MenuApp.executor": "Run",
-    "Application.MenuAppDemo.executor": "Run",
-    "Application.RoundedLabel.executor": "Run",
-    "Application.Test2.executor": "Run",
-    "Application.WindowApp.executor": "Run",
-    "Application.WindowApp1.executor": "Run",
-    "Application.arrayIMPLEMENT.executor": "Run",
-    "Application.menu.executor": "Run",
-    "Application.suwayan.executor": "Run",
-    "Application.test.executor": "Run",
-    "Application.test2.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ToolWindowGitLive.ShowToolbar": "false",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE": "left",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "389",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE": "right",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "405",
-    "app.teamhub.selectedTeam": "github.com/Jacinth091/Self-Serve-Kiosk-System",
-    "app.teamhub.trackedBranches": "-19lmspi/master,-19lmspi/Jacinth-Branch",
-    "git-widget-placeholder": "Jacinth-Branch",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/PCC/Desktop/CODING FILES/ProgLang - Hello World/Java/Projects/ComProg_Project_Calculator",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2214429",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BorderButtonDemo.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Calculators.executor&quot;: &quot;Run&quot;,
+    &quot;Application.FoodData.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Frame.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Front.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MenuApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MenuAppDemo.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RoundedLabel.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.WindowApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.WindowApp1.executor&quot;: &quot;Run&quot;,
+    &quot;Application.arrayIMPLEMENT.executor&quot;: &quot;Run&quot;,
+    &quot;Application.menu.executor&quot;: &quot;Run&quot;,
+    &quot;Application.suwayan.executor&quot;: &quot;Run&quot;,
+    &quot;Application.test.executor&quot;: &quot;Run&quot;,
+    &quot;Application.test2.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ToolWindowGitLive.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE&quot;: &quot;left&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;389&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE&quot;: &quot;right&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;405&quot;,
+    &quot;app.teamhub.selectedTeam&quot;: &quot;github.com/Jacinth091/Self-Serve-Kiosk-System&quot;,
+    &quot;app.teamhub.trackedBranches&quot;: &quot;-19lmspi/master,-19lmspi/Jacinth-Branch&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Jacinth-Branch&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/PCC/Desktop/CODING FILES/ProgLang - Hello World/Java/Projects/ComProg_Project_Calculator&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2214429&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\PCC\Desktop\Finals\src\Assets\Icons" />
       <recent name="C:\Users\PCC\Desktop\Finals\src\Assets" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -249,7 +251,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717034078448</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added the food data picture,price,and description to the item cards and tab buttons&#10;&#10;TODO// must create a function to get the price of selected value on item card">
+      <option name="closed" value="true" />
+      <created>1717080720092</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1717080720092</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added the food data picture,price,and description to the item cards and tab buttons&#10;&#10;TODO// must create a function to get the price of selected value on item card">
+      <option name="closed" value="true" />
+      <created>1717080776327</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1717080776327</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -263,6 +281,7 @@
     <MESSAGE value="Added WindowApp1 to test feautures" />
     <MESSAGE value="Added a product Category Image adn Product Category title placeholder in the Menu Tab buttons &#10;&#10;TODO find a way to set focus on the current oage and also create a function so that the other panel of the other tab will be displayed" />
     <MESSAGE value="TODO// Create a function for the changing panel page and with its corresponding button" />
-    <option name="LAST_COMMIT_MESSAGE" value="TODO// Create a function for the changing panel page and with its corresponding button" />
+    <MESSAGE value="Added the food data picture,price,and description to the item cards and tab buttons&#10;&#10;TODO// must create a function to get the price of selected value on item card" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the food data picture,price,and description to the item cards and tab buttons&#10;&#10;TODO// must create a function to get the price of selected value on item card" />
   </component>
 </project>
