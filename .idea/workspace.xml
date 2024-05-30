@@ -24,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Jacinth-Branch" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -69,6 +69,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.BorderButtonDemo.executor": "Run",
     "Application.Calculators.executor": "Run",
     "Application.Frame.executor": "Run",
     "Application.Front.executor": "Run",
@@ -97,7 +98,7 @@
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "405",
     "app.teamhub.selectedTeam": "github.com/Jacinth091/Self-Serve-Kiosk-System",
     "app.teamhub.trackedBranches": "-19lmspi/master,-19lmspi/Jacinth-Branch",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "Jacinth-Branch",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/PCC/Desktop/CODING FILES/ProgLang - Hello World/Java/Projects/ComProg_Project_Calculator",
@@ -115,7 +116,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MenuApp">
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="MainApp" />
       <module name="Finals" />

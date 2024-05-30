@@ -1,119 +1,82 @@
-/*
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.border.Border;
+import javax.swing.BorderFactory;
 
- class test2 extends JPanel implements ActionListener {
-    private JPanel cardPanel;
-    private CardLayout cardLayout;
-    private ItemCard[] itemCards;
-    private JButton nextButton;
 
-    public test2() {
-        setLayout(new BorderLayout());
+class BorderButtonDemo implements ActionListener {
+    private JFrame frame;
+    private JPanel cardContParent;
+    private JPanel[] cardCont;
+    private JButton[][] buttons;
+    private String imgPath = "Assets/item_pictures/BS/BS-item-1.png";
+    private JButton selectedButton = null;
+    private Border defaultBorder = BorderFactory.createLineBorder(Color.GRAY, 1);
+    private Border selectedBorder = BorderFactory.createLineBorder(Color.BLUE, 3);
 
-        // Initialize CardLayout and JPanel for holding cards
-        cardLayout = new CardLayout();
-        cardPanel = new JPanel(cardLayout);
+    public BorderButtonDemo() {
+        cardContParent = new JPanel(new CardLayout());
+        cardCont = new JPanel[4];
+        buttons = new JButton[4][6];
 
-        // Initialize array of ItemCards
-        itemCards = new ItemCard[6];
-        for (int i = 0; i < itemCards.length; i++) {
-            itemCards[i] = new ItemCard();
-            cardPanel.add(itemCards[i], "Card " + (i + 1));
+        initUi();
+    }
+
+    private void initUi() {
+        frame = new JFrame("Border Button Demo");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800, 600);
+
+        for (int i = 0; i < cardCont.length; i++) {
+            cardCont[i] = new JPanel();
+            cardCont[i].setLayout(new GridLayout(2, 3)); // 2 rows and 3 columns
+            cardContParent.add(cardCont[i], "card" + (i + 1));
+
+            for (int j = 0; j < buttons[i].length; j++) {
+                buttons[i][j] = new JButton("Product " + (j + 1));
+                buttons[i][j].setActionCommand("item" + (i * 6 + j));
+                buttons[i][j].addActionListener(this);
+                buttons[i][j].setBorder(defaultBorder);
+                cardCont[i].add(buttons[i][j]);
+            }
         }
 
-        // Initialize Next button
-        nextButton = new JButton("Next");
-        nextButton.addActionListener(this);
+        // Make the first button selected initially
+        buttons[0][0].setBorder(selectedBorder);
+        selectedButton = buttons[0][0];
 
-        // Add components to main panel
-        add(cardPanel, BorderLayout.CENTER);
-        add(nextButton, BorderLayout.SOUTH);
+        frame.add(cardContParent);
+        frame.setVisible(true);
+
+        // Show the first card initially
+        showCard(0);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // Switch to the next card
-        cardLayout.next(cardPanel);
+        String command = e.getActionCommand();
+        if (command.startsWith("item")) {
+            handleButtonClick((JButton) e.getSource());
+        }
+    }
+
+    private void handleButtonClick(JButton button) {
+        if (selectedButton != null) {
+            selectedButton.setBorder(defaultBorder); // Reset previously selected button border
+        }
+
+        button.setBorder(selectedBorder); // Highlight the current button
+        selectedButton = button; // Update the selected button reference
+    }
+
+    private void showCard(int index) {
+        CardLayout cl = (CardLayout) (cardContParent.getLayout());
+        cl.show(cardContParent, "card" + (index + 1));
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("Item Card Demo");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.getContentPane().add(new test2());
-            frame.pack();
-            frame.setLocationRelativeTo(null);
-            frame.setVisible(true);
-        });
+        SwingUtilities.invokeLater(BorderButtonDemo::new);
     }
 }
-
-
-class ItemCards extends JPanel {
-    private JPanel itemCardContParent;
-    private JPanel itemCardContainer;
-    private JButton itemCardButt;
-    private JLabel itemCardLabel;
-    private ImageIcon itemCardImage;
-
-    public ItemCards() {
-        // Configure itemCardContainer
-        setOpaque(true);
-        setVisible(true);
-        setPreferredSize(new Dimension(300, 200));
-        setLayout(new OverlayLayout(this));
-
-        // Configure itemCardContainer
-        itemCardContainer = new JPanel();
-        itemCardContainer.setOpaque(true);
-        itemCardContainer.setVisible(true);
-        itemCardContainer.setPreferredSize(new Dimension(300, 200));
-        itemCardContainer.setLayout(new BorderLayout());
-
-        // Configure itemCardButt
-        itemCardButt = new JButton();
-        itemCardButt.setBorder(null);
-        itemCardButt.setOpaque(true);
-        itemCardButt.setVisible(true);
-        itemCardButt.setLayout(new BorderLayout());
-//        itemCardButt.addActionListener(this);
-
-        // Configure itemCardLabel
-        itemCardLabel = new JLabel();
-        itemCardLabel.setBorder(null);
-        itemCardLabel.setOpaque(true);
-        itemCardLabel.setVisible(true);
-        itemCardLabel.setBackground(Color.WHITE);
-        itemCardLabel.setHorizontalTextPosition(JLabel.CENTER);
-        itemCardLabel.setVerticalTextPosition(JLabel.BOTTOM);
-        itemCardLabel.setHorizontalAlignment(JLabel.CENTER);
-
-        // Configure itemCardImage
-        itemCardImage = new ImageIcon(getClass().getResource("Assets/item_pictures/BS/BS-item-1.png"));
-        itemCardImage = resizeImageIcon(itemCardImage, 100, 70);
-
-        // Add components to itemCardButt
-        itemCardButt.add(itemCardLabel, BorderLayout.CENTER);
-        itemCardButt.setIcon(itemCardImage);
-        itemCardContainer.add(itemCardButt, BorderLayout.CENTER);
-
-        // Add itemCardContainer to this panel
-        add(itemCardContainer);
-    }
-
-    // Resize ImageIcon method
-    private ImageIcon resizeImageIcon(ImageIcon icon, int width, int height) {
-        Image img = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        return new ImageIcon(img);
-    }
-
-//    @Override
-//    public void actionPerformed(ActionEvent e) {
-//        // Handle button click action
-//    }
-}
-
-*/
