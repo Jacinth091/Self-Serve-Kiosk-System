@@ -22,6 +22,9 @@ class MenuApp extends JFrame implements ActionListener{
     private JLabel h_MenuLabel; // Label representing the title in the header
     private JButton[] h_MenuButt; // Array of buttons used as menu items in the header
     private JLabel[] h_MButtLabel;
+    private JButton selectButt = null;
+    private Border defaultBorder = BorderFactory.createLineBorder(Color.GRAY, 1);
+    private Border selectedBorder = BorderFactory.createLineBorder(new Color(255, 184,14), 5,true);
     private ImageIcon[] h_MButtImg;
     private ImageIcon jolibeeIcon; // Icon representing the Jollibee logo
 
@@ -62,7 +65,7 @@ class MenuApp extends JFrame implements ActionListener{
     String[] items = {"Food Item 1 - P216.00", "Food Item 2 - P216.00", "Food Item 3 - P216.00", "Food Item 4 - P216.00", "Food Item 5 - P216.00", "Food Item 6 - P216.00"};
     double totalPrice = 0.0;
     double[] prices = {100.00, 200.00, 300.00, 400.00, 500.00, 600.00};
-    Border defaultBorder;
+//    Border defaultBorder;
     private String totalCartPrice;
 
 
@@ -195,6 +198,8 @@ class MenuApp extends JFrame implements ActionListener{
             h_MButtImg[i] = resizeImageIcon(h_MButtImg[i], (300 / 4), (210 / 4));
         }
 
+        h_MenuButt[0].setBorder(selectedBorder);
+        selectButt = h_MenuButt[0];
 
 
         /*---------------------------- Body PArt ( center) ----------------------------*/
@@ -615,8 +620,16 @@ class MenuApp extends JFrame implements ActionListener{
         } else if (command.startsWith("Menu")) {
             int index = Integer.parseInt(command.substring(5));
             cardLayout.show(cardContParent, "card" + (index + 1));
+            handleSelectButt((JButton) e.getSource());
             System.out.println(command);
         }
+    }
+    public void handleSelectButt(JButton button){
+        if(selectButt != null){
+            selectButt.setBorder(defaultBorder);
+        }
+        button.setBorder(selectedBorder);
+        selectButt = button;
     }
 
     private void selectItem(int index) {
@@ -624,8 +637,8 @@ class MenuApp extends JFrame implements ActionListener{
             itemCard[selectedIndex / 6][selectedIndex % 6].setBorder(defaultBorder); // Reset previously selected button border
         }
         selectedIndex = index;
-        defaultBorder = itemCard[index / 6][index % 6].getBorder(); // Store the default border
-        itemCard[index / 6][index % 6].setBorder(BorderFactory.createLineBorder(new Color(255, 184,14), 5,true)); // Highlight selected button
+//        defaultBorder = itemCard[index / 6][index % 6].getBorder(); // Store the default border
+        itemCard[index / 6][index % 6].setBorder(selectedBorder); // Highlight selected button
     }
 
 /*    @Override
