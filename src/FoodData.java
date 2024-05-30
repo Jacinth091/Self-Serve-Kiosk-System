@@ -1,5 +1,10 @@
 class FoodData {
-    String[] foodName;
-    String[] foodDesc;
+    private String[] foodCategory;
+    private String[][] foodName;
+    private String[][] foodDesc;
+
+    private double[][] foodPrice;
+
+
 
 }

@@ -6,8 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 //import javax.swing.BorderLayout;
 import javax.swing.border.Border;
-
-public class WindowApp1 extends JFrame implements ActionListener{
+class MenuApp extends JFrame implements ActionListener{
 
     // main panel container
     private JPanel panelMain;
@@ -58,16 +57,21 @@ public class WindowApp1 extends JFrame implements ActionListener{
 
 
 
-    WindowApp1(){
-
+    MenuApp(){
+        initApp(625,800,"Jolikod",true,true, new BorderLayout(), JFrame.EXIT_ON_CLOSE);
     }
     
 
-    WindowApp1 (int width, int height, String title,
-    boolean isVisible, boolean isResizable, LayoutManager layout, int defCloseOper)
+    MenuApp(int width, int height, String title,
+            boolean isVisible, boolean isResizable, LayoutManager layout, int defCloseOper)
     {
         // Initialize Window
         initApp(width, height, title, isVisible, isResizable, layout, defCloseOper);
+        initUi();
+
+    }
+
+    public void initUi(){
 
         // Main panel configuration
         panelMain = new JPanel();
@@ -82,7 +86,6 @@ public class WindowApp1 extends JFrame implements ActionListener{
             childPanelCont[i] = new JPanel();
             childPanelCont[i].setOpaque(true);
             childPanelCont[i].setVisible(true);
-//            childPanelCont[i].setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         }
 
         // Header panel layouts and sizes
@@ -92,7 +95,6 @@ public class WindowApp1 extends JFrame implements ActionListener{
 
         // Body - Center
         childPanelCont[1].setLayout(new GridLayout(2,6, 10,10));
-//        childPanelCont[1].setLayout(new FlowLayout());
         childPanelCont[1].setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
         // Footer - Bottom
@@ -124,105 +126,95 @@ public class WindowApp1 extends JFrame implements ActionListener{
         h_MenuLabel.setHorizontalAlignment(JLabel.CENTER);
 
         // Load and resize icon for the title label
-        jolibeeIcon = new ImageIcon(getClass().getResource("Assets/logo/Joli-Logo.png"));
+        jolibeeIcon = new ImageIcon(getClass().getResource("Assets/Item_category/Joli-Logo.png"));
         jolibeeIcon = resizeImageIcon(jolibeeIcon, 120, 90);
         h_MenuLabel.setIcon(jolibeeIcon);
 
+        // Initialize h_MenuContParent
         h_MenuContParent = new JPanel[4];
-        for(byte i =0; i< h_MenuContParent.length; i++){
+        // Initialize h_MenuButtCont
+        h_MenuButtCont = new JPanel[4];
+        // Initialize h_MenuButt
+        h_MenuButt = new JButton[4];
+        // Initialize h_MButtLabel
+        h_MButtLabel = new JLabel[4];
+        // Initialize h_MButtImg
+        h_MButtImg = new ImageIcon[4];
+
+        for (byte i = 0; i < h_MenuContParent.length; i++) {
+            // Configure h_MenuContParent
             h_MenuContParent[i] = new JPanel();
             h_MenuContParent[i].setOpaque(true);
             h_MenuContParent[i].setVisible(true);
-            h_MenuContParent[i].setPreferredSize(new Dimension(300,200));
+            h_MenuContParent[i].setPreferredSize(new Dimension(300, 200));
             h_MenuContParent[i].setLayout(new OverlayLayout(h_MenuContParent[i]));
-//            h_MenuContParent[i].setBorder(BorderFactory.createLineBorder(Color.red,2));
-            
-        }
 
-        h_MenuButtCont= new JPanel[4];
-        for(byte i =0; i< h_MenuButtCont.length; i++){
+            // Configure h_MenuButtCont
             h_MenuButtCont[i] = new JPanel();
-//            h_MenuButtCont[i].setOpaque(true);
+            // h_MenuButtCont[i].setOpaque(true);
             h_MenuButtCont[i].setVisible(true);
-            h_MenuButtCont[i].setPreferredSize(new Dimension(300,200));
+            h_MenuButtCont[i].setPreferredSize(new Dimension(300, 200));
             h_MenuButtCont[i].setLayout(new BorderLayout());
-//            h_MenuButtCont[i].setBorder(BorderFactory.createLineBorder(Color.red,2));
 
-        }
 
-        // Initialize menu buttons
-        h_MenuButt = new JButton[4];
-        for (int i = 0; i < h_MenuButt.length; i++) {
+            // Configure h_MenuButt
             h_MenuButt[i] = new JButton();
             h_MenuButt[i].setBorder(null);
             h_MenuButt[i].setOpaque(true);
             h_MenuButt[i].setVisible(true);
-            h_MenuButt[i].setName("Card " + (i+1));
+            h_MenuButt[i].setName("Category " + (i + 1));
             h_MenuButt[i].setLayout(new BorderLayout());
-        }
+            h_MenuButt[i].addActionListener(this);
 
-        h_MButtLabel = new JLabel[4];
-        for(byte i =0; i< h_MButtLabel.length; i++){
+
+            // Configure h_MButtLabel
             h_MButtLabel[i] = new JLabel();
             h_MButtLabel[i].setBorder(null);
             h_MButtLabel[i].setOpaque(true);
             h_MButtLabel[i].setVisible(true);
             h_MButtLabel[i].setBackground(Color.WHITE);
-            h_MButtLabel[i].setText("<html><p style='text-align:center; font-weight: bold; " +
-                    "font-size:10px;" + "color: black;" +
-                    "'>Product Category</p></html>");
+            h_MButtLabel[i].setText("<html><p style='text-align:center; font-weight: bold; font-size:10px; color: black;'>Product Category</p></html>");
             h_MButtLabel[i].setHorizontalTextPosition(JLabel.CENTER);
             h_MButtLabel[i].setVerticalTextPosition(JLabel.BOTTOM);
             h_MButtLabel[i].setHorizontalAlignment(JLabel.CENTER);
-            h_MButtLabel[i].setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
 
-
-
-
+            // Configure h_MButtImg
+            h_MButtImg[i] = new ImageIcon(getClass().getResource("Assets/Item_category/best-sellers-icon.png"));
+            h_MButtImg[i] = resizeImageIcon(h_MButtImg[i], (300 / 4), (210 / 4));
         }
-        h_MButtImg = new ImageIcon[4];
-        for(byte i =0; i< h_MButtImg.length; i++) {
-            h_MButtImg[i] = new ImageIcon(getClass().getResource("Assets/logo/ChJoy-Icon.png"));
-            h_MButtImg[i] = resizeImageIcon(h_MButtImg[i], (300/4), (210/4));
 
-        }
-        
-        
-        
-        
+
 
         /*---------------------------- Body PArt ( center) ----------------------------*/
 
         // Initialize itemCardContParent
         itemCardContParent = new JPanel[6];
+        // Initialize itemCardContiner
+        itemCardContainer = new JPanel[6];
+        // Initialize itemCardCButton
+        itemCardButt = new JButton[6];
+        // Initialize itemCardLabel
+        itemCardLabel = new JLabel[6];
+        // Initialize ImageIcon[]
+        itemCardImage = new ImageIcon[6];
 
         for(byte i =0; i< itemCardContParent.length; i++) {
+            // Configure itemCardContainer
             itemCardContParent[i] = new JPanel();
             itemCardContParent[i].setOpaque(true);
             itemCardContParent[i].setVisible(true);
             itemCardContParent[i].setToolTipText("Parent Cont");
             itemCardContParent[i].setPreferredSize(new Dimension(300, 200));
-//            itemCardContParent[i].setBackground(Color.WHITE);
             itemCardContParent[i].setLayout(new OverlayLayout(itemCardContParent[i]));
 
-        }
-
-        // Initialize itemCardContainer
-        itemCardContainer = new JPanel[6];
-        for(byte i =0; i< itemCardContainer.length; i++){
+            // Configure itemCardContainer
             itemCardContainer[i] = new JPanel();
             itemCardContainer[i].setOpaque(true);
             itemCardContainer[i].setVisible(true);
             itemCardContainer[i].setPreferredSize(new Dimension(300,200));
             itemCardContainer[i].setLayout(new BorderLayout());
-//            itemCardContainer[i].setBorder(BorderFactory.createLineBorder(Color.red,2));
 
-
-        }
-        // Initialize itemCardCButton
-        itemCardButt = new JButton[6];
-
-        for(byte i =0; i< itemCardButt.length; i++){
+            // Configure itemCardButt
             itemCardButt[i] = new JButton();
             itemCardButt[i].setBorder(null);
             itemCardButt[i].setOpaque(true);
@@ -232,24 +224,7 @@ public class WindowApp1 extends JFrame implements ActionListener{
             itemCardButt[i].addActionListener(this);
             itemCardButt[i].setActionCommand("item" + i);
 
-//            itemCardButt[i].addActionListener(new ActionListener() {
-//                @Override
-//                public void actionPerformed(ActionEvent e) {
-//                    // Action to perform when the button is clicked
-//                    JButton source = (JButton)e.getSource();
-//                    System.out.print("Button clicked!\n");
-//                    System.out.println(source.getName());
-//                }
-//            });
-
-
-        }
-
-        // Initialize itemCardLabel
-
-        itemCardLabel = new JLabel[6];
-
-        for(byte i =0; i< itemCardLabel.length; i++){
+            // Configure itemCardLabel
             itemCardLabel[i] = new JLabel();
             itemCardLabel[i].setBorder(null);
             itemCardLabel[i].setOpaque(true);
@@ -260,24 +235,18 @@ public class WindowApp1 extends JFrame implements ActionListener{
             itemCardLabel[i].setHorizontalTextPosition(JLabel.CENTER);
             itemCardLabel[i].setVerticalTextPosition(JLabel.BOTTOM);
             itemCardLabel[i].setHorizontalAlignment(JLabel.CENTER);
-        //     itemCardButt[i].addActionListener(this);
-        //     itemCardButt[i].setActionCommand("item" + i);
-  
 
-        }
-        // Initialize ImageIcon[]
-
-        itemCardImage = new ImageIcon[6];
-        for(byte i =0; i< itemCardImage.length; i++) {
-            itemCardImage[i] = new ImageIcon(getClass().getResource("Assets/item_pictures/BS-item-1.png"));
+            // Configure itemCardImage
+            itemCardImage[i] = new ImageIcon(getClass().getResource("Assets/item_pictures/BS/BS-item-1.png"));
             itemCardImage[i] = resizeImageIcon(itemCardImage[i], 100, 70);
 
         }
 
 
+
         /*----------------------- Initialize childPanelCont[2] FOOTER - BOTTOM PART -----------------------*/
 
-// Initialize Footer Containers
+        // Initialize Footer Containers
         f_ContParent = new JPanel[3];
         for (byte i = 0; i < f_ContParent.length; i++) {
             f_ContParent[i] = new JPanel();
@@ -288,12 +257,12 @@ public class WindowApp1 extends JFrame implements ActionListener{
 
         /*----------------------- Configure Header of Footer -----------------------*/
 
-// Configure Header
+        // Configure Header
         f_ContParent[0].setToolTipText("Header");
         f_ContParent[0].setBackground(new Color(218, 181, 83));
         f_ContParent[0].setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
-// Initialize and Configure Header Label
+        // Initialize and Configure Header Label
         f_NorthLabel = new JLabel();
         f_NorthLabel.setBorder(null);
         f_NorthLabel.setOpaque(true);
@@ -304,7 +273,7 @@ public class WindowApp1 extends JFrame implements ActionListener{
         f_NorthLabel.setVerticalTextPosition(JLabel.BOTTOM);
         f_NorthLabel.setHorizontalAlignment(JLabel.CENTER);
 
-// Initialize and Configure Header Button
+/*        // Initialize and Configure Header Button
 //        f_NorthButt = new JButton("View Cart");
 //        f_NorthButt.setBorder(null);
 //        f_NorthButt.setOpaque(true);
@@ -312,16 +281,16 @@ public class WindowApp1 extends JFrame implements ActionListener{
 //        f_NorthButt.setFocusable(false);
 //        f_NorthButt.setBackground(Color.WHITE);
 //        f_NorthButt.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-//        f_NorthButt.setPreferredSize(new Dimension(200, 30));
+//        f_NorthButt.setPreferredSize(new Dimension(200, 30));*/
 
         /*----------------------- Configure Body of Footer -----------------------*/
 
-// Configure Body
+        // Configure Body
         f_ContParent[1].setToolTipText("Center");
         f_ContParent[1].setBackground(new Color(246, 216, 216));
         f_ContParent[1].setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
-// Initialize and Configure Body Labels
+        // Initialize and Configure Body Labels
         f_CenterLabel = new JLabel[2];
         for (byte i = 0; i < f_CenterLabel.length; i++) {
             f_CenterLabel[i] = new JLabel();
@@ -350,7 +319,7 @@ public class WindowApp1 extends JFrame implements ActionListener{
             f_CenterButt[i].setOpaque(true);
             f_CenterButt[i].setVisible(true);
             f_CenterButt[i].setFocusable(false);
-        
+
         }
 
         f_CenterButt[0].setText("<html><p style='color: Black; font-weight: bold; text-align: center; font-size: 25px;'>+</p></html>");
@@ -374,7 +343,7 @@ public class WindowApp1 extends JFrame implements ActionListener{
         f_ContParent[2].setPreferredSize(new Dimension(0, 60));
         f_ContParent[2].setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
-// Initialize and Configure CheckOut Buttons
+        // Initialize and Configure CheckOut Buttons
         f_SouthButt = new JButton[2];
         for (byte i = 0; i < f_SouthButt.length; i++) {
             f_SouthButt[i] = new JButton();
@@ -383,24 +352,23 @@ public class WindowApp1 extends JFrame implements ActionListener{
             f_SouthButt[i].setFocusable(false);
         }
 
-// Configure Back Button
+        // Configure Back Button
         f_SouthButt[0].setPreferredSize(new Dimension(100, 30));
         f_SouthButt[0].setText("<html><p style='color: white; font-weight: bold; text-align: center; font-size: 15px;'>Back</p></html>");
         f_SouthButt[0].setBackground(null);
         f_SouthButt[0].setBorder(BorderFactory.createLineBorder(Color.WHITE, 5));
 
-// Configure Review and CheckOut Button
+        // Configure Review and CheckOut Button
         f_SouthButt[1].setText("<html><p style='color: White; font-weight: bold; text-align: center; font-size: 20;'>Review Order</p></html>");
         f_SouthButt[1].setBackground(new Color(51, 220, 88));
 
-// Initialize and Configure CheckOut Label
+        // Initialize and Configure CheckOut Label
         totalCartPrice = "P " + totalPrice;
         f_SouthLabel = new JLabel();
         f_SouthLabel.setBorder(null);
         f_SouthLabel.setOpaque(true);
         f_SouthLabel.setVisible(true);
         f_SouthLabel.setBackground(Color.white);
-//        f_SouthLabel.setBorder(BorderFactory.createLineBorder(Color.white, 5, true));
         f_SouthLabel.setText("<html><div style='text-align: center;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 15px;'>Order Total: <span style='color: Black; font-weight: bold; font-size: 20;'>" + totalCartPrice +" </span> </p></div></html>");
         f_SouthLabel.setHorizontalTextPosition(JLabel.CENTER);
         f_SouthLabel.setVerticalTextPosition(JLabel.TOP);
@@ -412,12 +380,12 @@ public class WindowApp1 extends JFrame implements ActionListener{
 
         /*----------------------- Add Components to Panels -----------------------*/
 
-// Add Components to Footer Header
+        // Add Components to Footer Header
         f_ContParent[0].add(f_NorthLabel, BorderLayout.CENTER);
 //        f_ContParent[0].add(f_NorthButt, BorderLayout.EAST);
-        
 
-// Add Components to Footer Body
+
+        // Add Components to Footer Body
         f_CenterLabel[1].add(f_CenterButt[0]);
         f_CenterLabel[1].add(f_CenterButt[1]);
 
@@ -425,61 +393,52 @@ public class WindowApp1 extends JFrame implements ActionListener{
         f_ContParent[1].add(f_CenterLabel[1], BorderLayout.CENTER);
         f_ContParent[1].add(f_CenterButt[2], BorderLayout.EAST);
 
-// Add Components to Footer CheckOut
+        // Add Components to Footer CheckOut
         f_ContParent[2].add(f_SouthButt[0], BorderLayout.WEST);
         f_ContParent[2].add(f_SouthLabel, BorderLayout.CENTER);
         f_ContParent[2].add(f_SouthButt[1], BorderLayout.EAST);
 
-// Add Footer Containers to childPanelCont[2]
+        // Add Footer Containers to childPanelCont[2]
         childPanelCont[2].add(f_ContParent[0], BorderLayout.NORTH);
         childPanelCont[2].add(f_ContParent[1], BorderLayout.CENTER);
         childPanelCont[2].add(f_ContParent[2], BorderLayout.SOUTH);
 
-// Add ImageIcon array to JLabels
-        for (byte i = 0; i < itemCardImage.length; i++) {
-            itemCardLabel[i].setIcon(itemCardImage[i]);
-        }
+        // Configuring item card components and their hierarchy
 
-// Add itemCardLabel to itemCardButt
-        for (byte i = 0; i < itemCardLabel.length; i++) {
-//            itemCardButt[i].add(itemCardLabel[i], BorderLayout.CENTER);
-            itemCardButt[i].add(itemCardLabel[i], BorderLayout.CENTER);
-        }
-
-// Add itemCardButt to itemCardContainer
-        for (byte i = 0; i < itemCardButt.length; i++) {
-            itemCardContainer[i].add(itemCardButt[i], BorderLayout.CENTER);
-        }
-
-
-// Add itemCardContainer to itemCardContParent
         for (byte i = 0; i < itemCardContainer.length; i++) {
+            // Set item card label's icon
+            itemCardLabel[i].setIcon(itemCardImage[i]);
+
+            // Add item card label to item card button
+            itemCardButt[i].add(itemCardLabel[i], BorderLayout.CENTER);
+
+            // Add item card button to item card container
+            itemCardContainer[i].add(itemCardButt[i], BorderLayout.CENTER);
+
+            // Add item card container to item card parent container
             itemCardContParent[i].add(itemCardContainer[i]);
+
+            // Add item card parent container to the center panel
+            childPanelCont[1].add(itemCardContParent[i]);
         }
 
-// Add itemCardContParent to childPanelCont (Body - Center)
-        for (JPanel parentContainer : itemCardContParent) {
-            childPanelCont[1].add(parentContainer);
-        }
-        for (byte i = 0; i < h_MButtImg.length; i++) {
+
+        // Configuring header menu buttons and their containers
+
+        for (byte i = 0; i < 4; i++) {
+            // Set icon for menu button label
             h_MButtLabel[i].setIcon(h_MButtImg[i]);
-        }
 
-    for(byte i =0; i < h_MButtLabel.length; i++){
+            // Add menu button label to menu button
             h_MenuButt[i].add(h_MButtLabel[i], BorderLayout.CENTER);
 
+            // Add menu button to menu button container
+            h_MenuButtCont[i].add(h_MenuButt[i], BorderLayout.CENTER);
 
-//        h_MenuButt[i].add(h_MButtLabel[i]);
-    }
+            // Add menu button container to menu container parent
+            h_MenuContParent[i].add(h_MenuButtCont[i]);
+        }
 
-
-    for(byte i = 0; i < h_MenuButt.length; i++){
-        h_MenuButtCont[i].add(h_MenuButt[i], BorderLayout.CENTER);
-    }
-
-    for(byte i = 0; i < h_MenuButtCont.length; i++){
-        h_MenuContParent[i].add(h_MenuButtCont[i]);
-    }
 
 
 // Add menu buttons to the second head label
@@ -488,20 +447,20 @@ public class WindowApp1 extends JFrame implements ActionListener{
         }
 
 
-// Add title label to the first head label
+        // Add title label to the first head label
         headLabels[0].add(h_MenuLabel, BorderLayout.CENTER);
 
-// Add head labels to the first header panel
+        // Add head labels to the first header panel
         for (JLabel headLabel : headLabels) {
             childPanelCont[0].add(headLabel);
         }
 
-// Add header panels to the main panel
+        // Add header panels to the main panel
         panelMain.add(childPanelCont[0], BorderLayout.NORTH);
         panelMain.add(childPanelCont[1], BorderLayout.CENTER);
         panelMain.add(childPanelCont[2], BorderLayout.SOUTH);
 
-// Add main panel to the frame
+        // Add main panel to the frame
         add(panelMain, BorderLayout.CENTER);
 
         setLocationRelativeTo(null);
@@ -526,17 +485,12 @@ public class WindowApp1 extends JFrame implements ActionListener{
         Image resizedImage = image.getScaledInstance(width, height, Image.SCALE_SMOOTH); // Resize the image
         return new ImageIcon(resizedImage); // Create a new ImageIcon with the resized image
     }
-    public void dispMessage(String mssg){
-        System.out.printf("Message: %s\n", mssg);
-    }
-    public void breakLine(){
-        System.out.println("\n");
-    }
+
 
     public static void main(String[] args){
 
-        WindowApp1 startMenu = new WindowApp1(625,800,"Jolikod",true,true, new BorderLayout(), JFrame.EXIT_ON_CLOSE);
-        startMenu.setVisible(true);
+        MenuApp menuWindow = new MenuApp(625,800,"Jolikod",true,true, new BorderLayout(), JFrame.EXIT_ON_CLOSE);
+
 
     }
     @Override

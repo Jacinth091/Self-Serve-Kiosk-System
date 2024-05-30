@@ -4,10 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="Added WindowApp1 to test feautures">
+    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="Added a product Category Image adn Product Category title placeholder in the Menu Tab buttons &#10;&#10;TODO find a way to set focus on the current oage and also create a function so that the other panel of the other tab will be displayed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WindowApp1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WindowApp1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/item_pictures/BS-item-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/logo/Beverages-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/logo/ChJoy-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/logo/Desserts-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/logo/Fam-Meal-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/logo/Joli-Logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/logo/Sides-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/logo/Spag-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/logo/best-sellers-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/item_pictures/BS-item-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/logo/Beverages-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/logo/ChJoy-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/logo/Desserts-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/logo/Fam-Meal-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/logo/Joli-Logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/logo/Sides-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/logo/Spag-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/logo/best-sellers-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FoodData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FoodData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WindowApp1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +93,7 @@
     "Application.Front.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.MainApp.executor": "Run",
+    "Application.MenuApp.executor": "Run",
     "Application.RoundedLabel.executor": "Run",
     "Application.Test2.executor": "Run",
     "Application.WindowApp.executor": "Run",
@@ -219,7 +239,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716995755973</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added a product Category Image adn Product Category title placeholder in the Menu Tab buttons &#10;&#10;TODO find a way to set focus on the current oage and also create a function so that the other panel of the other tab will be displayed">
+      <option name="closed" value="true" />
+      <created>1717001305546</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1717001305546</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -231,6 +259,18 @@
     <MESSAGE value="Done for the Layouting of the Menu&#10;TODO// Add Functions to the buttons and Layout the Menu for the tabs" />
     <MESSAGE value="Merged with windowApp for the view Cart button&#10;TODO// Function between the buttons and the events&#10;Also Add a database like class to store all of our files and texts" />
     <MESSAGE value="Added WindowApp1 to test feautures" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added WindowApp1 to test feautures" />
+    <MESSAGE value="Added a product Category Image adn Product Category title placeholder in the Menu Tab buttons &#10;&#10;TODO find a way to set focus on the current oage and also create a function so that the other panel of the other tab will be displayed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a product Category Image adn Product Category title placeholder in the Menu Tab buttons &#10;&#10;TODO find a way to set focus on the current oage and also create a function so that the other panel of the other tab will be displayed" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MenuApp.java</url>
+          <line>275</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
