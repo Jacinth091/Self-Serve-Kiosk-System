@@ -4,8 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="TODO// Create a function for the changing panel page and with its corresponding button">
+    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="I added the function to let the current selected button tab be higlighted aslo when opening the first tab, the frist button tab will be selected">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/Beverages-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/ChJoy-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/Desserts-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/Fam-Meal-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/Joli-Logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/Sides-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/Spag-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/best-sellers-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/item_pictures/BV/BV-item-5.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Finals/Assets/item_pictures/BV/BV-item-5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/item_pictures/BV/BV-item-6.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Finals/Assets/item_pictures/BV/BV-item-6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/item_pictures/BV/BV-item-7.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Finals/Assets/item_pictures/BV/BV-item-7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/Beverages-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/ChJoy-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/Desserts-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/Fam-Meal-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/Joli-Logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Icons/Joli-Logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/Sides-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/Spag-Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/best-sellers-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/item_pictures/BV/BV-item-5.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/item_pictures/BV/BV-item-5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/item_pictures/BV/BV-item-6.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/item_pictures/BV/BV-item-6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/item_pictures/BV/BV-item-7.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/item_pictures/BV/BV-item-7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FoodData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FoodData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ItemCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ItemCard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MenuApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test2.java" afterDir="false" />
     </list>
@@ -24,7 +48,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Jacinth-Branch" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -70,6 +94,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Calculators.executor": "Run",
+    "Application.FoodData.executor": "Run",
     "Application.Frame.executor": "Run",
     "Application.Front.executor": "Run",
     "Application.Main.executor": "Run",
@@ -97,7 +122,7 @@
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "405",
     "app.teamhub.selectedTeam": "github.com/Jacinth091/Self-Serve-Kiosk-System",
     "app.teamhub.trackedBranches": "-19lmspi/master,-19lmspi/Jacinth-Branch",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "Jacinth-Branch",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/PCC/Desktop/CODING FILES/ProgLang - Hello World/Java/Projects/ComProg_Project_Calculator",
@@ -109,13 +134,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\PCC\Desktop\Finals\src\Assets\Icons" />
       <recent name="C:\Users\PCC\Desktop\Finals\src\Assets" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MenuApp">
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="MainApp" />
       <module name="Finals" />

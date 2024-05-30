@@ -13,17 +13,17 @@ class ItemCard extends JPanel{
 
     private Double item_Price;
     private String item_Desc;
-    private String imagePath;
+    private ImageIcon image;
 
     public ItemCard(){
 
     }
 
-    public ItemCard(Double item_Price, String item_Desc, String imagePath) {
+    public ItemCard(Double item_Price, String item_Desc, ImageIcon image) {
         // Initialize components
         this.item_Price = item_Price;
         this.item_Desc = item_Desc;
-        this.imagePath = imagePath;
+        this.image = image;
         itemCardContainer = new JPanel();
         itemCardButt = new JButton();
         itemCardLabel = new JLabel();
@@ -61,8 +61,8 @@ class ItemCard extends JPanel{
         itemCardLabel.setHorizontalAlignment(JLabel.CENTER);
 
         // Configure itemCardImage (Note: You may want to pass image path as a parameter)
-        itemCardImage = new ImageIcon(getClass().getResource(imagePath));
-        itemCardImage = resizeImageIcon(itemCardImage, (itemCardImage.getIconWidth()/3), (itemCardImage.getIconHeight()/3) );
+        itemCardImage = image;
+//        itemCardImage = resizeImageIcon(itemCardImage, (itemCardImage.getIconWidth()/3), (itemCardImage.getIconHeight()/3) );
 
         itemCardLabel.setIcon(itemCardImage);
 
@@ -74,11 +74,11 @@ class ItemCard extends JPanel{
     }
 
     // Method to resize ImageIcon
-    private ImageIcon resizeImageIcon(ImageIcon icon, int width, int height) {
-        Image img = icon.getImage();
-        Image newImg = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        return new ImageIcon(newImg);
-    }
+//    private ImageIcon resizeImageIcon(ImageIcon icon, int width, int height) {
+//        Image img = icon.getImage();
+//        Image newImg = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+//        return new ImageIcon(newImg);
+//    }
     @Override
     public void setBorder(Border border) {
         if (itemCardButt != null) {

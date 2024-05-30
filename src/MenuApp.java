@@ -3,12 +3,21 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import javax.swing.*;
 //import javax.swing.BorderLayout;
 import javax.swing.border.Border;
-import java.util.ArrayList;
+
 class MenuApp extends JFrame implements ActionListener{
+    FoodData foodData = new FoodData();
+    private String[] localFoodCate  = foodData.getFoodCategory();
+    private String[][] localFoodDesc = foodData.getFoodDesc();
+    private ImageIcon[] localFoodCateImg = foodData.getCateIcon();
+    private ImageIcon[][] localFoodItemImg = foodData.getItemPicIcons();
+
+    private double[][] localFoodPrice = foodData.getFoodPrice();
+    private int localNoOfCate = foodData.getNoOfCate();
+    private int localNoOfItems = foodData.getNoOfItems();
+
 
     // main panel container
     private JPanel panelMain;
@@ -22,6 +31,9 @@ class MenuApp extends JFrame implements ActionListener{
     private JLabel h_MenuLabel; // Label representing the title in the header
     private JButton[] h_MenuButt; // Array of buttons used as menu items in the header
     private JLabel[] h_MButtLabel;
+    private JButton selectButt = null;
+    private Border defaultBorder = BorderFactory.createLineBorder(Color.GRAY, 1);
+    private Border selectedBorder = BorderFactory.createLineBorder(new Color(255, 184,14), 5,true);
     private ImageIcon[] h_MButtImg;
     private ImageIcon jolibeeIcon; // Icon representing the Jollibee logo
 
@@ -52,7 +64,7 @@ class MenuApp extends JFrame implements ActionListener{
     private JButton[] f_CenterButt; // Array of buttons for actions related to the footer body
     private JButton[] f_SouthButt; // Array of buttons for actions related to the footer checkout section
     private JLabel f_SouthLabel; // Label for displaying total order price in the footer
-    float totalCompPrice = 0.00f; // Total order pri
+//    float totalCompPrice = 0.00f; // Total order pri
 
     //override
     int quantity = 1;
@@ -62,13 +74,13 @@ class MenuApp extends JFrame implements ActionListener{
     String[] items = {"Food Item 1 - P216.00", "Food Item 2 - P216.00", "Food Item 3 - P216.00", "Food Item 4 - P216.00", "Food Item 5 - P216.00", "Food Item 6 - P216.00"};
     double totalPrice = 0.0;
     double[] prices = {100.00, 200.00, 300.00, 400.00, 500.00, 600.00};
-    Border defaultBorder;
+//    Border defaultBorder;
     private String totalCartPrice;
 
 
 
     MenuApp(){
-        initApp(625,800,"Jolikod",true,true, new BorderLayout(), JFrame.EXIT_ON_CLOSE);
+//        initApp(625,800,"Jolikod",true,true, new BorderLayout(), JFrame.EXIT_ON_CLOSE);
     }
 
 
@@ -109,7 +121,7 @@ class MenuApp extends JFrame implements ActionListener{
         childPanelCont[1].setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
 
         // Footer - Bottom
-        childPanelCont[2].setPreferredSize(new Dimension(100, 200));
+        childPanelCont[2].setPreferredSize(new Dimension(100, 150));
         childPanelCont[2].setLayout(new BorderLayout());
 
         // Initialize head labels
@@ -132,12 +144,12 @@ class MenuApp extends JFrame implements ActionListener{
         h_MenuLabel = new JLabel();
         h_MenuLabel.setText("<html><p style='color: White; font-weight: bold; " +
                 "text-align: center;" + "font-size: 30;" +
-                "'>Jolibee Menu" +
+                "'>Menu" +
                 "</p></html>");;
         h_MenuLabel.setHorizontalAlignment(JLabel.CENTER);
 
         // Load and resize icon for the title label
-        jolibeeIcon = new ImageIcon(getClass().getResource("Assets/Item_category/Joli-Logo.png"));
+        jolibeeIcon = new ImageIcon(getClass().getResource("Assets/Icons/Joli-Logo.png"));
         jolibeeIcon = resizeImageIcon(jolibeeIcon, 120, 90);
         h_MenuLabel.setIcon(jolibeeIcon);
 
@@ -185,16 +197,18 @@ class MenuApp extends JFrame implements ActionListener{
             h_MButtLabel[i].setOpaque(true);
             h_MButtLabel[i].setVisible(true);
             h_MButtLabel[i].setBackground(Color.WHITE);
-            h_MButtLabel[i].setText("<html><p style='text-align:center; font-weight: bold; font-size:10px; color: black;'>Product Category</p></html>");
+            h_MButtLabel[i].setText("<html><p style='text-align:center; font-weight: bold; font-size:10px; color: black;'>"+localFoodCate[i]+"</p></html>");
             h_MButtLabel[i].setHorizontalTextPosition(JLabel.CENTER);
             h_MButtLabel[i].setVerticalTextPosition(JLabel.BOTTOM);
             h_MButtLabel[i].setHorizontalAlignment(JLabel.CENTER);
 
             // Configure h_MButtImg
-            h_MButtImg[i] = new ImageIcon(getClass().getResource("Assets/Item_category/best-sellers-icon.png"));
-            h_MButtImg[i] = resizeImageIcon(h_MButtImg[i], (300 / 4), (210 / 4));
+            h_MButtImg[i] = localFoodCateImg[i];
+//            h_MButtImg[i] = resizeImageIcon(h_MButtImg[i], (300 / 4), (210 / 4));
         }
 
+        h_MenuButt[0].setBorder(selectedBorder);
+        selectButt = h_MenuButt[0];
 
 
         /*---------------------------- Body PArt ( center) ----------------------------*/
@@ -221,7 +235,7 @@ class MenuApp extends JFrame implements ActionListener{
 
         cardLayout = (CardLayout)cardContParent.getLayout();
 
-        itemCardCont = new JPanel[4][6];
+        itemCardCont = new JPanel[localNoOfCate][localNoOfItems];
 
         for(int i =0; i<itemCardCont.length; i++){
             for(int j =0; j < itemCardCont[i].length; j++){
@@ -244,18 +258,18 @@ class MenuApp extends JFrame implements ActionListener{
 
 
 
-        itemCard = new ItemCard[4][6];
-
-        imgPaths = new String[]{
-                "Assets/item_pictures/BS/BS-item-1.png",
-                "Assets/item_pictures/BS/BS-item-2.png",
-                "Assets/item_pictures/BS/BS-item-3.png",
-                "Assets/item_pictures/BS/BS-item-4.png"
-        };
+        itemCard = new ItemCard[localNoOfCate][localNoOfItems];
+//
+//        imgPaths = new String[]{
+//                "Assets/item_pictures/BS/BS-item-1.png",
+//                "Assets/item_pictures/BS/BS-item-2.png",
+//                "Assets/item_pictures/BS/BS-item-3.png",
+//                "Assets/item_pictures/BS/BS-item-4.png"
+//        };
         for(int i =0; i<itemCard.length; i++){
             for(int j =0; j < itemCard[i].length; j++){
 
-                itemCard[i][j] = new ItemCard(223.23, "Product", imgPaths[i]);
+                itemCard[i][j] = new ItemCard(localFoodPrice[i][j], localFoodDesc[i][j], localFoodItemImg[i][j]);
 
                 itemCard[i][j].setActionCommand("item" + (i * itemCard[i].length + j));
                 itemCard[i][j].addActionListener(this);
@@ -391,8 +405,8 @@ class MenuApp extends JFrame implements ActionListener{
 
 
         f_CenterLabel[0].setBackground(new Color(255, 255, 255));
-        f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 15px; padding:5px;'>"+ quantity+   "</p>" +
-                "<p style='color: Black; font-weight: bold; font-size: 20;'>Quantity</p></div></html>");
+        f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 12px; padding:3px;'>"+ quantity+   "</p>" +
+                "<p style='color: Black; font-weight: bold; font-size: 10px;'>Quantity</p></div></html>");
         f_CenterLabel[0].setHorizontalTextPosition(JLabel.CENTER);
         f_CenterLabel[0].setVerticalTextPosition(JLabel.TOP);
         f_CenterLabel[0].setHorizontalAlignment(JLabel.CENTER);
@@ -430,7 +444,7 @@ class MenuApp extends JFrame implements ActionListener{
 
         f_ContParent[2].setBackground(Color.RED);
         f_ContParent[2].setToolTipText("Footer - CheckOut");
-        f_ContParent[2].setPreferredSize(new Dimension(0, 60));
+        f_ContParent[2].setPreferredSize(new Dimension(0, 50));
         f_ContParent[2].setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
         // Initialize and Configure CheckOut Buttons
@@ -580,7 +594,7 @@ class MenuApp extends JFrame implements ActionListener{
 
     public static void main(String[] args){
 
-        MenuApp menuWindow = new MenuApp(625,800,"Jolikod",true,true, new BorderLayout(), JFrame.EXIT_ON_CLOSE);
+        MenuApp menuWindow = new MenuApp(625,750,"Jolikod",true,true, new BorderLayout(), JFrame.EXIT_ON_CLOSE);
 
 
     }
@@ -598,25 +612,33 @@ class MenuApp extends JFrame implements ActionListener{
                 itemCard[selectedIndex / 6][selectedIndex % 6].setBorder(defaultBorder); // Reset button border
                 selectedIndex = -1;
                 quantity = 1; // Reset quantity
-                f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 15px; padding:5px;'>"+ quantity+"</p>" +
-                        "<p style='color: Black; font-weight: bold; font-size: 20;'>Quantity</p></div></html>"); // Reset quantity label
+                f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 12px; padding:3px;'>"+ quantity+   "</p>" +
+                        "<p style='color: Black; font-weight: bold; font-size: 10px;'>Quantity</p></div></html>");
                 updateCartDisplay();
             }
         } else if (command.equals("increaseQuantity")) {
             quantity++;
-            f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 15px; padding:5px;'>"+ quantity+   "</p>" +
-                    "<p style='color: Black; font-weight: bold; font-size: 20;'>Quantity</p></div></html>");
+            f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 12px; padding:3px;'>"+ quantity+   "</p>" +
+                    "<p style='color: Black; font-weight: bold; font-size: 10px;'>Quantity</p></div></html>");
         } else if (command.equals("decreaseQuantity")) {
             if (quantity > 1) {
                 quantity--;
-                f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 15px; padding:5px;'>"+ quantity+   "</p>" +
-                        "<p style='color: Black; font-weight: bold; font-size: 20;'>Quantity</p></div></html>");
+                f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 12px; padding:3px;'>" + quantity + "</p>" +
+                        "<p style='color: Black; font-weight: bold; font-size: 10px;'>Quantity</p></div></html>");
             }
         } else if (command.startsWith("Menu")) {
             int index = Integer.parseInt(command.substring(5));
             cardLayout.show(cardContParent, "card" + (index + 1));
+            handleSelectButt((JButton) e.getSource());
             System.out.println(command);
         }
+    }
+    public void handleSelectButt(JButton button){
+        if(selectButt != null){
+            selectButt.setBorder(defaultBorder);
+        }
+        button.setBorder(selectedBorder);
+        selectButt = button;
     }
 
     private void selectItem(int index) {
@@ -624,8 +646,8 @@ class MenuApp extends JFrame implements ActionListener{
             itemCard[selectedIndex / 6][selectedIndex % 6].setBorder(defaultBorder); // Reset previously selected button border
         }
         selectedIndex = index;
-        defaultBorder = itemCard[index / 6][index % 6].getBorder(); // Store the default border
-        itemCard[index / 6][index % 6].setBorder(BorderFactory.createLineBorder(new Color(255, 184,14), 5,true)); // Highlight selected button
+//        defaultBorder = itemCard[index / 6][index % 6].getBorder(); // Store the default border
+        itemCard[index / 6][index % 6].setBorder(selectedBorder); // Highlight selected button
     }
 
 /*    @Override
