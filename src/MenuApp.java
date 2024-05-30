@@ -68,7 +68,11 @@ class MenuApp extends JFrame implements ActionListener{
 
     //override
     int quantity = 1;
-    int selectedIndex = -1;
+    private int selectedIndexRow = -1;
+    private int selectedIndexCol = -1;
+
+    private int lrow;
+    private int lcol;
 
     StringBuilder cartContents = new StringBuilder("<html>Cart:<br>");
     String[] items = {"Food Item 1 - P216.00", "Food Item 2 - P216.00", "Food Item 3 - P216.00", "Food Item 4 - P216.00", "Food Item 5 - P216.00", "Food Item 6 - P216.00"};
@@ -257,21 +261,14 @@ class MenuApp extends JFrame implements ActionListener{
         }
 
 
-
         itemCard = new ItemCard[localNoOfCate][localNoOfItems];
-//
-//        imgPaths = new String[]{
-//                "Assets/item_pictures/BS/BS-item-1.png",
-//                "Assets/item_pictures/BS/BS-item-2.png",
-//                "Assets/item_pictures/BS/BS-item-3.png",
-//                "Assets/item_pictures/BS/BS-item-4.png"
-//        };
+
         for(int i =0; i<itemCard.length; i++){
             for(int j =0; j < itemCard[i].length; j++){
 
                 itemCard[i][j] = new ItemCard(localFoodPrice[i][j], localFoodDesc[i][j], localFoodItemImg[i][j]);
 
-                itemCard[i][j].setActionCommand("item" + (i * itemCard[i].length + j));
+                itemCard[i][j].setActionCommand(i + "item" +j );
                 itemCard[i][j].addActionListener(this);
             }
         }
@@ -285,67 +282,6 @@ class MenuApp extends JFrame implements ActionListener{
 
 
         }
-
-
-/*
-
-
-        // Initialize itemCardContParent
-        itemCardContParent = new JPanel[6];
-        // Initialize itemCardContiner
-        itemCardContainer = new JPanel[6];
-        // Initialize itemCardCButton
-        itemCardButt = new JButton[6];
-        // Initialize itemCardLabel
-        itemCardLabel = new JLabel[6];
-        // Initialize ImageIcon[]
-        itemCardImage = new ImageIcon[6];
-
-        for(byte i =0; i< itemCardContParent.length; i++) {
-            // Configure itemCardContainer
-            itemCardContParent[i] = new JPanel();
-            itemCardContParent[i].setOpaque(true);
-            itemCardContParent[i].setVisible(true);
-            itemCardContParent[i].setToolTipText("Parent Cont");
-            itemCardContParent[i].setPreferredSize(new Dimension(300, 200));
-            itemCardContParent[i].setLayout(new OverlayLayout(itemCardContParent[i]));
-
-            // Configure itemCardContainer
-            itemCardContainer[i] = new JPanel();
-            itemCardContainer[i].setOpaque(true);
-            itemCardContainer[i].setVisible(true);
-            itemCardContainer[i].setPreferredSize(new Dimension(300,200));
-            itemCardContainer[i].setLayout(new BorderLayout());
-
-            // Configure itemCardButt
-            itemCardButt[i] = new JButton();
-            itemCardButt[i].setBorder(null);
-            itemCardButt[i].setOpaque(true);
-            itemCardButt[i].setVisible(true);
-            itemCardButt[i].setName("Card " + (i+1));
-            itemCardButt[i].setLayout(new BorderLayout());
-            itemCardButt[i].addActionListener(this);
-            itemCardButt[i].setActionCommand("item" + i);
-
-            // Configure itemCardLabel
-            itemCardLabel[i] = new JLabel();
-            itemCardLabel[i].setBorder(null);
-            itemCardLabel[i].setOpaque(true);
-            itemCardLabel[i].setVisible(true);
-            itemCardLabel[i].setBackground(Color.WHITE);
-            itemCardLabel[i].setText("<html><p style='color: red; font-weight: bold; " +
-                    "text-align: center;'>P 212.00</p><br><p>Product Description</p></html>");
-            itemCardLabel[i].setHorizontalTextPosition(JLabel.CENTER);
-            itemCardLabel[i].setVerticalTextPosition(JLabel.BOTTOM);
-            itemCardLabel[i].setHorizontalAlignment(JLabel.CENTER);
-
-            // Configure itemCardImage
-            itemCardImage[i] = new ImageIcon(getClass().getResource("Assets/item_pictures/BS/BS-item-1.png"));
-            itemCardImage[i] = resizeImageIcon(itemCardImage[i], 100, 70);
-
-        }
-*/
-
 
 
         /*----------------------- Initialize childPanelCont[2] FOOTER - BOTTOM PART -----------------------*/
@@ -377,15 +313,6 @@ class MenuApp extends JFrame implements ActionListener{
         f_NorthLabel.setVerticalTextPosition(JLabel.BOTTOM);
         f_NorthLabel.setHorizontalAlignment(JLabel.CENTER);
 
-/*        // Initialize and Configure Header Button
-//        f_NorthButt = new JButton("View Cart");
-//        f_NorthButt.setBorder(null);
-//        f_NorthButt.setOpaque(true);
-//        f_NorthButt.setVisible(true);
-//        f_NorthButt.setFocusable(false);
-//        f_NorthButt.setBackground(Color.WHITE);
-//        f_NorthButt.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-//        f_NorthButt.setPreferredSize(new Dimension(200, 30));*/
 
         /*----------------------- Configure Body of Footer -----------------------*/
 
@@ -507,24 +434,6 @@ class MenuApp extends JFrame implements ActionListener{
         childPanelCont[2].add(f_ContParent[1], BorderLayout.CENTER);
         childPanelCont[2].add(f_ContParent[2], BorderLayout.SOUTH);
 
-/*//        // Configuring item card components and their hierarchy
-//
-//        for (byte i = 0; i < itemCardContainer.length; i++) {
-//            // Set item card label's icon
-//            itemCardLabel[i].setIcon(itemCardImage[i]);
-//
-//            // Add item card label to item card button
-//            itemCardButt[i].add(itemCardLabel[i], BorderLayout.CENTER);
-//
-//            // Add item card button to item card container
-//            itemCardContainer[i].add(itemCardButt[i], BorderLayout.CENTER);
-//
-//            // Add item card container to item card parent container
-////            itemCardContParent[i].add(itemCardContainer[i]);
-//
-//            // Add item card parent container to the center panel
-//            cardCont[0].add(itemCardContainer[i]);
-//        }*/
 
         childPanelCont[1].add(cardContParent, BorderLayout.CENTER);
 
@@ -601,16 +510,24 @@ class MenuApp extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();
-        if (command.startsWith("item")) {
-            int index = Integer.parseInt(command.substring(4));
-            selectItem(index);
+        if (command.contains("item")) {
+            lrow= Integer.parseInt(command.split("item")[0]);
+            
+            lcol = Integer.parseInt(command.split("item")[1]);
+            selectItem(lrow, lcol);
+            System.out.println("lRow: " + lrow + "lCol: " + lcol+ "\n\n" +
+                    "ItemPrice : " + localFoodPrice[lrow][lcol]+ "\n" );
+
         } else if (command.equals("addToCart")) {
-            if (selectedIndex != -1) {
+            if (selectedIndexRow != -1 && selectedIndexCol != -1) {
                 cartContents.append(quantity).append(" x ").append("Product").append("<br>");
-                totalPrice += prices[selectedIndex] * quantity;
+//                totalPrice += prices[selectedIndex] * quantity;
+                totalPrice += localFoodPrice[lrow][lcol] * quantity;
+
                 // Assuming itemCard is the source for itemCardButt; you need to handle this logic appropriately.
-                itemCard[selectedIndex / 6][selectedIndex % 6].setBorder(defaultBorder); // Reset button border
-                selectedIndex = -1;
+                itemCard[selectedIndexRow][selectedIndexCol].setBorder(defaultBorder); // Reset button border
+                selectedIndexRow = -1;
+                selectedIndexCol = -1;
                 quantity = 1; // Reset quantity
                 f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 12px; padding:3px;'>"+ quantity+   "</p>" +
                         "<p style='color: Black; font-weight: bold; font-size: 10px;'>Quantity</p></div></html>");
@@ -641,59 +558,15 @@ class MenuApp extends JFrame implements ActionListener{
         selectButt = button;
     }
 
-    private void selectItem(int index) {
-        if (selectedIndex != -1) {
-            itemCard[selectedIndex / 6][selectedIndex % 6].setBorder(defaultBorder); // Reset previously selected button border
+    private void selectItem(int lrow, int lcol) {
+        if (selectedIndexRow != -1 && selectedIndexCol!=-1) {
+            itemCard[selectedIndexRow][selectedIndexCol].setBorder(defaultBorder); // Reset previously selected button border
         }
-        selectedIndex = index;
+        selectedIndexRow = lrow;
+        selectedIndexCol= lcol;
 //        defaultBorder = itemCard[index / 6][index % 6].getBorder(); // Store the default border
-        itemCard[index / 6][index % 6].setBorder(selectedBorder); // Highlight selected button
+        itemCard[lrow][lcol].setBorder(selectedBorder); // Highlight selected button
     }
-
-/*    @Override
-    public void actionPerformed(ActionEvent e) {
-        String command = e.getActionCommand();
-        if (command.startsWith("item")) {
-            int index = Integer.parseInt(command.substring(4));
-            selectItem(index);
-        } else if (command.equals("addToCart")) {
-            if (selectedIndex != -1) {
-                cartContents.append(quantity).append(" x ").append(items[selectedIndex]).append("<br>");
-                totalPrice += prices[selectedIndex] * quantity;
-//                itemCardButt[selectedIndex].setBorder(defaultBorder); // Reset button border
-                selectedIndex = -1;
-                quantity = 1; // Reset quantity
-                f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 15px; padding:5px;'>"+ quantity+"</p>" +
-                "<p style='color: Black; font-weight: bold; font-size: 20;'>Quantity</p></div></html>"); // Reset quantity label
-                updateCartDisplay();
-            }
-        } else if (command.equals("increaseQuantity")) {
-            quantity++;
-            f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 15px; padding:5px;'>"+ quantity+   "</p>" +
-                    "<p style='color: Black; font-weight: bold; font-size: 20;'>Quantity</p></div></html>");
-//            f_CenterLabel[0].setText("Quantity: " + quantity); // Corrected concatenation
-        } else if (command.equals("decreaseQuantity")) {
-            if (quantity > 1) {
-                quantity--;
-                f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 15px; padding:5px;'>"+ quantity+   "</p>" +
-                        "<p style='color: Black; font-weight: bold; font-size: 20;'>Quantity</p></div></html>");
-//                f_CenterLabel[0].setText("Quantity: " + quantity); // Corrected concatenation
-            }
-        }else if (command.startsWith("Menu")) {
-            int index = Integer.parseInt(command.substring(5));
-            cardLayout.show(cardContParent, "card" + (index + 1));
-            System.out.println(command);
-        }
-    }
-
-    private void selectItem(int index) {
-//        if (selectedIndex != -1) {
-//            itemCardButt[selectedIndex].setBorder(defaultBorder); // Reset previously selected button border
-//        }
-//        selectedIndex = index;
-//        defaultBorder = itemCardButt[index].getBorder(); // Store the default border
-//        itemCardButt[index].setBorder(BorderFactory.createLineBorder(Color.BLUE, 3)); // Highlight selected button
-    }*/
 
     private void updateCartDisplay() {
 //        f_SouthLabel.setText("Total Price: $\n" + totalPrice );

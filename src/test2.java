@@ -1,119 +1,71 @@
-/*
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
- class test2 extends JPanel implements ActionListener {
-    private JPanel cardPanel;
-    private CardLayout cardLayout;
-    private ItemCard[] itemCards;
-    private JButton nextButton;
+class test2 extends JFrame implements ActionListener {
+    private double[][] foodPrice = {
+            // Best Sellers
+            {212.00, 137.00, 40.00, 122.00, 103.00, 82.00},
+            // Chicken Joy
+            {163.00, 132.00, 82.00, 148.00, 128.00, 679.00},
+            // Jolly Spaghetti
+            {237.00, 679.00, 137.00, 108.00, 60.00, 212.00},
+            // Beverages
+            {80.00, 64.00, 57.00, 53.00, 53.00, 53.00},
+    };
 
-    public test2() {
-        setLayout(new BorderLayout());
+    private JButton[][] buttons;
 
-        // Initialize CardLayout and JPanel for holding cards
-        cardLayout = new CardLayout();
-        cardPanel = new JPanel(cardLayout);
+    // Constructor to initialize the application
+    test2(int width, int height, String title, boolean isVisible, boolean isResizable, LayoutManager layout, int defCloseOper) {
+        initApp(width, height, title, isVisible, isResizable, layout, defCloseOper);
+        initUi();
+    }
 
-        // Initialize array of ItemCards
-        itemCards = new ItemCard[6];
-        for (int i = 0; i < itemCards.length; i++) {
-            itemCards[i] = new ItemCard();
-            cardPanel.add(itemCards[i], "Card " + (i + 1));
+    // Method to initialize the application window
+    private void initApp(int width, int height, String title, boolean isVisible, boolean isResizable, LayoutManager layout, int defCloseOper) {
+        setTitle(title);
+        setSize(width, height);
+        setResizable(isResizable);
+        setDefaultCloseOperation(defCloseOper);
+        setVisible(isVisible);
+    }
+
+    // Method to initialize the user interface
+    private void initUi() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(foodPrice.length, foodPrice[0].length));
+
+        buttons = new JButton[foodPrice.length][foodPrice[0].length];
+
+
+        for (int i = 0; i < foodPrice.length; i++) {
+            for (int j = 0; j < foodPrice[i].length; j++) {
+                buttons[i][j] = new JButton(String.valueOf(foodPrice[i][j]));
+                buttons[i][j].setVisible(true);
+                buttons[i][j].setOpaque(true);
+                buttons[i][j].setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
+                buttons[i][j].addActionListener(this);
+                buttons[i][j].setActionCommand(i + "-" + j); // Using row-column index as action command
+                panel.add(buttons[i][j]);
+            }
         }
 
-        // Initialize Next button
-        nextButton = new JButton("Next");
-        nextButton.addActionListener(this);
-
-        // Add components to main panel
-        add(cardPanel, BorderLayout.CENTER);
-        add(nextButton, BorderLayout.SOUTH);
+        add(panel);
     }
 
-    @Override
+    // ActionPerformed method to handle button clicks and other events
     public void actionPerformed(ActionEvent e) {
-        // Switch to the next card
-        cardLayout.next(cardPanel);
+        String command = e.getActionCommand();
+        int row = Integer.parseInt(command.split("-")[0]);
+        int col = Integer.parseInt(command.split("-")[1]);
+        double price = foodPrice[row][col];
+        System.out.println("Price of selected item: " + price);
     }
 
+    // Main method to start the application
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("Item Card Demo");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.getContentPane().add(new test2());
-            frame.pack();
-            frame.setLocationRelativeTo(null);
-            frame.setVisible(true);
-        });
+        // Create an instance of MenuApp and set its properties
+        new  test2(800, 600, "Menu Application", true, false, null, JFrame.EXIT_ON_CLOSE);
     }
 }
-
-
-class ItemCards extends JPanel {
-    private JPanel itemCardContParent;
-    private JPanel itemCardContainer;
-    private JButton itemCardButt;
-    private JLabel itemCardLabel;
-    private ImageIcon itemCardImage;
-
-    public ItemCards() {
-        // Configure itemCardContainer
-        setOpaque(true);
-        setVisible(true);
-        setPreferredSize(new Dimension(300, 200));
-        setLayout(new OverlayLayout(this));
-
-        // Configure itemCardContainer
-        itemCardContainer = new JPanel();
-        itemCardContainer.setOpaque(true);
-        itemCardContainer.setVisible(true);
-        itemCardContainer.setPreferredSize(new Dimension(300, 200));
-        itemCardContainer.setLayout(new BorderLayout());
-
-        // Configure itemCardButt
-        itemCardButt = new JButton();
-        itemCardButt.setBorder(null);
-        itemCardButt.setOpaque(true);
-        itemCardButt.setVisible(true);
-        itemCardButt.setLayout(new BorderLayout());
-//        itemCardButt.addActionListener(this);
-
-        // Configure itemCardLabel
-        itemCardLabel = new JLabel();
-        itemCardLabel.setBorder(null);
-        itemCardLabel.setOpaque(true);
-        itemCardLabel.setVisible(true);
-        itemCardLabel.setBackground(Color.WHITE);
-        itemCardLabel.setHorizontalTextPosition(JLabel.CENTER);
-        itemCardLabel.setVerticalTextPosition(JLabel.BOTTOM);
-        itemCardLabel.setHorizontalAlignment(JLabel.CENTER);
-
-        // Configure itemCardImage
-        itemCardImage = new ImageIcon(getClass().getResource("Assets/item_pictures/BS/BS-item-1.png"));
-        itemCardImage = resizeImageIcon(itemCardImage, 100, 70);
-
-        // Add components to itemCardButt
-        itemCardButt.add(itemCardLabel, BorderLayout.CENTER);
-        itemCardButt.setIcon(itemCardImage);
-        itemCardContainer.add(itemCardButt, BorderLayout.CENTER);
-
-        // Add itemCardContainer to this panel
-        add(itemCardContainer);
-    }
-
-    // Resize ImageIcon method
-    private ImageIcon resizeImageIcon(ImageIcon icon, int width, int height) {
-        Image img = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        return new ImageIcon(img);
-    }
-
-//    @Override
-//    public void actionPerformed(ActionEvent e) {
-//        // Handle button click action
-//    }
-}
-
-*/
