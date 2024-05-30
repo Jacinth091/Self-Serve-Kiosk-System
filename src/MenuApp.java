@@ -3,9 +3,11 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
 //import javax.swing.BorderLayout;
 import javax.swing.border.Border;
+import java.util.ArrayList;
 class MenuApp extends JFrame implements ActionListener{
 
     // main panel container
@@ -25,11 +27,19 @@ class MenuApp extends JFrame implements ActionListener{
 
 
     // childPanelCont[1] BODY - CENTER PART
-    private JPanel[] itemCardContParent; // Array of parent panels for items in the center part of the interface
-    private JPanel[] itemCardContainer; // Array of layered panes containing item cards
-    private JLabel[] itemCardLabel; // Array of labels for displaying item images
-    private JButton[] itemCardButt; // Array of buttons associated with item cards
-    private ImageIcon[] itemCardImage; // Array of image icons representing item images
+
+    private CardLayout cardLayout;
+    private JPanel cardContParent;
+    private JPanel[] cardCont;
+    private JPanel[][] itemCardCont;
+    private ItemCard[][] itemCard;
+    private String[] imgPaths;
+/*//    private ArrayList<ItemCard[]> itemCardList;
+//    private JPanel[] itemCardContParent; // Array of parent panels for items in the center part of the interface
+//    private JPanel[] itemCardContainer; // Array of layered panes containing item cards
+//    private JLabel[] itemCardLabel; // Array of labels for displaying item images
+//    private JButton[] itemCardButt; // Array of buttons associated with item cards
+//    private ImageIcon[] itemCardImage; // Array of image icons representing item images*/
 
 
 
@@ -60,7 +70,7 @@ class MenuApp extends JFrame implements ActionListener{
     MenuApp(){
         initApp(625,800,"Jolikod",true,true, new BorderLayout(), JFrame.EXIT_ON_CLOSE);
     }
-    
+
 
     MenuApp(int width, int height, String title,
             boolean isVisible, boolean isResizable, LayoutManager layout, int defCloseOper)
@@ -94,8 +104,9 @@ class MenuApp extends JFrame implements ActionListener{
         childPanelCont[0].setLayout(new GridLayout(2, 1));
 
         // Body - Center
-        childPanelCont[1].setLayout(new GridLayout(2,6, 10,10));
-        childPanelCont[1].setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+//        childPanelCont[1].setLayout(new GridLayout(2,6, 10,10));
+        childPanelCont[1].setLayout(new BorderLayout());
+        childPanelCont[1].setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
 
         // Footer - Bottom
         childPanelCont[2].setPreferredSize(new Dimension(100, 200));
@@ -162,9 +173,10 @@ class MenuApp extends JFrame implements ActionListener{
             h_MenuButt[i].setBorder(null);
             h_MenuButt[i].setOpaque(true);
             h_MenuButt[i].setVisible(true);
-            h_MenuButt[i].setName("Category " + (i + 1));
+            h_MenuButt[i].setName("Menu " + (i + 1));
             h_MenuButt[i].setLayout(new BorderLayout());
             h_MenuButt[i].addActionListener(this);
+            h_MenuButt[i].setActionCommand("Menu " + i);
 
 
             // Configure h_MButtLabel
@@ -186,6 +198,83 @@ class MenuApp extends JFrame implements ActionListener{
 
 
         /*---------------------------- Body PArt ( center) ----------------------------*/
+
+        cardContParent = new JPanel();
+        cardContParent.setOpaque(true);
+        cardContParent.setVisible(true);
+        cardContParent.setToolTipText("Parent Cont");
+        cardContParent.setLayout(new CardLayout());
+
+
+        cardCont = new JPanel[4];
+        for(int i = 0; i < cardCont.length; i++){
+            cardCont[i] = new JPanel();
+            cardCont[i].setOpaque(true);
+            cardCont[i].setVisible(true);
+            cardCont[i].setBackground(null);
+            cardCont[i].setToolTipText("Card Container");
+            cardCont[i].setLayout(new GridLayout(2,3, 5,5));
+
+            cardContParent.add(cardCont[i], "card" + (i + 1));
+
+        }
+
+        cardLayout = (CardLayout)cardContParent.getLayout();
+
+        itemCardCont = new JPanel[4][6];
+
+        for(int i =0; i<itemCardCont.length; i++){
+            for(int j =0; j < itemCardCont[i].length; j++){
+                itemCardCont[i][j]= new JPanel();
+                itemCardCont[i][j].setOpaque(true);
+                itemCardCont[i][j].setVisible(true);
+                itemCardCont[i][j].setToolTipText("Item Card");
+                itemCardCont[i][j].setBackground(Color.WHITE);
+//                itemCardCont[i][j].setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+                itemCardCont[i][j].setLayout(new OverlayLayout(itemCardCont[i][j]));
+            }
+        }
+
+        for(int i =0; i < itemCardCont[0].length; i++){
+            cardCont[0].add(itemCardCont[0][i]);
+            cardCont[1].add(itemCardCont[1][i]);
+            cardCont[2].add(itemCardCont[2][i]);
+            cardCont[3].add(itemCardCont[3][i]);
+        }
+
+
+
+        itemCard = new ItemCard[4][6];
+
+        imgPaths = new String[]{
+                "Assets/item_pictures/BS/BS-item-1.png",
+                "Assets/item_pictures/BS/BS-item-2.png",
+                "Assets/item_pictures/BS/BS-item-3.png",
+                "Assets/item_pictures/BS/BS-item-4.png"
+        };
+        for(int i =0; i<itemCard.length; i++){
+            for(int j =0; j < itemCard[i].length; j++){
+
+                itemCard[i][j] = new ItemCard(223.23, "Product", imgPaths[i]);
+
+                itemCard[i][j].setActionCommand("item" + (i * itemCard[i].length + j));
+                itemCard[i][j].addActionListener(this);
+            }
+        }
+
+
+        for(int i =0; i < itemCard[0].length; i++){
+            itemCardCont[0][i].add(itemCard[0][i], BorderLayout.CENTER);
+            itemCardCont[1][i].add(itemCard[1][i], BorderLayout.CENTER);
+            itemCardCont[2][i].add(itemCard[2][i], BorderLayout.CENTER);
+            itemCardCont[3][i].add(itemCard[3][i], BorderLayout.CENTER);
+
+
+        }
+
+
+/*
+
 
         // Initialize itemCardContParent
         itemCardContParent = new JPanel[6];
@@ -241,6 +330,7 @@ class MenuApp extends JFrame implements ActionListener{
             itemCardImage[i] = resizeImageIcon(itemCardImage[i], 100, 70);
 
         }
+*/
 
 
 
@@ -403,25 +493,26 @@ class MenuApp extends JFrame implements ActionListener{
         childPanelCont[2].add(f_ContParent[1], BorderLayout.CENTER);
         childPanelCont[2].add(f_ContParent[2], BorderLayout.SOUTH);
 
-        // Configuring item card components and their hierarchy
+/*//        // Configuring item card components and their hierarchy
+//
+//        for (byte i = 0; i < itemCardContainer.length; i++) {
+//            // Set item card label's icon
+//            itemCardLabel[i].setIcon(itemCardImage[i]);
+//
+//            // Add item card label to item card button
+//            itemCardButt[i].add(itemCardLabel[i], BorderLayout.CENTER);
+//
+//            // Add item card button to item card container
+//            itemCardContainer[i].add(itemCardButt[i], BorderLayout.CENTER);
+//
+//            // Add item card container to item card parent container
+////            itemCardContParent[i].add(itemCardContainer[i]);
+//
+//            // Add item card parent container to the center panel
+//            cardCont[0].add(itemCardContainer[i]);
+//        }*/
 
-        for (byte i = 0; i < itemCardContainer.length; i++) {
-            // Set item card label's icon
-            itemCardLabel[i].setIcon(itemCardImage[i]);
-
-            // Add item card label to item card button
-            itemCardButt[i].add(itemCardLabel[i], BorderLayout.CENTER);
-
-            // Add item card button to item card container
-            itemCardContainer[i].add(itemCardButt[i], BorderLayout.CENTER);
-
-            // Add item card container to item card parent container
-            itemCardContParent[i].add(itemCardContainer[i]);
-
-            // Add item card parent container to the center panel
-            childPanelCont[1].add(itemCardContParent[i]);
-        }
-
+        childPanelCont[1].add(cardContParent, BorderLayout.CENTER);
 
         // Configuring header menu buttons and their containers
 
@@ -501,9 +592,53 @@ class MenuApp extends JFrame implements ActionListener{
             selectItem(index);
         } else if (command.equals("addToCart")) {
             if (selectedIndex != -1) {
+                cartContents.append(quantity).append(" x ").append("Product").append("<br>");
+                totalPrice += prices[selectedIndex] * quantity;
+                // Assuming itemCard is the source for itemCardButt; you need to handle this logic appropriately.
+                itemCard[selectedIndex / 6][selectedIndex % 6].setBorder(defaultBorder); // Reset button border
+                selectedIndex = -1;
+                quantity = 1; // Reset quantity
+                f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 15px; padding:5px;'>"+ quantity+"</p>" +
+                        "<p style='color: Black; font-weight: bold; font-size: 20;'>Quantity</p></div></html>"); // Reset quantity label
+                updateCartDisplay();
+            }
+        } else if (command.equals("increaseQuantity")) {
+            quantity++;
+            f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 15px; padding:5px;'>"+ quantity+   "</p>" +
+                    "<p style='color: Black; font-weight: bold; font-size: 20;'>Quantity</p></div></html>");
+        } else if (command.equals("decreaseQuantity")) {
+            if (quantity > 1) {
+                quantity--;
+                f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 15px; padding:5px;'>"+ quantity+   "</p>" +
+                        "<p style='color: Black; font-weight: bold; font-size: 20;'>Quantity</p></div></html>");
+            }
+        } else if (command.startsWith("Menu")) {
+            int index = Integer.parseInt(command.substring(5));
+            cardLayout.show(cardContParent, "card" + (index + 1));
+            System.out.println(command);
+        }
+    }
+
+    private void selectItem(int index) {
+        if (selectedIndex != -1) {
+            itemCard[selectedIndex / 6][selectedIndex % 6].setBorder(defaultBorder); // Reset previously selected button border
+        }
+        selectedIndex = index;
+        defaultBorder = itemCard[index / 6][index % 6].getBorder(); // Store the default border
+        itemCard[index / 6][index % 6].setBorder(BorderFactory.createLineBorder(new Color(255, 184,14), 5,true)); // Highlight selected button
+    }
+
+/*    @Override
+    public void actionPerformed(ActionEvent e) {
+        String command = e.getActionCommand();
+        if (command.startsWith("item")) {
+            int index = Integer.parseInt(command.substring(4));
+            selectItem(index);
+        } else if (command.equals("addToCart")) {
+            if (selectedIndex != -1) {
                 cartContents.append(quantity).append(" x ").append(items[selectedIndex]).append("<br>");
                 totalPrice += prices[selectedIndex] * quantity;
-                itemCardButt[selectedIndex].setBorder(defaultBorder); // Reset button border
+//                itemCardButt[selectedIndex].setBorder(defaultBorder); // Reset button border
                 selectedIndex = -1;
                 quantity = 1; // Reset quantity
                 f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 15px; padding:5px;'>"+ quantity+"</p>" +
@@ -522,17 +657,21 @@ class MenuApp extends JFrame implements ActionListener{
                         "<p style='color: Black; font-weight: bold; font-size: 20;'>Quantity</p></div></html>");
 //                f_CenterLabel[0].setText("Quantity: " + quantity); // Corrected concatenation
             }
+        }else if (command.startsWith("Menu")) {
+            int index = Integer.parseInt(command.substring(5));
+            cardLayout.show(cardContParent, "card" + (index + 1));
+            System.out.println(command);
         }
     }
 
     private void selectItem(int index) {
-        if (selectedIndex != -1) {
-            itemCardButt[selectedIndex].setBorder(defaultBorder); // Reset previously selected button border
-        }
-        selectedIndex = index;
-        defaultBorder = itemCardButt[index].getBorder(); // Store the default border
-        itemCardButt[index].setBorder(BorderFactory.createLineBorder(Color.BLUE, 3)); // Highlight selected button
-    }
+//        if (selectedIndex != -1) {
+//            itemCardButt[selectedIndex].setBorder(defaultBorder); // Reset previously selected button border
+//        }
+//        selectedIndex = index;
+//        defaultBorder = itemCardButt[index].getBorder(); // Store the default border
+//        itemCardButt[index].setBorder(BorderFactory.createLineBorder(Color.BLUE, 3)); // Highlight selected button
+    }*/
 
     private void updateCartDisplay() {
 //        f_SouthLabel.setText("Total Price: $\n" + totalPrice );
@@ -540,7 +679,7 @@ class MenuApp extends JFrame implements ActionListener{
         f_SouthLabel.setText("<html><div style='text-align: center;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 15px;'>Order Total: <span style='color: Black; font-weight: bold; font-size: 20;'>" + totalCartPrice +" </span> </p></div></html>");
 
     }
-    
+
 }
 
 
