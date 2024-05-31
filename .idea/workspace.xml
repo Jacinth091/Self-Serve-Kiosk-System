@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="Added the food data picture,price,and description to the item cards and tab buttons&#10;&#10;TODO// must create a function to get the price of selected value on item card">
+    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="Adjusted the file directory of the files so that it can be viewed anywhere and hopefully n any ide&#10;&#10;TODO// create a class file for the item added to cart and for user cart items">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FoodData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FoodData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frame.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ItemCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ItemCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainApp.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MenuApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MenuAppDemo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RoundedCorners.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WindowApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,48 +76,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.BorderButtonDemo.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Calculators.executor&quot;: &quot;Run&quot;,
-    &quot;Application.FoodData.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Frame.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Front.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MenuApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MenuAppDemo.executor&quot;: &quot;Run&quot;,
-    &quot;Application.RoundedLabel.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Test2.executor&quot;: &quot;Run&quot;,
-    &quot;Application.WindowApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.WindowApp1.executor&quot;: &quot;Run&quot;,
-    &quot;Application.arrayIMPLEMENT.executor&quot;: &quot;Run&quot;,
-    &quot;Application.menu.executor&quot;: &quot;Run&quot;,
-    &quot;Application.suwayan.executor&quot;: &quot;Run&quot;,
-    &quot;Application.test.executor&quot;: &quot;Run&quot;,
-    &quot;Application.test2.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ToolWindowGitLive.ShowToolbar&quot;: &quot;false&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE&quot;: &quot;left&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;389&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE&quot;: &quot;right&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;405&quot;,
-    &quot;app.teamhub.selectedTeam&quot;: &quot;github.com/Jacinth091/Self-Serve-Kiosk-System&quot;,
-    &quot;app.teamhub.trackedBranches&quot;: &quot;-19lmspi/master,-19lmspi/Jacinth-Branch&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Jacinth-Branch&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/PCC/Desktop/CODING FILES/ProgLang - Hello World/Java/Projects/ComProg_Project_Calculator&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2214429&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.BorderButtonDemo.executor": "Run",
+    "Application.Calculators.executor": "Run",
+    "Application.CartPanel.executor": "Run",
+    "Application.FoodData.executor": "Run",
+    "Application.Frame.executor": "Run",
+    "Application.Framess.executor": "Run",
+    "Application.Front.executor": "Run",
+    "Application.ItemCartCard.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.MainApp.executor": "Run",
+    "Application.MenuApp.executor": "Run",
+    "Application.MenuAppDemo.executor": "Run",
+    "Application.RoundedLabel.executor": "Run",
+    "Application.Test2.executor": "Run",
+    "Application.WindowApp.executor": "Run",
+    "Application.WindowApp1.executor": "Run",
+    "Application.arrayIMPLEMENT.executor": "Run",
+    "Application.menu.executor": "Run",
+    "Application.suwayan.executor": "Run",
+    "Application.test.executor": "Run",
+    "Application.test2.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ToolWindowGitLive.ShowToolbar": "false",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE": "left",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "389",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE": "right",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "405",
+    "app.teamhub.selectedTeam": "github.com/Jacinth091/Self-Serve-Kiosk-System",
+    "app.teamhub.trackedBranches": "-19lmspi/master,-19lmspi/Jacinth-Branch",
+    "git-widget-placeholder": "Jacinth-Branch",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/PCC/Downloads/File Folders/FINALES",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2214429",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\PCC\Desktop\Finals\src\Assets\Icons" />
@@ -120,7 +130,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MenuApp">
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="MainApp" />
       <module name="Finals" />
@@ -269,7 +279,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717080776327</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Adjusted the file directory of the files so that it can be viewed anywhere and hopefully n any ide&#10;&#10;TODO// create a class file for the item added to cart and for user cart items">
+      <option name="closed" value="true" />
+      <created>1717109472789</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1717109472789</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -284,18 +302,7 @@
     <MESSAGE value="Added a product Category Image adn Product Category title placeholder in the Menu Tab buttons &#10;&#10;TODO find a way to set focus on the current oage and also create a function so that the other panel of the other tab will be displayed" />
     <MESSAGE value="TODO// Create a function for the changing panel page and with its corresponding button" />
     <MESSAGE value="Added the food data picture,price,and description to the item cards and tab buttons&#10;&#10;TODO// must create a function to get the price of selected value on item card" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the food data picture,price,and description to the item cards and tab buttons&#10;&#10;TODO// must create a function to get the price of selected value on item card" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-field">
-          <url>file://$PROJECT_DIR$/src/test2.java</url>
-          <line>16</line>
-          <properties field="fc_PathFile" class="test2" />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Adjusted the file directory of the files so that it can be viewed anywhere and hopefully n any ide&#10;&#10;TODO// create a class file for the item added to cart and for user cart items" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusted the file directory of the files so that it can be viewed anywhere and hopefully n any ide&#10;&#10;TODO// create a class file for the item added to cart and for user cart items" />
   </component>
 </project>

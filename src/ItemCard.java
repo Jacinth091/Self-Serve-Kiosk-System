@@ -14,8 +14,6 @@ class ItemCard extends JPanel{
     private Double item_Price;
     private String item_Desc;
     private ImageIcon image;
-    private String pesoSymbol = "\u20B1";
-
 
     public ItemCard(){
 
@@ -55,8 +53,7 @@ class ItemCard extends JPanel{
         itemCardLabel.setOpaque(true);
         itemCardLabel.setVisible(true);
         itemCardLabel.setBackground(Color.WHITE);
-        itemCardLabel.setText("<html><div style='text-align: center;'><p style='color: red; " +
-                "font-weight: bold; text-align: center; font-size: 13px; padding:5px;'>" +  pesoSymbol + " " + item_Price+"</p>" +
+        itemCardLabel.setText("<html><div style='text-align: center;'><p style='color: red; font-weight: bold; text-align: center; font-size: 13px; padding:5px;'> ₱ "+ item_Price+"</p>" +
                         "<p style='color: Black; font-weight: bold; font-size: 10px;'>"+item_Desc+"</p></div></html>");
 
         itemCardLabel.setHorizontalTextPosition(JLabel.CENTER);
@@ -82,6 +79,8 @@ class ItemCard extends JPanel{
 //        Image newImg = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
 //        return new ImageIcon(newImg);
 //    }
+
+
     @Override
     public void setBorder(Border border) {
         if (itemCardButt != null) {

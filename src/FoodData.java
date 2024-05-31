@@ -24,13 +24,16 @@ class FoodData {
 
 
     private String[] foodCategory = {"Best Sellers", "Chicken Joy", "Jolly Spaghetti", "Beverages"};
-    private String fc_PathFile = "Assets/Item_category"; // Updated path to match the resource structure
+    private String fc_PathFile = "Assets/Item_category";
     private String[] ip_PathFiles = {
             "Assets/item_pictures/BS",
             "Assets/item_pictures/CJ",
             "Assets/item_pictures/JS",
             "Assets/item_pictures/BV",
     };
+
+
+    // hello
     private String[][] foodDesc = {
             // Best Sellers
             {"1 - pc. Chickenjoy w/ Burger Steak & Half Jolly Spaghetti Super Meal",

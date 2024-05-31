@@ -18,6 +18,10 @@ class MenuApp extends JFrame implements ActionListener{
     private int localNoOfCate = foodData.getNoOfCate();
     private int localNoOfItems = foodData.getNoOfItems();
 
+//    ItemDataAtt[] itemAtribute = new ItemDataAtt[(localNoOfCate * localNoOfItems)];
+
+    private ItemDataAtt itemAttribute = new ItemDataAtt();
+
 
 
 
@@ -62,18 +66,20 @@ class MenuApp extends JFrame implements ActionListener{
 
     //override
     int quantity = 1;
+    private int selectedQuant;
     private int selectedIndexRow = -1;
     private int selectedIndexCol = -1;
+    private String totalCartPrice;
+    private double totalPrice = 0.0;
+    private double selectedTotalPrice =0.0;
 
     private int lrow;
     private int lcol;
 
     StringBuilder cartContents = new StringBuilder("<html>Cart:<br>");
     String[] items = {"Food Item 1 - P216.00", "Food Item 2 - P216.00", "Food Item 3 - P216.00", "Food Item 4 - P216.00", "Food Item 5 - P216.00", "Food Item 6 - P216.00"};
-    double totalPrice = 0.0;
     double[] prices = {100.00, 200.00, 300.00, 400.00, 500.00, 600.00};
 //    Border defaultBorder;
-    private String totalCartPrice;
 
 
 
@@ -512,7 +518,6 @@ class MenuApp extends JFrame implements ActionListener{
         String command = e.getActionCommand();
         if (command.contains("item")) {
             lrow= Integer.parseInt(command.split("item")[0]);
-            
             lcol = Integer.parseInt(command.split("item")[1]);
             selectItem(lrow, lcol);
             System.out.println("lRow: " + lrow + "lCol: " + lcol+ "\n\n" +
@@ -521,8 +526,16 @@ class MenuApp extends JFrame implements ActionListener{
         } else if (command.equals("addToCart")) {
             if (selectedIndexRow != -1 && selectedIndexCol != -1) {
                 cartContents.append(quantity).append(" x ").append("Product").append("<br>");
-//                totalPrice += prices[selectedIndex] * quantity;
                 totalPrice += localFoodPrice[lrow][lcol] * quantity;
+
+                selectedQuant = quantity;
+                selectedTotalPrice = localFoodPrice[lrow][lcol] *selectedQuant;
+
+
+                setCurrentItemAtt(localFoodDesc[lrow][lcol], localFoodCate[lrow], localFoodPrice[lrow][lcol],
+                        selectedQuant, selectedTotalPrice,localFoodItemImg[lrow][lcol], lrow, lcol);
+
+                displayCurrentItemAtt();
 
                 // Assuming itemCard is the source for itemCardButt; you need to handle this logic appropriately.
                 itemCard[selectedIndexRow][selectedIndexCol].setBorder(defaultBorder); // Reset button border
@@ -574,6 +587,35 @@ class MenuApp extends JFrame implements ActionListener{
         f_SouthLabel.setText("<html><div style='text-align: center;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 15px;'>Order Total: <span style='color: Black; font-weight: bold; font-size: 20;'>" + totalCartPrice +" </span> </p></div></html>");
 
     }
+
+    public void setCurrentItemAtt(String itemDesc, String itemCateg, double itemPrice, int itemQuant,
+                                  double itemPriceTimesQuant, ImageIcon itemImage, int item_LROW, int item_LCOL) {
+        itemAttribute.setItemDesc(itemDesc);
+        itemAttribute.setItemCateg(itemCateg);
+        itemAttribute.setItemPrice(itemPrice);
+        itemAttribute.setItemQuant(itemQuant);
+        itemAttribute.setItemPriceTimesQuant(itemPriceTimesQuant);
+        itemAttribute.setItemImage(itemImage);
+        itemAttribute.setItem_LROW(item_LROW);
+        itemAttribute.setItem_LCOL(item_LCOL);
+    }
+
+    public void displayCurrentItemAtt() {
+        System.out.println("Item Description: " + itemAttribute.getItemDesc());
+        System.out.println("Item Category: " + itemAttribute.getItemCateg());
+        System.out.println("Item Price: " + itemAttribute.getItemPrice());
+        System.out.println("Item Quantity: " + itemAttribute.getItemQuant());
+        System.out.println("Item Price Times Quantity: " + itemAttribute.getItemPriceTimesQuant());
+        // If itemImage is not null, display its details
+        if (itemAttribute.getItemImage() != null) {
+            System.out.println("Item Image: " + itemAttribute.getItemImage());
+        } else {
+            System.out.println("No Item Image");
+        }
+        System.out.println("Item Row: " + itemAttribute.getItem_LROW());
+        System.out.println("Item Column: " + itemAttribute.getItem_LCOL());
+    }
+
 
 }
 
