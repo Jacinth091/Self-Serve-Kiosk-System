@@ -4,12 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="Added the files for the frames and front page">
+    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="I added the ability to add items based on the menu&#10;Also can remove the first item of the list in review order">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/category-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/category-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/category-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/category-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/category-5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/category-6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/category-7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/category-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Item_category/BS.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/category-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Item_category/CH.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/category-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Item_category/JS.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/category-4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Item_category/BV.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/category-5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/category-6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/category-7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FoodData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FoodData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Framess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Framess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ItemDataAtt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ItemDataAtt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -131,7 +143,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.MenuApp">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="MainApp" />
       <module name="Finals" />
@@ -304,7 +316,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717127765517</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Can now share the data between the menu app and the review order">
+      <option name="closed" value="true" />
+      <created>1717142608561</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1717142608561</updated>
+    </task>
+    <task id="LOCAL-00019" summary="I added the ability to add items based on the menu&#10;Also can remove the first item of the list in review order">
+      <option name="closed" value="true" />
+      <created>1717152110347</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1717152110347</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -322,6 +350,8 @@
     <MESSAGE value="Adjusted the file directory of the files so that it can be viewed anywhere and hopefully n any ide&#10;&#10;TODO// create a class file for the item added to cart and for user cart items" />
     <MESSAGE value="Cleaned the files in src folder" />
     <MESSAGE value="Added the files for the frames and front page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the files for the frames and front page" />
+    <MESSAGE value="Can now share the data between the menu app and the review order" />
+    <MESSAGE value="I added the ability to add items based on the menu&#10;Also can remove the first item of the list in review order" />
+    <option name="LAST_COMMIT_MESSAGE" value="I added the ability to add items based on the menu&#10;Also can remove the first item of the list in review order" />
   </component>
 </project>

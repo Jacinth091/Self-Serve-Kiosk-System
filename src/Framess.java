@@ -30,9 +30,15 @@ class Framess extends JFrame implements ActionListener, MouseListener {
     private String itemCateg;
     private double itemPrice;
     private int itemQuant;
-    private double itemPriceTimesQuantity;
+    private double itemPriceTimesQuant;
+    private int itemLROW;
+    private int itemLCOL;
 
-//    List<ItemDataAtt> userCartItems = new ArrayList<>();
+//    private List<Object> userCart = new ArrayList<>();
+    private UserCart shoppingCart = new UserCart();
+
+
+    List<ItemDataAtt> cartDataList = new ArrayList<>();
 
     //changes
     MenuApp menuApp = new MenuApp();
@@ -78,10 +84,10 @@ class Framess extends JFrame implements ActionListener, MouseListener {
         borderForEdit = BorderFactory.createLineBorder(Color.black, 3);
 
         // ICON OR IMAGE ==============================================================================
-        image[0] = new ImageIcon("C:\\Users\\Admin\\IdeaProjects\\tEST\\src\\jollibee.png"); // jollibee picture
+        image[0] = new ImageIcon("Assets/Icons/Joli-Logo.png"); // jollibee picture
         ImageIcon scaledIcon = new ImageIcon(image[0].getImage().getScaledInstance(170, 70, Image.SCALE_SMOOTH));
 
-        image[1] = new ImageIcon("C:\\Users\\Admin\\IdeaProjects\\tEST\\src\\remove.png"); // CHECK LOGO sa PROCEED PAYMENT
+        image[1] = new ImageIcon("Assets/Icons/bin-Icon.png"); // CHECK LOGO sa PROCEED PAYMENT
         ImageIcon scaledCheck = new ImageIcon(image[1].getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
 
 
@@ -182,21 +188,12 @@ class Framess extends JFrame implements ActionListener, MouseListener {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
 
-        JButton addButton = new JButton("Add Item");
-        addButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                addItemToCart();
-            }
-        });
-        buttonPanel.add(addButton);
 
         JButton removeButton = new JButton("Remove Item");
         removeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                removeItemFromCart();
+                removeItemFromCart(0);
             }
         });
         buttonPanel.add(removeButton);
@@ -258,54 +255,116 @@ class Framess extends JFrame implements ActionListener, MouseListener {
 
     }
 
+    private void removeItemFromCart(int index) {
+        if (index >= 0 && index < cartDataList.size()) {
+            cartDataList.remove(index);
+            displayCartItems(); // Update the displayed items after removal
+        }
+    }
+    public void putItemsToList(){
+//        itemDesc = userCartItems.getItemDesc();
+//        itemCateg = userCartItems.getItemCateg();
+//        itemPrice = userCartItems.getItemPrice();
+//        itemQuant = userCartItems.getItemQuant();
+//        itemPriceTimesQuant = userCartItems.getItemPriceTimesQuantity();
+//        itemLROW = userCartItems.getItem_LROW();
+//        itemLCOL = userCartItems.getItem_LCOL();
+        cartDataList = userCartItems.getCartData();
+
+
+//        cartDataList.add(new ItemDataAtt(itemDesc, itemCateg, itemPrice, itemQuant, itemPriceTimesQuant, itemLROW, itemLCOL));
+//        shoppingCart.addItemToCart(cartDataList);
+    }
     public void addItemToCart() {
-        String itemDesc = userCartItems.getItemDesc();
-        String itemCateg = userCartItems.getItemCateg();
-        double itemPrice = userCartItems.getItemPrice();
-        int itemQuant = userCartItems.getItemQuant();
-        double itemPriceTimesQuant = userCartItems.getItemPriceTimesQuantity();
-
-        JPanel newItemLabel = new JPanel();
-//        newItemLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        newItemLabel.setPreferredSize(new Dimension(300, 100)); // Adjusted size
-        newItemLabel.setMaximumSize(new Dimension(300, 100)); // To ensure it doesn't resize
-        newItemLabel.setLayout(new BorderLayout());
-
-        String labelText = "<html><div style='padding: 5px;'>" +
-                "<p style='font-weight: bold;'>Item Description: " + itemDesc + "</p>" +
-                "<p style='font-weight: bold;'>Item Category: " + itemCateg + "</p>" +
-                "<p style='font-weight: bold;'>Item Price: " + itemPrice + "</p>" +
-                "<p style='font-weight: bold;'>Item Quantity: " + itemQuant + "</p>" +
-                "<p style='font-weight: bold;'>Item Price Times Quantity: " + itemPriceTimesQuant + "</p>" +
-                "</div></html>";
-
-        JLabel itemLabel = new JLabel(labelText);
-        itemLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        itemLabel.setPreferredSize(new Dimension(300, 100)); // Adjusted size
-        itemLabel.setMaximumSize(new Dimension(300, 100)); // To ensure it doesn't resize
-        itemLabel.setBackground(Color.yellow);
-        itemLabel.setOpaque(true);
 
 
+        displayCartItems();
+        System.out.println("---------------------------------------------- List ----------------------------------------------");
+        displayAllItems();
+    }
+    public void displayCartItems(){
+        itemPanel.removeAll();
 
-        newItemLabel.add(itemLabel, BorderLayout.CENTER);
+        List<JLabel> itemLabelList = new ArrayList<>();
 
-        itemPanel.add(newItemLabel);
-        // Repaint the panel to reflect the addition of the new item
+        for(ItemDataAtt item: cartDataList){
+
+            itemDesc = item.getItemDesc();
+            itemCateg = item.getItemCateg();
+            itemPrice = item.getItemPrice();
+            itemQuant = item.getItemQuant();
+            itemPriceTimesQuant = item.getItemPriceTimesQuant();
+//            itemImage = item.getItemImage();
+            itemLROW = item.getItem_LROW();
+            itemLCOL = item.getItem_LCOL();
+            String labelText = "<html><div style='padding: 5px; margin:20px;'>" +
+                    "<p style='font-weight: bold; font-size: 12px;'>" + itemDesc + " x" + itemQuant + "  - ₱ " + itemPrice+"</p>" +
+                    "<p style='font-weight: bold; font-size: 12px;'> ₱ " + itemPriceTimesQuant + "</p>" +
+                    "</div></html>";
+
+
+
+
+
+            JLabel itemLabel = new JLabel(labelText);
+            itemLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+            itemLabel.setPreferredSize(new Dimension(650, 100)); // Adjusted size
+            itemLabel.setMaximumSize(new Dimension(650, 100)); // To ensure it doesn't resize
+            itemLabel.setBackground(Color.yellow);
+            itemLabel.setOpaque(true);
+
+            itemLabelList.add(itemLabel);
+
+
+        }
+
+        itemPanel.setLayout(new BoxLayout(itemPanel, BoxLayout.Y_AXIS));
+
+        // Add each JLabel to the itemPanel
+        for (JLabel label : itemLabelList) {
+            itemPanel.add(label);
+        }
+        int panelHeight = 100 * itemLabelList.size(); // Each item label has a height of 100
+        itemPanel.setPreferredSize(new Dimension(300, panelHeight));
+        itemPanel.setMaximumSize(new Dimension(300, panelHeight));
+        itemPanel.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
+        // Repaint the panel to reflect the addition of new items
         itemPanel.revalidate();
         itemPanel.repaint();
     }
+
     // Method to remove an item from the cart
-    private void removeItemFromCart() {
-        Component[] components = itemPanel.getComponents();
-        if (components.length > 0) {
-            itemPanel.remove(components[components.length - 1]);
-            // Repaint the panel to reflect the removal of the item
-            itemPanel.revalidate();
-            itemPanel.repaint();
+//    private void removeItemFromCart() {
+//        Component[] components = itemPanel.getComponents();
+//        if (components.length > 0) {
+//            itemPanel.remove(components[components.length - 1]);
+//            // Repaint the panel to reflect the removal of the item
+//            itemPanel.revalidate();
+//            itemPanel.repaint();
+//        }
+//    }
+    public void displayAllItems() {
+        for (ItemDataAtt item : cartDataList) {
+            itemDesc = item.getItemDesc();
+            itemCateg = item.getItemCateg();
+            itemPrice = item.getItemPrice();
+            itemQuant = item.getItemQuant();
+            itemPriceTimesQuant = item.getItemPriceTimesQuant();
+//            itemImage = item.getItemImage();
+            itemLROW = item.getItem_LROW();
+            itemLCOL = item.getItem_LCOL();
+
+            System.out.println("Item Description: " + itemDesc);
+            System.out.println("Item Category: " + itemCateg);
+            System.out.println("Item Price: " + itemPrice);
+            System.out.println("Item Quantity: " + itemQuant);
+            System.out.println("Item Price Times Quantity: " + itemPriceTimesQuant);
+//            System.out.println("Item Image: " + itemImage);
+            System.out.println("Item Last Row: " + itemLROW);
+            System.out.println("Item Last Column: " + itemLCOL);
+            System.out.println();
         }
     }
-
     public static void main(String[] args) {
         new Framess();
 

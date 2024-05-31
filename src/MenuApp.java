@@ -425,6 +425,7 @@ class MenuApp extends JFrame implements ActionListener, userCartItemData{
                 int x = 57;
                 int y = (Toolkit.getDefaultToolkit().getScreenSize().height - getHeight()) / 2;
                 setLocation(x,y);
+                reviewOrder.putItemsToList();
                 reviewOrder.addItemToCart();
 
 
@@ -570,9 +571,10 @@ class MenuApp extends JFrame implements ActionListener, userCartItemData{
                 selectedTotalPrice = localFoodPrice[lrow][lcol] *selectedQuant;
 
                 userCartItemList.add(new ItemDataAtt(localFoodDesc[lrow][lcol], localFoodCate[lrow], localFoodPrice[lrow][lcol],
-                        selectedQuant, selectedTotalPrice,localFoodItemImg[lrow][lcol], lrow, lcol));
+                        selectedQuant, selectedTotalPrice, lrow, lcol));
 
                 displayAllItems();
+
 
 //                getDataList(lrow);
 
@@ -651,7 +653,7 @@ class MenuApp extends JFrame implements ActionListener, userCartItemData{
             userItemPrice = item.getItemPrice();
             userItemQuant = item.getItemQuant();
             userItemPriceTimesQuant = item.getItemPriceTimesQuant();
-            userItemImage = item.getItemImage();
+//            userItemImage = item.getItemImage();
             userItemLROW = item.getItem_LROW();
             userItemLCOL = item.getItem_LCOL();
 
@@ -693,6 +695,21 @@ class MenuApp extends JFrame implements ActionListener, userCartItemData{
     public double getItemPriceTimesQuantity() {
         return userItemPriceTimesQuant;
     }
+
+    @Override
+    public int getItem_LROW() {
+        return userItemLROW;
+    }    @Override
+    public int getItem_LCOL() {
+        return userItemLCOL;
+    }
+
+    @Override
+    public List<ItemDataAtt> getCartData(){
+        return userCartItemList;
+    }
+
+
 
 
 //
