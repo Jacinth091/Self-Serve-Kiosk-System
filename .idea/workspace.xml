@@ -4,21 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-
-    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="Adjusted the file directory of the files so that it can be viewed anywhere and hopefully n any ide&#10;&#10;TODO// create a class file for the item added to cart and for user cart items">
+    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="Cleaned the files in src folder">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FoodData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FoodData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Frame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ItemCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ItemCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainApp.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MenuApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuAppDemo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RoundedCorners.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WindowApp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/front.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test2.java" afterDir="false" />
-
+      <change beforePath="$PROJECT_DIR$/src/arrayIMPLEMENT.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +49,12 @@
     </option>
   </component>
   <component name="GithubPullRequestsUISettings">
+    <option name="recentNewPullRequestHead">
+      <RepoCoordinatesHolder>
+        <option name="owner" value="Jacinth091" />
+        <option name="repository" value="Self-Serve-Kiosk-System" />
+      </RepoCoordinatesHolder>
+    </option>
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
         <option name="accountId" value="3a8fc607-3018-40dc-9a57-458f691b2ba5" />
@@ -82,14 +77,13 @@
   "keyToString": {
     "Application.BorderButtonDemo.executor": "Run",
     "Application.Calculators.executor": "Run",
-
     "Application.CartPanel.executor": "Run",
     "Application.FoodData.executor": "Run",
     "Application.Frame.executor": "Run",
     "Application.Framess.executor": "Run",
     "Application.Front.executor": "Run",
+    "Application.FrontPage.executor": "Run",
     "Application.ItemCartCard.executor": "Run",
-
     "Application.Main.executor": "Run",
     "Application.MainApp.executor": "Run",
     "Application.MenuApp.executor": "Run",
@@ -115,12 +109,10 @@
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "405",
     "app.teamhub.selectedTeam": "github.com/Jacinth091/Self-Serve-Kiosk-System",
     "app.teamhub.trackedBranches": "-19lmspi/master,-19lmspi/Jacinth-Branch",
-
     "git-widget-placeholder": "Jacinth-Branch",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/PCC/Downloads/File Folders/FINALES",
-
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2214429",
@@ -135,7 +127,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MenuApp">
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="MainApp" />
       <module name="Finals" />
@@ -292,8 +284,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717109472789</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
-
+    <task id="LOCAL-00016" summary="Cleaned the files in src folder">
+      <option name="closed" value="true" />
+      <created>1717126687228</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1717126687228</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -307,10 +306,9 @@
     <MESSAGE value="Added WindowApp1 to test feautures" />
     <MESSAGE value="Added a product Category Image adn Product Category title placeholder in the Menu Tab buttons &#10;&#10;TODO find a way to set focus on the current oage and also create a function so that the other panel of the other tab will be displayed" />
     <MESSAGE value="TODO// Create a function for the changing panel page and with its corresponding button" />
-
     <MESSAGE value="Added the food data picture,price,and description to the item cards and tab buttons&#10;&#10;TODO// must create a function to get the price of selected value on item card" />
     <MESSAGE value="Adjusted the file directory of the files so that it can be viewed anywhere and hopefully n any ide&#10;&#10;TODO// create a class file for the item added to cart and for user cart items" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjusted the file directory of the files so that it can be viewed anywhere and hopefully n any ide&#10;&#10;TODO// create a class file for the item added to cart and for user cart items" />
-
+    <MESSAGE value="Cleaned the files in src folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned the files in src folder" />
   </component>
 </project>
