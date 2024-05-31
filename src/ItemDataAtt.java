@@ -19,13 +19,13 @@ class ItemDataAtt {
      }
      
     public ItemDataAtt(String itemDesc, String itemCateg, double itemPrice, int itemQuant,
-                                  double itemPriceTimesQuant, ImageIcon itemImage, int item_LROW, int item_LCOL) {
+                                  double itemPriceTimesQuant, int item_LROW, int item_LCOL) {
         this.setItemDesc(itemDesc);
         this.setItemCateg(itemCateg);
         this.setItemPrice(itemPrice);
         this.setItemQuant(itemQuant);
         this.setItemPriceTimesQuant(itemPriceTimesQuant);
-        this.setItemImage(itemImage);
+//        this.setItemImage(itemImage);
         this.setItem_LROW(item_LROW);
         this.setItem_LCOL(item_LCOL);
     }
@@ -94,13 +94,13 @@ class ItemDataAtt {
         return item_LCOL;
     }
 
-    // Setters and Getters for itemImage
-    public void setItemImage(ImageIcon itemImage) {
-        this.itemImage = itemImage;
-    }
-
-    public ImageIcon getItemImage() {
-        return itemImage;
-    }
+//    // Setters and Getters for itemImage
+//    public void setItemImage(ImageIcon itemImage) {
+//        this.itemImage = itemImage;
+//    }
+//
+//    public ImageIcon getItemImage() {
+//        return itemImage;
+//    }
 
 }
