@@ -588,6 +588,10 @@ class MenuApp extends JFrame implements ActionListener{
 
     }
 
+    public String getTotalCartPrice() {
+        return totalCartPrice;
+    }
+
     public void setCurrentItemAtt(String itemDesc, String itemCateg, double itemPrice, int itemQuant,
                                   double itemPriceTimesQuant, ImageIcon itemImage, int item_LROW, int item_LCOL) {
         itemAttribute.setItemDesc(itemDesc);
