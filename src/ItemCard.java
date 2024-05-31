@@ -79,6 +79,8 @@ class ItemCard extends JPanel{
 //        Image newImg = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
 //        return new ImageIcon(newImg);
 //    }
+
+
     @Override
     public void setBorder(Border border) {
         if (itemCardButt != null) {

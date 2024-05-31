@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 class FoodData {
     private BufferedImage[] cateAllImg;
@@ -23,13 +24,16 @@ class FoodData {
 
 
     private String[] foodCategory = {"Best Sellers", "Chicken Joy", "Jolly Spaghetti", "Beverages"};
-    private String fc_PathFile = "src/Assets/Item_category";
+    private String fc_PathFile = "Assets/Item_category";
     private String[] ip_PathFiles = {
-            "src/Assets/item_pictures/BS",
-            "src/Assets/item_pictures/CJ",
-            "src/Assets/item_pictures/JS",
-            "src/Assets/item_pictures/BV",
+            "Assets/item_pictures/BS",
+            "Assets/item_pictures/CJ",
+            "Assets/item_pictures/JS",
+            "Assets/item_pictures/BV",
     };
+
+
+    // hello
     private String[][] foodDesc = {
             // Best Sellers
             {"1 - pc. Chickenjoy w/ Burger Steak & Half Jolly Spaghetti Super Meal",
@@ -77,86 +81,76 @@ class FoodData {
     public FoodData() {
         initCategory();
         initItems();
-
-//        frame = new JFrame();
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.setLayout(new FlowLayout()); // Set a layout manager for the frame
-//
-//
-//        JLabel[] label = new JLabel[noOfCate];
-//
-//        for (int i = 0; i < noOfCate; i++) {
-//            label[i] = new JLabel(cateIcon[i]);
-//            frame.add(label[i]);
-//            for (int j = 0; j < noOfItems; j++) {
-//                if (itemPicIcons[i][j] != null) {
-//                    JLabel itemLabel = new JLabel(itemPicIcons[i][j]);
-//                    frame.add(itemLabel);
-//                }
-//            }
-//        }
-//
-//        frame.pack(); // Adjust the frame size based on its content
-//        frame.setVisible(true); // Make the frame visible
     }
-    public void initCategory(){
-        catePath = new File(fc_PathFile);
-        cateIconFiles = catePath.listFiles();
 
-        if (cateIconFiles == null) {
-            System.out.println("Directory not found or is empty.");
+    private URL getResourceURL(String path) {
+        return getClass().getClassLoader().getResource(path);
+    }
+
+    public void initCategory() {
+        URL fcURL = getResourceURL(fc_PathFile);
+        if (fcURL == null) {
+            System.out.println("File not found: " + fc_PathFile);
+            return;
+        }else{
+            System.out.println("File found: " + fc_PathFile);
+
+        }
+
+        File cateDir = new File(fcURL.getFile());
+        File[] cateFiles = cateDir.listFiles();
+        if (cateFiles == null) {
+            System.out.println("Directory not found or is empty: " + fc_PathFile);
             return;
         }
 
         cateAllImg = new BufferedImage[noOfCate];
         cateIcon = new ImageIcon[noOfCate];
 
-        for(int i =0; i < noOfCate; i++){
-            try{
-                cateAllImg[i] = ImageIO.read(cateIconFiles[i]);
+        for (int i = 0; i < noOfCate; i++) {
+            try {
+                cateAllImg[i] = ImageIO.read(cateFiles[i]);
                 cateIcon[i] = new ImageIcon(cateAllImg[i]);
                 cateIcon[i] = resizeImageIcon(cateIcon[i], cateIcon[i].getIconWidth() / 4, cateIcon[i].getIconHeight() / 4);
-
-            }catch(IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
-
             }
         }
-
     }
-    public void initItems(){
-        itemPath = new File[noOfCate];
-        itemPicFiles = new File[noOfCate][noOfItems];
+
+    public void initItems() {
         itemAllImg = new BufferedImage[noOfCate][noOfItems];
         itemPicIcons = new ImageIcon[noOfCate][noOfItems];
 
         for (int i = 0; i < noOfCate; i++) {
-            itemPath[i] = new File(ip_PathFiles[i]);
-            File[] files = itemPath[i].listFiles();
-            if (files != null) {
-                System.arraycopy(files, 0, itemPicFiles[i], 0, Math.min(files.length, noOfItems));
-            } else {
-                System.out.println("No items found in directory: " + ip_PathFiles[i]);
+            URL ipURL = getResourceURL(ip_PathFiles[i]);
+            if (ipURL == null) {
+                System.out.println("Directory not found: " + ip_PathFiles[i]);
+                continue;
+            }else{
+                System.out.println("Directory found: " + ip_PathFiles[i]);
+
             }
 
-            try{
-                if (itemPicFiles[i] != null) {
-                    for (int j = 0; j < itemPicFiles[i].length; j++) {
-                        if (itemPicFiles[i][j] != null) {
-                            itemAllImg[i][j] = ImageIO.read(itemPicFiles[i][j]);
-                            itemPicIcons[i][j] = new ImageIcon(itemAllImg[i][j]);
-                            itemPicIcons[i][j] = resizeImageIcon(itemPicIcons[i][j], itemPicIcons[i][j].getIconWidth() / 3, itemPicIcons[i][j].getIconHeight() / 3);
-                        }
-                    }
-                } else {
-                    System.out.println("No items found for category: " + foodCategory[i]);
-                }
+            File itemDir = new File(ipURL.getFile());
+            File[] itemFiles = itemDir.listFiles();
+            if (itemFiles == null) {
+                System.out.println("No items found in directory: " + ip_PathFiles[i]);
+                continue;
+            }
 
-            }catch (IOException e){
-                e.printStackTrace();
+            for (int j = 0; j < noOfItems; j++) {
+                if (j < itemFiles.length) {
+                    try {
+                        itemAllImg[i][j] = ImageIO.read(itemFiles[j]);
+                        itemPicIcons[i][j] = new ImageIcon(itemAllImg[i][j]);
+                        itemPicIcons[i][j] = resizeImageIcon(itemPicIcons[i][j], itemPicIcons[i][j].getIconWidth() / 3, itemPicIcons[i][j].getIconHeight() / 3);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         }
-
     }
 
     public static ImageIcon resizeImageIcon(ImageIcon icon, int width, int height) {

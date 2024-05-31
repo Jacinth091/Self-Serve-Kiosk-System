@@ -1,71 +1,80 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-class test2 extends JFrame implements ActionListener {
-    private double[][] foodPrice = {
-            // Best Sellers
-            {212.00, 137.00, 40.00, 122.00, 103.00, 82.00},
-            // Chicken Joy
-            {163.00, 132.00, 82.00, 148.00, 128.00, 679.00},
-            // Jolly Spaghetti
-            {237.00, 679.00, 137.00, 108.00, 60.00, 212.00},
-            // Beverages
-            {80.00, 64.00, 57.00, 53.00, 53.00, 53.00},
-    };
+class test2 extends JPanel {
+    private JPanel itemPanel; // Panel to hold the items in the cart
 
-    private JButton[][] buttons;
+    public test2() {
+        setLayout(new BorderLayout());
 
-    // Constructor to initialize the application
-    test2(int width, int height, String title, boolean isVisible, boolean isResizable, LayoutManager layout, int defCloseOper) {
-        initApp(width, height, title, isVisible, isResizable, layout, defCloseOper);
-        initUi();
-    }
+        // Create a scroll pane with a fixed preferred size
+        JScrollPane scrollPane = new JScrollPane();
+//        scrollPane.setPreferredSize(new Dimension(300, 100))
+        scrollPane.setSize(100,100);
 
-    // Method to initialize the application window
-    private void initApp(int width, int height, String title, boolean isVisible, boolean isResizable, LayoutManager layout, int defCloseOper) {
-        setTitle(title);
-        setSize(width, height);
-        setResizable(isResizable);
-        setDefaultCloseOperation(defCloseOper);
-        setVisible(isVisible);
-    }
+        itemPanel = new JPanel();
+        itemPanel.setLayout(new BoxLayout(itemPanel, BoxLayout.Y_AXIS));
+        itemPanel.setSize(300,100);
+        scrollPane.setViewportView(itemPanel); // Set itemPanel as the view of the scroll pane
+        add(scrollPane, BorderLayout.CENTER);
 
-    // Method to initialize the user interface
-    private void initUi() {
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(foodPrice.length, foodPrice[0].length));
+        JButton addButton = new JButton("Add Item");
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+//                JPanel cont = new JPanel();
+//
+//                cont.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+//                cont.setLayout(new FlowLayout());
+////                cont.setSize(300,200);
+//                cont.add(new ItemCartCard(212.00, "Item", "Assets/item_pictures/BS/BS-item-1.png"));
+                addItemToCart(new ItemCartCard(212.00, "Item", "Assets/item_pictures/BS/BS-item-1.png"));
+//                addItemToCart(cont);
 
-        buttons = new JButton[foodPrice.length][foodPrice[0].length];
-
-
-        for (int i = 0; i < foodPrice.length; i++) {
-            for (int j = 0; j < foodPrice[i].length; j++) {
-                buttons[i][j] = new JButton(String.valueOf(foodPrice[i][j]));
-                buttons[i][j].setVisible(true);
-                buttons[i][j].setOpaque(true);
-                buttons[i][j].setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
-                buttons[i][j].addActionListener(this);
-                buttons[i][j].setActionCommand(i + "-" + j); // Using row-column index as action command
-                panel.add(buttons[i][j]);
             }
+        });
+
+        JButton removeButton = new JButton("remove Item");
+
+        add(addButton, BorderLayout.SOUTH);
+//        add(removeButton, BorderLayout.SOUTH);
+    }
+
+    // Method to add a new item to the cart
+    private void addItemToCart(JPanel panel) {
+//        JLabel newItemLabel = new JLabel(itemName);
+        Border emptyBorder = BorderFactory.createEmptyBorder(5, 0, 0, 0);
+
+        // Set the empty border to the itemPanel to create vertical spacing between items
+        itemPanel.setBorder(emptyBorder);
+        itemPanel.add(panel);
+
+        // Repaint the panel to reflect the addition of the new item
+        itemPanel.revalidate();
+        itemPanel.repaint();
+    }
+
+    // Method to remove an item from the cart
+    private void removeItemFromCart() {
+        Component[] components = itemPanel.getComponents();
+        if (components.length > 0) {
+            itemPanel.remove(components[components.length - 1]);
+            // Repaint the panel to reflect the removal of the item
+            itemPanel.revalidate();
+            itemPanel.repaint();
         }
-
-        add(panel);
     }
 
-    // ActionPerformed method to handle button clicks and other events
-    public void actionPerformed(ActionEvent e) {
-        String command = e.getActionCommand();
-        int row = Integer.parseInt(command.split("-")[0]);
-        int col = Integer.parseInt(command.split("-")[1]);
-        double price = foodPrice[row][col];
-        System.out.println("Price of selected item: " + price);
-    }
-
-    // Main method to start the application
     public static void main(String[] args) {
-        // Create an instance of MenuApp and set its properties
-        new  test2(800, 600, "Menu Application", true, false, null, JFrame.EXIT_ON_CLOSE);
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("Cart Example");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setSize(600, 600);
+            frame.getContentPane().add(new test2());
+            frame.setVisible(true);
+        });
     }
 }
