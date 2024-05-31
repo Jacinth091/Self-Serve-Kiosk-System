@@ -3,15 +3,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.List;
 
 
 import javax.swing.*;
 import javax.swing.border.Border;
-public class Framess extends JFrame implements ActionListener, MouseListener {
+class Framess extends JFrame implements ActionListener, MouseListener {
 
     
     JFrame[] frames = new JFrame[2];
     JPanel[] panels = new JPanel[20];
+
+    private JPanel itemPanel; // Panel to hold the items in the cart
+
 
     JLabel[] labels = new JLabel[20];
 
@@ -20,19 +25,30 @@ public class Framess extends JFrame implements ActionListener, MouseListener {
     ImageIcon[] image = new ImageIcon[10];
 
     Border border, border1, border2, border3, borderForEdit;
+    private userCartItemData userCartItems;
+    private String itemDesc;
+    private String itemCateg;
+    private double itemPrice;
+    private int itemQuant;
+    private double itemPriceTimesQuantity;
+
+//    List<ItemDataAtt> userCartItems = new ArrayList<>();
 
     //changes
     MenuApp menuApp = new MenuApp();
     // double totalCartPrice = 0.0;
 
+    Framess() {
+//        initFrame();
+    }
     public Framess(MenuApp menuApp) {
         this.menuApp = menuApp;
+        this.userCartItems = menuApp;
+
         initFrame();
     }
 
-    Framess() {
-        initFrame();
-    }
+
 
     private void initFrame() {
         menuApp.addMouseListener(this);
@@ -145,8 +161,56 @@ public class Framess extends JFrame implements ActionListener, MouseListener {
 
         panels[3] = new JPanel(); // WHITE COLOR, kanang center dako nga white
         panels[3].setBackground(Color.WHITE);
-        panels[3].setBounds(0, 170, 650, 420);
-        panels[3].setLayout(null);
+        panels[3].setOpaque(true);
+        panels[3].setVisible(true);
+        panels[3].setBounds(4, 180, 600, 400);
+//        panels[3].setPreferredSize(new Dimension(100,100));
+        panels[3].setLayout(new BorderLayout());
+
+        JPanel test = new JPanel();
+
+        test.setOpaque(true);
+        test.setVisible(true);
+//        test.setBorder(BorderFactory.createLineBorder(Color.BLACK,10));
+        test.setLayout(new BorderLayout());
+
+        itemPanel = new JPanel();
+        itemPanel.setLayout(new BoxLayout(itemPanel, BoxLayout.Y_AXIS));
+        JScrollPane scrollPane = new JScrollPane(itemPanel);
+        test.add(scrollPane, BorderLayout.CENTER);
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout());
+
+        JButton addButton = new JButton("Add Item");
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                addItemToCart();
+            }
+        });
+        buttonPanel.add(addButton);
+
+        JButton removeButton = new JButton("Remove Item");
+        removeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                removeItemFromCart();
+            }
+        });
+        buttonPanel.add(removeButton);
+
+        test.add(buttonPanel, BorderLayout.SOUTH);
+
+
+
+
+
+        panels[3].add(test, BorderLayout.CENTER);
+
+
+
         // panels[3].addMouseListener(this);
 
         panels[4] = new JPanel(); // PANEL SA ORDER TOTAL kanang babaw  sa PROCEED button
@@ -168,7 +232,10 @@ public class Framess extends JFrame implements ActionListener, MouseListener {
         frames[0].setLayout(null);
         frames[0].setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frames[0].setVisible(true);
-        frames[0].setResizable(false);;
+        frames[0].setResizable(false);
+        frames[0].setLocationRelativeTo(menuApp);
+
+
 
 
 
@@ -177,15 +244,66 @@ public class Framess extends JFrame implements ActionListener, MouseListener {
         panels[2].add(panels[4]);
         frames[0].add(panels[0]);
         frames[0].add(panels[2]);
-        // frames[0].setComponentZOrder(panels[2], 100);
+//         frames[0].setComponentZOrder(panels[3], 101);
         frames[0].add(panels[3]);
         frames[0].add(panels[1]);
        
         int x = 700;
         int y = (Toolkit.getDefaultToolkit().getScreenSize().height - getHeight()) / 16;
         frames[0].setLocation(x,y);
-        
-        
+
+
+        frames[0].revalidate();
+        frames[0].repaint();
+
+    }
+
+    public void addItemToCart() {
+        String itemDesc = userCartItems.getItemDesc();
+        String itemCateg = userCartItems.getItemCateg();
+        double itemPrice = userCartItems.getItemPrice();
+        int itemQuant = userCartItems.getItemQuant();
+        double itemPriceTimesQuant = userCartItems.getItemPriceTimesQuantity();
+
+        JPanel newItemLabel = new JPanel();
+//        newItemLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        newItemLabel.setPreferredSize(new Dimension(300, 100)); // Adjusted size
+        newItemLabel.setMaximumSize(new Dimension(300, 100)); // To ensure it doesn't resize
+        newItemLabel.setLayout(new BorderLayout());
+
+        String labelText = "<html><div style='padding: 5px;'>" +
+                "<p style='font-weight: bold;'>Item Description: " + itemDesc + "</p>" +
+                "<p style='font-weight: bold;'>Item Category: " + itemCateg + "</p>" +
+                "<p style='font-weight: bold;'>Item Price: " + itemPrice + "</p>" +
+                "<p style='font-weight: bold;'>Item Quantity: " + itemQuant + "</p>" +
+                "<p style='font-weight: bold;'>Item Price Times Quantity: " + itemPriceTimesQuant + "</p>" +
+                "</div></html>";
+
+        JLabel itemLabel = new JLabel(labelText);
+        itemLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        itemLabel.setPreferredSize(new Dimension(300, 100)); // Adjusted size
+        itemLabel.setMaximumSize(new Dimension(300, 100)); // To ensure it doesn't resize
+        itemLabel.setBackground(Color.yellow);
+        itemLabel.setOpaque(true);
+
+
+
+        newItemLabel.add(itemLabel, BorderLayout.CENTER);
+
+        itemPanel.add(newItemLabel);
+        // Repaint the panel to reflect the addition of the new item
+        itemPanel.revalidate();
+        itemPanel.repaint();
+    }
+    // Method to remove an item from the cart
+    private void removeItemFromCart() {
+        Component[] components = itemPanel.getComponents();
+        if (components.length > 0) {
+            itemPanel.remove(components[components.length - 1]);
+            // Repaint the panel to reflect the removal of the item
+            itemPanel.revalidate();
+            itemPanel.repaint();
+        }
     }
 
     public static void main(String[] args) {

@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="Cleaned the files in src folder">
+    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="Added the files for the frames and front page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Framess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Framess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ItemDataAtt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ItemDataAtt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MenuApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/arrayIMPLEMENT.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -96,6 +99,7 @@
     "Application.menu.executor": "Run",
     "Application.suwayan.executor": "Run",
     "Application.test.executor": "Run",
+    "Application.test1.executor": "Run",
     "Application.test2.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -113,7 +117,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/PCC/Downloads/File Folders/FINALES",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2214429",
     "settings.editor.selected.configurable": "preferences.pluginManager"
@@ -292,7 +296,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717126687228</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added the files for the frames and front page">
+      <option name="closed" value="true" />
+      <created>1717127765517</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1717127765517</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -309,6 +321,7 @@
     <MESSAGE value="Added the food data picture,price,and description to the item cards and tab buttons&#10;&#10;TODO// must create a function to get the price of selected value on item card" />
     <MESSAGE value="Adjusted the file directory of the files so that it can be viewed anywhere and hopefully n any ide&#10;&#10;TODO// create a class file for the item added to cart and for user cart items" />
     <MESSAGE value="Cleaned the files in src folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned the files in src folder" />
+    <MESSAGE value="Added the files for the frames and front page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the files for the frames and front page" />
   </component>
 </project>

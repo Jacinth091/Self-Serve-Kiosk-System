@@ -14,6 +14,22 @@ class ItemDataAtt {
      private int item_LCOL;
      private ImageIcon itemImage;
 
+     public ItemDataAtt(){
+
+     }
+     
+    public ItemDataAtt(String itemDesc, String itemCateg, double itemPrice, int itemQuant,
+                                  double itemPriceTimesQuant, ImageIcon itemImage, int item_LROW, int item_LCOL) {
+        this.setItemDesc(itemDesc);
+        this.setItemCateg(itemCateg);
+        this.setItemPrice(itemPrice);
+        this.setItemQuant(itemQuant);
+        this.setItemPriceTimesQuant(itemPriceTimesQuant);
+        this.setItemImage(itemImage);
+        this.setItem_LROW(item_LROW);
+        this.setItem_LCOL(item_LCOL);
+    }
+
 
     // Setters and Getters for itemDesc
     public void setItemDesc(String itemDesc) {
