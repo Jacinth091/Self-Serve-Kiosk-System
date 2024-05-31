@@ -1,80 +1,77 @@
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-class test2 extends JPanel {
-    private JPanel itemPanel; // Panel to hold the items in the cart
+ class test2 {
+
+    private JPanel itemPanel;
 
     public test2() {
-        setLayout(new BorderLayout());
+        JFrame frame = new JFrame("Dynamic Panel Example");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 600);
 
-        // Create a scroll pane with a fixed preferred size
-        JScrollPane scrollPane = new JScrollPane();
-//        scrollPane.setPreferredSize(new Dimension(300, 100))
-        scrollPane.setSize(100,100);
+        JPanel mainPanel = new  JPanel();
 
+        mainPanel.setOpaque(true);
+        mainPanel.setVisible(true);
+        mainPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+//        mainPanel.setPreferredSize();
+        mainPanel.setLayout(new BorderLayout());
+
+        // Main panel with BoxLayout (Vertical)
         itemPanel = new JPanel();
         itemPanel.setLayout(new BoxLayout(itemPanel, BoxLayout.Y_AXIS));
-        itemPanel.setSize(300,100);
-        scrollPane.setViewportView(itemPanel); // Set itemPanel as the view of the scroll pane
-        add(scrollPane, BorderLayout.CENTER);
 
+        // Scroll pane to contain the item panel
+        JScrollPane scrollPane = new JScrollPane(itemPanel);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+        mainPanel.add(scrollPane, BorderLayout.CENTER);
+
+        frame.add(mainPanel, BorderLayout.CENTER);
+//        frame.add(scrollPane, BorderLayout.CENTER);
+
+        // Add some buttons to add/remove items for demonstration
+        JPanel controlPanel = new JPanel();
+        controlPanel.setPreferredSize(new Dimension(0, 300));
         JButton addButton = new JButton("Add Item");
-        addButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-//                JPanel cont = new JPanel();
-//
-//                cont.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-//                cont.setLayout(new FlowLayout());
-////                cont.setSize(300,200);
-//                cont.add(new ItemCartCard(212.00, "Item", "Assets/item_pictures/BS/BS-item-1.png"));
-                addItemToCart(new ItemCartCard(212.00, "Item", "Assets/item_pictures/BS/BS-item-1.png"));
-//                addItemToCart(cont);
+        JButton removeButton = new JButton("Remove Item");
+        controlPanel.add(addButton);
+        controlPanel.add(removeButton);
 
-            }
-        });
+        frame.add(controlPanel, BorderLayout.SOUTH);
 
-        JButton removeButton = new JButton("remove Item");
+        // Add action listeners to buttons
+        addButton.addActionListener(e -> addItem());
+        removeButton.addActionListener(e -> removeItem());
 
-        add(addButton, BorderLayout.SOUTH);
-//        add(removeButton, BorderLayout.SOUTH);
+        frame.setVisible(true);
     }
 
-    // Method to add a new item to the cart
-    private void addItemToCart(JPanel panel) {
-//        JLabel newItemLabel = new JLabel(itemName);
-        Border emptyBorder = BorderFactory.createEmptyBorder(5, 0, 0, 0);
+    private void addItem() {
+        // Create a new item panel
+        JPanel newItemPanel = new JPanel();
+        newItemPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        newItemPanel.setPreferredSize(new Dimension(350, 50));
+        newItemPanel.add(new JLabel("Item " + (itemPanel.getComponentCount() + 1)));
 
-        // Set the empty border to the itemPanel to create vertical spacing between items
-        itemPanel.setBorder(emptyBorder);
-        itemPanel.add(panel);
-
-        // Repaint the panel to reflect the addition of the new item
-        itemPanel.revalidate();
-        itemPanel.repaint();
+        // Add the new item panel to the main panel
+        itemPanel.add(newItemPanel);
+        itemPanel.revalidate(); // Revalidate the panel to update the layout
+        itemPanel.repaint(); // Repaint the panel to refresh the display
     }
 
-    // Method to remove an item from the cart
-    private void removeItemFromCart() {
-        Component[] components = itemPanel.getComponents();
-        if (components.length > 0) {
-            itemPanel.remove(components[components.length - 1]);
-            // Repaint the panel to reflect the removal of the item
+    private void removeItem() {
+        // Remove the last item if it exists
+        int count = itemPanel.getComponentCount();
+        if (count > 0) {
+            itemPanel.remove(count - 1);
             itemPanel.revalidate();
             itemPanel.repaint();
         }
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("Cart Example");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setSize(600, 600);
-            frame.getContentPane().add(new test2());
-            frame.setVisible(true);
-        });
+        SwingUtilities.invokeLater(test2::new);
     }
 }

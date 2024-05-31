@@ -3,11 +3,16 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
 //import javax.swing.BorderLayout;
 import javax.swing.border.Border;
+import java.util.ArrayList;
+import java.util.List;
 
-class MenuApp extends JFrame implements ActionListener{
+class MenuApp extends JFrame implements ActionListener, userCartItemData{
+
+//    Framess reviewOrder;
     FoodData foodData = new FoodData();
     private String[] localFoodCate  = foodData.getFoodCategory();
     private String[][] localFoodDesc = foodData.getFoodDesc();
@@ -20,9 +25,9 @@ class MenuApp extends JFrame implements ActionListener{
 
 //    ItemDataAtt[] itemAtribute = new ItemDataAtt[(localNoOfCate * localNoOfItems)];
 
-    private ItemDataAtt itemAttribute = new ItemDataAtt();
+//    private ItemDataAtt itemAttribute;
 
-
+    private List<ItemDataAtt> userCartItemList = new ArrayList<>();
 
 
     // main panel container
@@ -72,6 +77,7 @@ class MenuApp extends JFrame implements ActionListener{
     private String totalCartPrice;
     private double totalPrice = 0.0;
     private double selectedTotalPrice =0.0;
+    private boolean condition;
 
     private int lrow;
     private int lcol;
@@ -80,6 +86,17 @@ class MenuApp extends JFrame implements ActionListener{
     String[] items = {"Food Item 1 - P216.00", "Food Item 2 - P216.00", "Food Item 3 - P216.00", "Food Item 4 - P216.00", "Food Item 5 - P216.00", "Food Item 6 - P216.00"};
     double[] prices = {100.00, 200.00, 300.00, 400.00, 500.00, 600.00};
 //    Border defaultBorder;
+
+    private String userItemDesc;
+    private String userItemCateg;
+    private double userItemPrice;
+    private int userItemQuant;
+    private double userItemPriceTimesQuant;
+    private ImageIcon userItemImage;
+    private int userItemLROW;
+    private int userItemLCOL;
+    private Framess reviewOrder;
+
 
 
 
@@ -92,6 +109,7 @@ class MenuApp extends JFrame implements ActionListener{
             boolean isVisible, boolean isResizable, LayoutManager layout, int defCloseOper)
     {
         // Initialize Window
+//        reviewOrder = new Framess(this);
         initApp(width, height, title, isVisible, isResizable, layout, defCloseOper);
         initUi();
 
@@ -338,8 +356,8 @@ class MenuApp extends JFrame implements ActionListener{
 
 
         f_CenterLabel[0].setBackground(new Color(255, 255, 255));
-        f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 12px; padding:3px;'>"+ quantity+   "</p>" +
-                "<p style='color: Black; font-weight: bold; font-size: 10px;'>Quantity</p></div></html>");
+//        f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 12px; padding:3px;'>"+ quantity+   "</p>" +
+//                "<p style='color: Black; font-weight: bold; font-size: 10px;'>Quantity</p></div></html>");
         f_CenterLabel[0].setHorizontalTextPosition(JLabel.CENTER);
         f_CenterLabel[0].setVerticalTextPosition(JLabel.TOP);
         f_CenterLabel[0].setHorizontalAlignment(JLabel.CENTER);
@@ -394,10 +412,27 @@ class MenuApp extends JFrame implements ActionListener{
         f_SouthButt[0].setText("<html><p style='color: white; font-weight: bold; text-align: center; font-size: 15px;'>Back</p></html>");
         f_SouthButt[0].setBackground(null);
         f_SouthButt[0].setBorder(BorderFactory.createLineBorder(Color.WHITE, 5));
+        f_SouthButt[0].addActionListener(this);
+
 
         // Configure Review and CheckOut Button
         f_SouthButt[1].setText("<html><p style='color: White; font-weight: bold; text-align: center; font-size: 20;'>Review Order</p></html>");
         f_SouthButt[1].setBackground(new Color(51, 220, 88));
+        f_SouthButt[1].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                reviewOrder = new Framess(MenuApp.this);
+                int x = 57;
+                int y = (Toolkit.getDefaultToolkit().getScreenSize().height - getHeight()) / 2;
+                setLocation(x,y);
+                reviewOrder.addItemToCart();
+
+
+
+
+
+            }
+        });
 
         // Initialize and Configure CheckOut Label
         totalCartPrice = "P " + totalPrice;
@@ -483,7 +518,6 @@ class MenuApp extends JFrame implements ActionListener{
         // Add main panel to the frame
         add(panelMain, BorderLayout.CENTER);
 
-        setLocationRelativeTo(null);
         revalidate();
         repaint();
 
@@ -498,6 +532,7 @@ class MenuApp extends JFrame implements ActionListener{
         this.setDefaultCloseOperation(defCloseOper);
         this.setLayout(layout);
         this.setVisible(isVisible);
+        this.setLocationRelativeTo(null);
         this.setResizable(isResizable);
     }
     public static ImageIcon resizeImageIcon(ImageIcon icon, int width, int height) {
@@ -522,6 +557,9 @@ class MenuApp extends JFrame implements ActionListener{
             selectItem(lrow, lcol);
             System.out.println("lRow: " + lrow + "lCol: " + lcol+ "\n\n" +
                     "ItemPrice : " + localFoodPrice[lrow][lcol]+ "\n" );
+            f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 12px; padding:3px;'>"+ quantity+   "</p>" +
+                    "<p style='color: Black; font-weight: bold; font-size: 10px;'>Quantity</p></div></html>");
+            condition = true;
 
         } else if (command.equals("addToCart")) {
             if (selectedIndexRow != -1 && selectedIndexCol != -1) {
@@ -531,36 +569,51 @@ class MenuApp extends JFrame implements ActionListener{
                 selectedQuant = quantity;
                 selectedTotalPrice = localFoodPrice[lrow][lcol] *selectedQuant;
 
+                userCartItemList.add(new ItemDataAtt(localFoodDesc[lrow][lcol], localFoodCate[lrow], localFoodPrice[lrow][lcol],
+                        selectedQuant, selectedTotalPrice,localFoodItemImg[lrow][lcol], lrow, lcol));
 
-                setCurrentItemAtt(localFoodDesc[lrow][lcol], localFoodCate[lrow], localFoodPrice[lrow][lcol],
-                        selectedQuant, selectedTotalPrice,localFoodItemImg[lrow][lcol], lrow, lcol);
+                displayAllItems();
 
-                displayCurrentItemAtt();
+//                getDataList(lrow);
+
 
                 // Assuming itemCard is the source for itemCardButt; you need to handle this logic appropriately.
                 itemCard[selectedIndexRow][selectedIndexCol].setBorder(defaultBorder); // Reset button border
                 selectedIndexRow = -1;
                 selectedIndexCol = -1;
                 quantity = 1; // Reset quantity
-                f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 12px; padding:3px;'>"+ quantity+   "</p>" +
-                        "<p style='color: Black; font-weight: bold; font-size: 10px;'>Quantity</p></div></html>");
+                f_CenterLabel[0].setText("");
+                condition = false;
                 updateCartDisplay();
             }
-        } else if (command.equals("increaseQuantity")) {
-            quantity++;
-            f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 12px; padding:3px;'>"+ quantity+   "</p>" +
-                    "<p style='color: Black; font-weight: bold; font-size: 10px;'>Quantity</p></div></html>");
-        } else if (command.equals("decreaseQuantity")) {
-            if (quantity > 1) {
-                quantity--;
-                f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 12px; padding:3px;'>" + quantity + "</p>" +
+        }
+
+        if (condition) {
+            if (command.equals("increaseQuantity")) {
+                quantity++;
+                f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 12px; padding:3px;'>"+ quantity+   "</p>" +
                         "<p style='color: Black; font-weight: bold; font-size: 10px;'>Quantity</p></div></html>");
+            } else if (command.equals("decreaseQuantity")) {
+                if (quantity > 1) {
+                    quantity--;
+                    f_CenterLabel[0].setText("<html><div style='text-align: top;'><p style='color: Black; font-weight: bold; text-align: center; font-size: 12px; padding:3px;'>" + quantity + "</p>" +
+                            "<p style='color: Black; font-weight: bold; font-size: 10px;'>Quantity</p></div></html>");
+                }
             }
-        } else if (command.startsWith("Menu")) {
+        }
+
+
+        if (command.startsWith("Menu")) {
             int index = Integer.parseInt(command.substring(5));
             cardLayout.show(cardContParent, "card" + (index + 1));
             handleSelectButt((JButton) e.getSource());
             System.out.println(command);
+        }
+
+        if ( e.getSource() == f_SouthButt[0] ) {
+            new FrontPage();
+            initApp(625,800,"Jolikod",false,true, new BorderLayout(), JFrame.EXIT_ON_CLOSE);
+
         }
     }
     public void handleSelectButt(JButton button){
@@ -591,34 +644,115 @@ class MenuApp extends JFrame implements ActionListener{
     public String getTotalCartPrice() {
         return totalCartPrice;
     }
+    public void displayAllItems() {
+        for (ItemDataAtt item : userCartItemList) {
+            userItemDesc = item.getItemDesc();
+            userItemCateg = item.getItemCateg();
+            userItemPrice = item.getItemPrice();
+            userItemQuant = item.getItemQuant();
+            userItemPriceTimesQuant = item.getItemPriceTimesQuant();
+            userItemImage = item.getItemImage();
+            userItemLROW = item.getItem_LROW();
+            userItemLCOL = item.getItem_LCOL();
 
-    public void setCurrentItemAtt(String itemDesc, String itemCateg, double itemPrice, int itemQuant,
-                                  double itemPriceTimesQuant, ImageIcon itemImage, int item_LROW, int item_LCOL) {
-        itemAttribute.setItemDesc(itemDesc);
-        itemAttribute.setItemCateg(itemCateg);
-        itemAttribute.setItemPrice(itemPrice);
-        itemAttribute.setItemQuant(itemQuant);
-        itemAttribute.setItemPriceTimesQuant(itemPriceTimesQuant);
-        itemAttribute.setItemImage(itemImage);
-        itemAttribute.setItem_LROW(item_LROW);
-        itemAttribute.setItem_LCOL(item_LCOL);
-    }
-
-    public void displayCurrentItemAtt() {
-        System.out.println("Item Description: " + itemAttribute.getItemDesc());
-        System.out.println("Item Category: " + itemAttribute.getItemCateg());
-        System.out.println("Item Price: " + itemAttribute.getItemPrice());
-        System.out.println("Item Quantity: " + itemAttribute.getItemQuant());
-        System.out.println("Item Price Times Quantity: " + itemAttribute.getItemPriceTimesQuant());
-        // If itemImage is not null, display its details
-        if (itemAttribute.getItemImage() != null) {
-            System.out.println("Item Image: " + itemAttribute.getItemImage());
-        } else {
-            System.out.println("No Item Image");
+            System.out.println("Item Description: " + userItemDesc);
+            System.out.println("Item Category: " + userItemCateg);
+            System.out.println("Item Price: " + userItemPrice);
+            System.out.println("Item Quantity: " + userItemQuant);
+            System.out.println("Item Price Times Quantity: " + userItemPriceTimesQuant);
+            System.out.println("Item Image: " + userItemImage);
+            System.out.println("Item Last Row: " + userItemLROW);
+            System.out.println("Item Last Column: " + userItemLCOL);
+            System.out.println();
         }
-        System.out.println("Item Row: " + itemAttribute.getItem_LROW());
-        System.out.println("Item Column: " + itemAttribute.getItem_LCOL());
+
     }
+
+
+    @Override
+    public String getItemDesc() {
+        return userItemDesc;
+    }
+
+    @Override
+    public String getItemCateg() {
+        return userItemCateg;
+    }
+
+    @Override
+    public double getItemPrice() {
+        return userItemPrice;
+    }
+
+    @Override
+    public int getItemQuant() {
+        return userItemQuant;
+    }
+
+    @Override
+    public double getItemPriceTimesQuantity() {
+        return userItemPriceTimesQuant;
+    }
+
+
+//
+//    public void getDataList(int lRow, int LCol){
+//        for(int i =0; i < userCartItemList.size(); i++){
+//            ItemDataAtt item = userCartItemList.get(i);
+//
+//            String itemDesc = item.getItemDesc();
+//            String itemCateg = item.getItemCateg();
+//            double itemPrice = item.getItemPrice();
+//            int itemQuant  = item.getItemQuant();
+//            double itemPriceTimesQuant = item.getItemPriceTimesQuant();
+//            ImageIcon itemImage = item.getItemImage();
+//            int item_LROW = item.getItem_LROW();
+//            int item_LCOL = item.getItem_LROW();
+//
+//            System.out.println();
+//            System.out.println("Item Description: " + itemDesc);
+//            System.out.println("Item Category: " + itemCateg);
+//            System.out.println("Item Price: " + itemPrice);
+//            System.out.println("Item Quantity: " + itemQuant);
+//            System.out.println("Item Price Times Quantity: " + itemPriceTimesQuant);
+//            System.out.println("Item Image: " + itemImage);
+//            System.out.println("Item Last Row: " + item_LROW);
+//            System.out.println("Item Last Column: " + item_LCOL);
+//
+//
+//
+//
+//
+//        }
+//    }
+
+//    public void setCurrentItemAtt(String itemDesc, String itemCateg, double itemPrice, int itemQuant,
+//                                  double itemPriceTimesQuant, ImageIcon itemImage, int item_LROW, int item_LCOL) {
+//        itemAttribute.setItemDesc(itemDesc);
+//        itemAttribute.setItemCateg(itemCateg);
+//        itemAttribute.setItemPrice(itemPrice);
+//        itemAttribute.setItemQuant(itemQuant);
+//        itemAttribute.setItemPriceTimesQuant(itemPriceTimesQuant);
+//        itemAttribute.setItemImage(itemImage);
+//        itemAttribute.setItem_LROW(item_LROW);
+//        itemAttribute.setItem_LCOL(item_LCOL);
+//    }
+//
+//    public void displayCurrentItemAtt() {
+//        System.out.println("Item Description: " + itemAttribute.getItemDesc());
+//        System.out.println("Item Category: " + itemAttribute.getItemCateg());
+//        System.out.println("Item Price: " + itemAttribute.getItemPrice());
+//        System.out.println("Item Quantity: " + itemAttribute.getItemQuant());
+//        System.out.println("Item Price Times Quantity: " + itemAttribute.getItemPriceTimesQuant());
+//        // If itemImage is not null, display its details
+//        if (itemAttribute.getItemImage() != null) {
+//            System.out.println("Item Image: " + itemAttribute.getItemImage());
+//        } else {
+//            System.out.println("No Item Image");
+//        }
+//        System.out.println("Item Row: " + itemAttribute.getItem_LROW());
+//        System.out.println("Item Column: " + itemAttribute.getItem_LCOL());
+//    }
 
 
 }
