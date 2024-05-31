@@ -84,10 +84,10 @@ class Framess extends JFrame implements ActionListener, MouseListener {
         borderForEdit = BorderFactory.createLineBorder(Color.black, 3);
 
         // ICON OR IMAGE ==============================================================================
-        image[0] = new ImageIcon("C:\\Users\\Admin\\IdeaProjects\\tEST\\src\\jollibee.png"); // jollibee picture
+        image[0] = new ImageIcon("Assets/Icons/Joli-Logo.png"); // jollibee picture
         ImageIcon scaledIcon = new ImageIcon(image[0].getImage().getScaledInstance(170, 70, Image.SCALE_SMOOTH));
 
-        image[1] = new ImageIcon("C:\\Users\\Admin\\IdeaProjects\\tEST\\src\\remove.png"); // CHECK LOGO sa PROCEED PAYMENT
+        image[1] = new ImageIcon("Assets/Icons/bin-Icon.png"); // CHECK LOGO sa PROCEED PAYMENT
         ImageIcon scaledCheck = new ImageIcon(image[1].getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
 
 
@@ -298,8 +298,8 @@ class Framess extends JFrame implements ActionListener, MouseListener {
             itemLROW = item.getItem_LROW();
             itemLCOL = item.getItem_LCOL();
             String labelText = "<html><div style='padding: 5px; margin:20px;'>" +
-                    "<p style='font-weight: bold; font-size: 12px;'>" + item.getItemDesc() + " x" + item.getItemQuant() +  "</p>" +
-                    "<p style='font-weight: bold; font-size: 12px;'> ₱ " + item.getItemPriceTimesQuant() + "</p>" +
+                    "<p style='font-weight: bold; font-size: 12px;'>" + itemDesc + " x" + itemQuant + "  - ₱ " + itemPrice+"</p>" +
+                    "<p style='font-weight: bold; font-size: 12px;'> ₱ " + itemPriceTimesQuant + "</p>" +
                     "</div></html>";
 
 
