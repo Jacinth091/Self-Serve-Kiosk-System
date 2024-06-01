@@ -1,3 +1,13 @@
+/*
+ * NAMES: BARRAL, JACINTH CEDRIC
+ *        LAROCO, JAN LORENZ
+ *        ABAIS, ALDRIE
+ *        SATORRE, LANCE TIMOTHY
+ * DATE: 5/31/24
+ * DESCRIPTION: FINAL PROJECT IN COMPUTER PROGRAMMING BYE SIR THANKYOU
+ *          
+ */
+
 import java.util.ArrayList;
 import java.util.List;
 

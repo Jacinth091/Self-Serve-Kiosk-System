@@ -1,3 +1,13 @@
+/*
+ * NAMES: BARRAL, JACINTH CEDRIC
+ *        LAROCO, JAN LORENZ
+ *        ABAIS, ALDRIE
+ *        SATORRE, LANCE TIMOTHY
+ * DATE: 5/31/24
+ * DESCRIPTION: FINAL PROJECT IN COMPUTER PROGRAMMING BYE SIR THANKYOU
+ *          
+ */
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -39,6 +49,7 @@ class ItemCard extends JPanel{
         // Configure itemCardContainer
         itemCardContainer.setOpaque(true);
         itemCardContainer.setVisible(true);
+        itemCardContainer.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         itemCardContainer.setPreferredSize(new Dimension(300, 200));
         itemCardContainer.setLayout(new BorderLayout());
 
@@ -53,7 +64,7 @@ class ItemCard extends JPanel{
         itemCardLabel.setOpaque(true);
         itemCardLabel.setVisible(true);
         itemCardLabel.setBackground(Color.WHITE);
-        itemCardLabel.setText("<html><div style='text-align: center;'><p style='color: red; font-weight: bold; text-align: center; font-size: 13px; padding:5px;'> ₱ "+ item_Price+"</p>" +
+        itemCardLabel.setText("<html><div style='text-align: center;'><p style='color: red; font-weight: bold; text-align: center; font-size: 13px; padding:5px;'> ₱ "+ item_Price+"0"+"</p>" +
                         "<p style='color: Black; font-weight: bold; font-size: 10px;'>"+item_Desc+"</p></div></html>");
 
         itemCardLabel.setHorizontalTextPosition(JLabel.CENTER);
@@ -72,14 +83,6 @@ class ItemCard extends JPanel{
         add(itemCardContainer);
 
     }
-
-    // Method to resize ImageIcon
-//    private ImageIcon resizeImageIcon(ImageIcon icon, int width, int height) {
-//        Image img = icon.getImage();
-//        Image newImg = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
-//        return new ImageIcon(newImg);
-//    }
-
 
     @Override
     public void setBorder(Border border) {

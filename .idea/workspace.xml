@@ -4,24 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="I added the ability to add items based on the menu&#10;Also can remove the first item of the list in review order">
+    <list default="true" id="b10e5b22-76fc-4e96-ae47-364349376ee2" name="Changes" comment="Function for minusing the quanitiy&#10;Then ready to merge">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/category-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/category-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/category-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/category-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/category-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/category-6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Finals/Assets/Item_category/category-7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/category-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Item_category/BS.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/category-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Item_category/CH.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/category-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Item_category/JS.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/category-4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/Item_category/BV.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/category-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/category-6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Assets/Item_category/category-7.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FoodData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FoodData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Framess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Framess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FrontPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ItemCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ItemCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ItemDataAtt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ItemDataAtt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MenuApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserCart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserCartItemList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/testing.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/testing.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userCartItemData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userCartItemData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userItemCart.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +126,7 @@
     "git-widget-placeholder": "Jacinth-Branch",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/PCC/Downloads/File Folders/FINALES",
+    "last_opened_file_path": "C:/Users/PCC/Desktop/Finals",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2214429",
@@ -143,7 +141,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MenuApp">
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="MainApp" />
       <module name="Finals" />
@@ -332,7 +330,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717152110347</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Function for minusing the quanitiy&#10;Then ready to merge">
+      <option name="closed" value="true" />
+      <created>1717153438215</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1717153438215</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Function for minusing the quanitiy&#10;Then ready to merge">
+      <option name="closed" value="true" />
+      <created>1717153447394</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1717153447394</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -352,6 +366,7 @@
     <MESSAGE value="Added the files for the frames and front page" />
     <MESSAGE value="Can now share the data between the menu app and the review order" />
     <MESSAGE value="I added the ability to add items based on the menu&#10;Also can remove the first item of the list in review order" />
-    <option name="LAST_COMMIT_MESSAGE" value="I added the ability to add items based on the menu&#10;Also can remove the first item of the list in review order" />
+    <MESSAGE value="Function for minusing the quanitiy&#10;Then ready to merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="Function for minusing the quanitiy&#10;Then ready to merge" />
   </component>
 </project>
