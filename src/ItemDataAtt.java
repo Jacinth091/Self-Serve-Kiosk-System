@@ -1,3 +1,13 @@
+/*
+ * NAMES: BARRAL, JACINTH CEDRIC
+ *        LAROCO, JAN LORENZ
+ *        ABAIS, ALDRIE
+ *        SATORRE, LANCE TIMOTHY
+ * DATE: 5/31/24
+ * DESCRIPTION: FINAL PROJECT IN COMPUTER PROGRAMMING BYE SIR THANKYOU
+ *          
+ */
+
 import javax.swing.*;
 
 class ItemDataAtt {
@@ -25,7 +35,6 @@ class ItemDataAtt {
         this.setItemPrice(itemPrice);
         this.setItemQuant(itemQuant);
         this.setItemPriceTimesQuant(itemPriceTimesQuant);
-//        this.setItemImage(itemImage);
         this.setItem_LROW(item_LROW);
         this.setItem_LCOL(item_LCOL);
     }
@@ -93,14 +102,5 @@ class ItemDataAtt {
     public int getItem_LCOL() {
         return item_LCOL;
     }
-
-//    // Setters and Getters for itemImage
-//    public void setItemImage(ImageIcon itemImage) {
-//        this.itemImage = itemImage;
-//    }
-//
-//    public ImageIcon getItemImage() {
-//        return itemImage;
-//    }
 
 }
